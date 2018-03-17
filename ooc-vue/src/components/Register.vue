@@ -50,8 +50,8 @@
 </template>
 
 <script>
-  import Header from "../components/Header";
-  import Footer from "../components/Footer";
+  import Header from "./Header";
+  import Footer from "./Footer";
 
   export default {
     name: "Register",
@@ -60,8 +60,5 @@
 </script>
 
 <style scoped>
-  .border {
-    padding: 30px;
-  }
 </style>
 

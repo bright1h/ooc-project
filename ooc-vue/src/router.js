@@ -9,7 +9,7 @@ import Drink from './views/Drink'
 import Dessert from './views/Dessert'
 import Appetizer from './views/Appetizer'
 import MainDish from './views/MainDish'
-import Register from './views/Register'
+import Register from './components/Register'
 import Profile from './views/Profile'
 
 Vue.use(Router);

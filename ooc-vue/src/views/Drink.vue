@@ -19,8 +19,8 @@
             <div class="card-footer">
               <div class="d-flex w-100">
                 <div class="py-2 font-weight-bold text-light"> {{data.price}} ฿</div>
-                <button class="btn btn-info p-auto ml-auto " data-toggle="modal" data-target="#myModal">  SELECT</button>
-              </div >
+                <button class="btn btn-info p-auto ml-auto " data-toggle="modal" data-target="#myModal"> SELECT</button>
+              </div>
             </div>
           </div>
         </div>
@@ -40,8 +40,8 @@
             <div class="card-footer">
               <div class="d-flex w-100">
                 <div class="py-2 font-weight-bold text-light"> {{data.price}} ฿</div>
-                <button class="btn btn-info p-auto ml-auto " data-toggle="modal" data-target="#myModal">  SELECT</button>
-              </div >
+                <button class="btn btn-info p-auto ml-auto " data-toggle="modal" data-target="#myModal"> SELECT</button>
+              </div>
             </div>
           </div>
         </div>

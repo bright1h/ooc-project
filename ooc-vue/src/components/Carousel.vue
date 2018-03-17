@@ -15,13 +15,13 @@
         <img src="../assets/carousel1.jpg" class="w-100" alt="Carousel 1">
       </div>
       <div class="carousel-item">
-        <img src="../assets/carousel2.jpg"  class="w-100" alt="Carousel 2">
+        <img src="../assets/carousel2.jpg" class="w-100" alt="Carousel 2">
       </div>
       <div class="carousel-item">
-        <img src="../assets/carousel3.jpg"  class="w-100" alt="Carousel 3">
+        <img src="../assets/carousel3.jpg" class="w-100" alt="Carousel 3">
       </div>
       <div class="carousel-item">
-        <img src="../assets/carousel4.jpg"  class="w-100" alt="Carousel 4">
+        <img src="../assets/carousel4.jpg" class="w-100" alt="Carousel 4">
       </div>
     </div>
 
