@@ -1,4 +1,4 @@
-# ooc_project
+# ooc-spring
 
 **Change the username and password in the application.properties file and create a database called bab.**
 

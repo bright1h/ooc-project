@@ -3,17 +3,17 @@
       <div class="row">
         <div class="col-md mt-2 mx-3">
             <form>
-              <div class="form-row ">
+              <div class="form-row">
                 <div class="form-group col-md">
                   <input type="text" class="form-control" placeholder="Email or Phone Number">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md">
-                  <input type="password" class="form-control" placeholder="password">
+                  <input type="password" class="form-control" placeholder="Password">
                 </div>
               </div>
-              
+
               <div class="form-footer ">
                 <div class="row">
                         <div class="col-md">
@@ -42,8 +42,5 @@
 </script>
 
 <style scoped>
-  .border {
-    padding: 30px;
-  }
 </style>
 

@@ -23,18 +23,18 @@
               <a class="nav-link text-light" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="/appetizer">Appetizer</a>
+              <router-link class="nav-link text-light" to="/appetizer">Appetizer</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="/dessert">Dessert</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link text-light" href="/drink">Drink</a>
+              <router-link class="nav-link text-light" to="/dessert">Dessert</router-link>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link text-light" href="/main_dish">Main Dish</a>
+              <router-link class="nav-link text-light" to="/drink">Drink</router-link>
+            </li>
+
+            <li class="nav-item">
+              <router-link class="nav-link text-light" to="/main_dish">Main Dish</router-link>
             </li>
           </ul>
 
@@ -73,36 +73,37 @@
       </div>
     </div>
 
-        <div class="modal fade" id="myLogin">
-          <div class="modal-dialog modal-md modal-dialog-centered">
-            <div class="modal-content">
+    <div class="modal fade" id="myLogin">
+      <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content">
 
-              <!-- Modal Header -->
-              <div class="modal-header">
-                <h4 class="modal-title">Login</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Login</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
 
-              <!-- Modal body -->
-              <div class="modal-body">
-              <Login/>
-              </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <Login/>
+          </div>
 
-              <!-- Modal footer -->
-              <div class="modal-footer">
+          <!-- Modal footer -->
+          <div class="modal-footer">
 
-              </div>
-            </div>
           </div>
         </div>
-
       </div>
+    </div>
+
+  </div>
 </template>
 
 <script>
 
-  import Login from "../views/Login";
-  import Register from "../views/Register";
+  import Login from "./Login";
+  import Register from "./Register";
+
   export default {
     name: 'Header',
     components: {Register, Login}
@@ -112,7 +113,7 @@
 <style scoped>
 
   .header {
-    top :0;
+    top: 0;
     width: 100%;
 
   }
