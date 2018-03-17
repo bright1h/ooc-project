@@ -11,66 +11,72 @@ import Appetizer from './views/Appetizer'
 import MainDish from './views/MainDish'
 import Register from './components/Register'
 import Profile from './views/Profile'
+import Checkout from './views/CheckOut'
 
 Vue.use(Router);
 
 export default new Router({
-    mode: 'history',
-    routes: [
-        {
-            path: '/admin_home',
-            name: 'admin_home',
-            component: AdminHome
-        },
-        {
-            path: '/',
-            name: 'home',
-            component: Home
-        },
-        {
-            path: '/order_list',
-            name: 'order_list',
-            component: OrderList
-        },
-        {
-            path: '/order_history',
-            name: 'order_history',
-            component: OrderHistory
-        },
-        {
-            path: '/appetizer',
-            name: 'appetizer',
-            component: Appetizer
-        },
-        {
-            path: '/drink',
-            name: 'drink',
-            component: Drink
-        },
-        {
-            path: '/dessert',
-            name: 'dessert',
-            component: Dessert
-        },
-        {
-            path: '/main_dish',
-            name: 'main_dish',
-            component: MainDish
-        },
-        {
-            path: '/about',
-            name: 'about',
-            component: About
-        },
-        {
-            path: '/register',
-            name: 'register',
-            component: Register
-        },
-        {
-            path: '/profile',
-            name: 'profile',
-            component: Profile
-        }
-    ]
+  mode: 'history',
+  routes: [
+    {
+      path: '/admin_home',
+      name: 'admin_home',
+      component: AdminHome
+    },
+    {
+      path: '/',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/order_list',
+      name: 'order_list',
+      component: OrderList
+    },
+    {
+      path: '/order_history',
+      name: 'order_history',
+      component: OrderHistory
+    },
+    {
+      path: '/appetizer',
+      name: 'appetizer',
+      component: Appetizer
+    },
+    {
+      path: '/drink',
+      name: 'drink',
+      component: Drink
+    },
+    {
+      path: '/dessert',
+      name: 'dessert',
+      component: Dessert
+    },
+    {
+      path: '/main_dish',
+      name: 'main_dish',
+      component: MainDish
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile
+    },
+    {
+      path: '/checkout',
+      name: '/checkout',
+      component: Checkout
+    }
+  ]
 })
