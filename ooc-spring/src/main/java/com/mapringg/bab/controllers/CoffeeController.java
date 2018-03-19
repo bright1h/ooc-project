@@ -3,6 +3,8 @@ package com.mapringg.bab.controllers;
 import com.mapringg.bab.models.Menu;
 import com.mapringg.bab.services.CoffeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +24,7 @@ public class CoffeeController {
     }
 
     @GetMapping
+    @Cacheable("coffees")
     public Iterable<Menu> getAllCoffees() {
         return coffeeService.getCoffees();
     }

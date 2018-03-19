@@ -3,6 +3,7 @@ package com.mapringg.bab.controllers;
 import com.mapringg.bab.models.Menu;
 import com.mapringg.bab.services.DessertService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,7 @@ public class DessertController {
     }
 
     @GetMapping
+    @Cacheable("desserts")
     public Iterable<Menu> getAllDesserts() {
         return dessertService.getDesserts();
     }
