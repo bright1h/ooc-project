@@ -22,12 +22,12 @@ public class NonCoffeeServiceImpl implements NonCoffeeService {
 
     @Override
     public List<Menu> getNonCoffees() {
-        List<Menu> coffeeList = new ArrayList<>();
+        List<Menu> nonCoffeeList = new ArrayList<>();
         for (Menu menu : menuRepository.findAll()) {
             if (menu.getMenuType() instanceof NonCoffee) {
-                coffeeList.add(menu);
+                nonCoffeeList.add(menu);
             }
         }
-        return coffeeList;
+        return nonCoffeeList;
     }
 }

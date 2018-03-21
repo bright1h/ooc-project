@@ -4,9 +4,8 @@ import com.mapringg.bab.models.Topping;
 import com.mapringg.bab.models.ToppingType;
 import com.mapringg.bab.repositories.ToppingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationListener;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
-import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Profile("default")
-public class ToppingBootstrap implements ApplicationListener<ContextRefreshedEvent> {
+public class ToppingBootstrap implements CommandLineRunner {
 
     private final ToppingRepository toppingRepository;
 
@@ -24,7 +23,7 @@ public class ToppingBootstrap implements ApplicationListener<ContextRefreshedEve
     }
 
     @Override
-    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+    public void run(String... args) throws Exception {
         initData();
     }
 

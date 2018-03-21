@@ -7,4 +7,9 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Guest extends Customer {
+    public Guest(String firstName, String email, String mobilePhone) {
+        this.setFirstName(firstName);
+        this.setEmail(email);
+        this.setMobilePhone(mobilePhone);
+    }
 }

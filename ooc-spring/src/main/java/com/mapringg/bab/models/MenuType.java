@@ -6,7 +6,7 @@ import javax.persistence.*;
  * @author mapring
  */
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance
 public class MenuType {
 
     @Id

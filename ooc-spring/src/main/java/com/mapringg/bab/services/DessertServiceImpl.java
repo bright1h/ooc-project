@@ -21,12 +21,12 @@ public class DessertServiceImpl implements DessertService {
 
     @Override
     public List<Menu> getDesserts() {
-        List<Menu> coffeeList = new ArrayList<>();
+        List<Menu> dessertList = new ArrayList<>();
         for (Menu menu : menuRepository.findAll()) {
             if (menu.getMenuType() instanceof Dessert) {
-                coffeeList.add(menu);
+                dessertList.add(menu);
             }
         }
-        return coffeeList;
+        return dessertList;
     }
 }
