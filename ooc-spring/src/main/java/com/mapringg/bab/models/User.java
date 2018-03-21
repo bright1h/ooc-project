@@ -15,6 +15,17 @@ public class User extends Customer {
     @Enumerated(value = EnumType.STRING)
     private UserType userType;
 
+    public User(){}
+
+    public User(String firstName, String lastName, String email, String phoneNo, String password){
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
+        this.setEmail(email);
+        this.setMobilePhone(phoneNo);
+        this.setPassword(password);
+        this.setUserType(UserType.USER);
+    }
+
     public String getLastName() {
         return lastName;
     }
