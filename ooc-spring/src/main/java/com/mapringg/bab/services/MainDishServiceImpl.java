@@ -22,12 +22,12 @@ public class MainDishServiceImpl implements MainDishService {
 
     @Override
     public List<Menu> getMainDishes() {
-        List<Menu> coffeeList = new ArrayList<>();
+        List<Menu> mainDishList = new ArrayList<>();
         for (Menu menu : menuRepository.findAll()) {
             if (menu.getMenuType() instanceof MainDish) {
-                coffeeList.add(menu);
+                mainDishList.add(menu);
             }
         }
-        return coffeeList;
+        return mainDishList;
     }
 }

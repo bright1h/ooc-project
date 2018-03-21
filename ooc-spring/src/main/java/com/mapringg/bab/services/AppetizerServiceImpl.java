@@ -22,12 +22,12 @@ public class AppetizerServiceImpl implements AppetizerService {
 
     @Override
     public List<Menu> getAppetizers() {
-        List<Menu> coffeeList = new ArrayList<>();
+        List<Menu> appetizerList = new ArrayList<>();
         for (Menu menu : menuRepository.findAll()) {
             if (menu.getMenuType() instanceof Appetizer) {
-                coffeeList.add(menu);
+                appetizerList.add(menu);
             }
         }
-        return coffeeList;
+        return appetizerList;
     }
 }
