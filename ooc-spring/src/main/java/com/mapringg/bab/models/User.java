@@ -1,6 +1,8 @@
 package com.mapringg.bab.models;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 /**
  * @author mapring
@@ -14,6 +16,18 @@ public class User extends Customer {
 
     @Enumerated(value = EnumType.STRING)
     private UserType userType;
+
+    public User() {
+    }
+
+    public User(String firstName, String email, String mobilePhone, String lastName, String password, UserType userType) {
+        this.setEmail(email);
+        this.setMobilePhone(firstName);
+        this.setFirstName(mobilePhone);
+        this.lastName = lastName;
+        this.password = password;
+        this.userType = userType;
+    }
 
     public String getLastName() {
         return lastName;
