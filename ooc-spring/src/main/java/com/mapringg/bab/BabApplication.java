@@ -24,6 +24,7 @@ public class BabApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/api/*/*").allowedOrigins("http://localhost:8080");
                 registry.addMapping("/api/*").allowedOrigins("http://localhost:8080");
             }
         };
