@@ -11,7 +11,7 @@
           <form class="form-inline">
             <div class="form-group mx-sm-3 mb-2">
               <label for="inputDate" class="sr-only">Date</label>
-              <input type="date" class="form-control" id="inputDate">
+              <input type="date" class="form-control" id="inputDate" v-bind:max="today">
             </div>
             <button type="submit" class="btn btn-primary mb-2">Search</button>
           </form>
@@ -53,9 +53,35 @@
   import Header from "../components/Header";
   import Footer from "../components/Footer";
 
+  function getToday() {
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; //January is 0!
+    const yyyy = today.getFullYear();
+
+    if(dd<10) {
+      dd = '0'+dd
+    }
+
+    if(mm<10) {
+      mm = '0'+mm
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    return today;
+  }
+
   export default {
     name: 'OrderHistory',
-    components: {Footer, Header, AdminSideBar}
+    components: {Footer, Header, AdminSideBar},
+    data() {
+      return {
+        today: ''
+      }
+    },
+    created() {
+      this.today = getToday();
+    }
   }
 </script>
 
