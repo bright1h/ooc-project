@@ -40,61 +40,16 @@
 
           <ul class="navbar-nav font-weight-bold">
             <li class="nav-item ">
-              <a class="nav-link text-light text-light" data-toggle="modal" data-target="#myLogin">Login</a>
+              <Login/>
             </li>
             <li class="nav-item ">
-              <a class="nav-link text-light text-light" data-toggle="modal" data-target="#myRegister">Register</a>
+              <Register/>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div class="modal fade" id="myRegister">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">Register</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-
-          <!-- Modal body -->
-          <div class="modal-body">
-            <Register/>
-          </div>
-
-          <!-- Modal footer -->
-          <div class="modal-footer">
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="myLogin">
-      <div class="modal-dialog modal-md modal-dialog-centered">
-        <div class="modal-content">
-
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">Login</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-
-          <!-- Modal body -->
-          <div class="modal-body">
-            <Login/>
-          </div>
-
-          <!-- Modal footer -->
-          <div class="modal-footer">
-
-          </div>
-        </div>
-      </div>
-    </div>
 
   </div>
 </template>
