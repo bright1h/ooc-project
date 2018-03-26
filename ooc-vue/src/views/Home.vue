@@ -1,6 +1,6 @@
 <template>
   <div class="home content">
-    <Header/>
+    <!-- <Header/> -->
     <div class="container py-2">
       <div class="row border-bottom py-2">
         <h1 class="text-dark ">News</h1>
@@ -14,7 +14,7 @@
   
       
     </div>
-        <Footer/>
+        <!-- <Footer/> -->
       
   </div>
 
@@ -27,7 +27,7 @@
 
   export default {
     name: 'Home',
-    components: {Carousel, Header, Footer}
+    components: {Carousel, Header, Footer},
   }
 </script>
 

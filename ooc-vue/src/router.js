@@ -4,7 +4,6 @@ import Home from './views/Home.vue'
 import AdminHome from './views/AdminHome.vue'
 import OrderList from './views/OrderList.vue'
 import OrderHistory from './views/OrderHistory'
-import About from './views/About'
 import Drink from './views/Drink'
 import Dessert from './views/Dessert'
 import Appetizer from './views/Appetizer'
@@ -12,6 +11,7 @@ import MainDish from './views/MainDish'
 import Register from './components/Register'
 import Profile from './views/Profile'
 import Checkout from './views/CheckOut'
+
 
 Vue.use(Router);
 
@@ -58,11 +58,7 @@ export default new Router({
       name: 'main_dish',
       component: MainDish
     },
-    {
-      path: '/about',
-      name: 'about',
-      component: About
-    },
+  
     {
       path: '/register',
       name: 'register',
@@ -77,6 +73,6 @@ export default new Router({
       path: '/checkout',
       name: '/checkout',
       component: Checkout
-    }
+    },
   ]
 })

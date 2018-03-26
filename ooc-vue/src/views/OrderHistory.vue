@@ -1,6 +1,6 @@
 <template>
   <div class="order-history">
-    <Header/>
+    <!-- <Header/> -->
     <div class="container py-2">
       <div class="row border-bottom py-2">
         <h1 class="text-dark ">Order History</h1>
@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-    <Footer/>
+    <!-- <Footer/> -->
   </div>
 </template>
 

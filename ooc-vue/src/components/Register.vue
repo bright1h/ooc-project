@@ -1,7 +1,7 @@
 <template>
 <div class="register">
 
-  <a class="nav-link text-light text-light" data-toggle="modal" data-target="#register-modal">Register</a>
+  <a class="nav-link text-light" data-toggle="modal" data-target="#register-modal">Register</a>
          
   <div class="modal fade" id="register-modal">
       <div class="modal-dialog modal-dialog-centered">

@@ -6,15 +6,18 @@
 
         <!--First column-->
         <div class="col-sm-6">
-          <h5 class="text-uppercase">Brew & Bev</h5>
+          <h5 class="text-uppercase font-weight-bold pt-2">Brew & Bev</h5>
           <p>Here you can use rows and columns here to organize your footer content.</p>
           
+          <div class="icon-circle my-1 pb-1">
+            <a href="https://www.facebook.com/brewnbev/" target="_blank" class="ifacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
+          </div>   
         </div>
         <!--/.First column-->
 
         <!--Second column-->
         <div class="col-sm-6">
-          <h5 class="text-uppercase">Contact Us</h5>
+          <h5 class="text-uppercase font-weight-bold pt-2">Contact Us</h5>
 
           <ul class="list-unstyled">
             <li class="">
@@ -31,11 +34,7 @@
               Location : Mahidol University
             </li>
           </ul>
-          <div class="icon-circle my-1 pb-1">
-            <a href="https://www.facebook.com/brewnbev/" target="_blank" class="ifacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
-          </div>
         </div>
-        <!--/.Second column-->
       
     </div>
    </div>
@@ -53,9 +52,7 @@
 </script>
 
 <style>
-
-@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
-  .footer-copyright-zone {
+.footer-copyright-zone {
     background-color: #13254f;
     height: 50px;
   }

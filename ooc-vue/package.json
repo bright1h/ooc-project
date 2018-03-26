@@ -9,12 +9,18 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "4.0.0",
+    "bootstrap-vue": "^2.0.0-rc.2",
     "jquery": "^3.3.1",
+    "js-cookie": "^2.2.0",
     "mdbootstrap": "^4.5.0",
     "popper.js": "^1.12.9",
     "vee-validate": "^2.0.6",
     "vue": "^2.5.13",
-    "vue-router": "^3.0.1"
+    "vue-js-popover": "^1.1.7",
+    "vue-router": "^3.0.1",
+    "vuejs-dialog": "^0.9.0",
+    "vuex": "^3.0.1",
+    "vuex-persistedstate": "^2.5.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.6",
