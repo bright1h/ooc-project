@@ -15,15 +15,15 @@
             <div class="row">
               <div class="col-md mt-2 mx-3">
                 
-                <form>
+                <form @submit="login()">
                   <div class="form-row">
                     <div class="form-group col-md">
-                      <input type="text" class="form-control" placeholder="Email or Phone Number">
+                      <input type="text" class="form-control" v-model="email" placeholder="Email">
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md">
-                      <input type="password" class="form-control" placeholder="Password">
+                      <input type="password" class="form-control" v-model="password" placeholder="Password">
                     </div>
                   </div>
 
@@ -97,6 +97,7 @@
 </template>
 
 <script>
+  import {AXIOS} from '../http-common'
   export default {
     name: "Login",
     data() {
@@ -104,8 +105,22 @@
         email: '',
         password: ''
       }
+    },
+    methods: {
+      login() {
+        AXIOS.post("api/auth", {
+          email: this.email,
+          password: this.password
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }
     }
-  };
+  }
 </script>
 
 <style scoped>

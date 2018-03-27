@@ -42,7 +42,8 @@ public class AuthenticationController {
         else {
             authenticateStatus.setLoginSuccess(false);
         }
-
+        System.out.println("email:" + email);
+        System.out.println("password:" + password);
         return authenticateStatus;
     }
 
