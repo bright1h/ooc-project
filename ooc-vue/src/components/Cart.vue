@@ -37,8 +37,8 @@
           </div>
           
           <div class="row border-bottom" 
-              v-bind:key="index"
-              v-for="(data,index) in cart"
+              v-bind:key="data.id"
+              v-for="data in cart"
               style="font-size: 15px;">
             <div class="col-4 border-right">
                 {{data.name}}
@@ -53,11 +53,11 @@
               <button type="submit" 
                       class="btn btn-sm btn-danger"
                       v-confirm="{
-                          ok: dialog => del(data),
+                          ok: dialog => remove(data.id),
                           okText :'Remove',
                           animation : 'fade',
                           cancel: doNothing,
-                          message: 'Delete from the list?'
+                          message: 'Do you want to remove ' +data.name+ ' from the list?',
                         }">
                 <i class="fa fa-minus"></i>
 
@@ -99,15 +99,7 @@
   export default {
     
     name: 'Cart',
-    data(){
-      return{
-        message:'',
-        orders : [
-          {name : "test", quantity : 2 , price : 65},
-          {name : "test2", quantity: 1 , price :10}
-        ],
-      }
-    },
+    
     computed : {
       quantity(){
         return this.$store.state.cartQuantity
@@ -131,9 +123,9 @@
     ...mapMutations({
       add: 'addItem', // map `this.add()` to `this.$store.commit('increment')`
       reset:'resetCart',
-      del:'removeItem',
+      remove : 'removeItem'
       }),
-      doNothing(){}
+      doNothing(){},
     }
   }
 

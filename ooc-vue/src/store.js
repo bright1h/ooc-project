@@ -24,15 +24,14 @@ export const store = new Vuex.Store({
         }
       })],
       mutations: {
-        increment: state => state.count++,
-        decrement: state => state.count--,
 
         addItem(state, addedItem ){
           var item = state.cart.find(item => item.id === addedItem.id);
           if(!item){
-            addedItem.sumQuantity =1;
-            addedItem.sumPrice = addedItem.price;
-            state.cart.push(addedItem);
+            var copyItem = Object.assign({},addedItem);
+            copyItem.sumQuantity = 1;
+            copyItem.sumPrice = addedItem.price;
+            state.cart.push(copyItem);
           }
           else{
             item.sumQuantity++;
@@ -42,31 +41,31 @@ export const store = new Vuex.Store({
           state.totalPrice += addedItem.price;
         },
 
-        removeItem(state, removedItem){
-          console.log(removedItem.id)
-          var item = state.cart.find(item => item.id === removedItem.id);
-          console.log(item.id);
-          if(item.sumQuantity===1){
-            console.log('in here');
-
+        removeItem(state, id){
+          // console.log(removedItem.id)
+          var item = state.cart.find(item => item.id === id);
+          
+          // var item = state.cart.find(index);
+          // console.log(index);
+          if (item.sumQuantity ===1){
             var index = state.cart.indexOf(item);
-            console.log(index);
-            if (index !== -1){
-              state.cart.splice(index,1);
-            }
+            state.cart.splice(index,1);
+
           }
           else{
             item.sumQuantity--;
-            item.sumPrice-=removedItem.price;
+            item.sumPrice-=item.price;
           }
 
           state.cartQuantity--;
           state.totalPrice-=item.price;
+
+        
         },
         resetCart(state){
           state.cart = [];
           state.cartQuantity=0;
           state.totalPrice=0;
-        }
+        },
       },
 });
