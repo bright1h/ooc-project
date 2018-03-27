@@ -80,7 +80,6 @@
 <script>
   import Header from '../components/Header'
   import Footer from '../components/Footer'
-  import {AXIOS} from '../http-common'
 
   export default {
     name: 'Drink',
@@ -92,11 +91,11 @@
       }
     },
     mounted() {
-      AXIOS.get('api/non_coffees')
+      this.$http.get('api/non_coffees')
         .then(response => {
           this.non_coffee = response.data
         });
-      AXIOS.get('api/coffees')
+      this.$http.get('api/coffees')
         .then(response => {
           this.coffee = response.data
         })

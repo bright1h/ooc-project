@@ -59,19 +59,17 @@
 <script>
   import Header from '../components/Header'
   import Footer from '../components/Footer'
-  import {AXIOS} from "../http-common";
 
   export default {
     name: 'Home',
     components: {Header, Footer},
     data() {
       return {
-        main_dish: [
-        ]
+        main_dish: []
       }
     },
     mounted() {
-      AXIOS.get('api/main_dishes')
+      this.$http.get('api/main_dishes')
         .then(response => {
           this.main_dish = response.data
         })

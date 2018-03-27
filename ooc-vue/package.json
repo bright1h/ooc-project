@@ -13,6 +13,7 @@
     "mdbootstrap": "^4.5.0",
     "popper.js": "^1.12.9",
     "vue": "^2.5.13",
+    "vue-axios": "^2.1.0",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
