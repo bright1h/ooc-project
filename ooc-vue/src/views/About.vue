@@ -15,7 +15,6 @@
 <script>
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { AXIOS } from "../http-common";
 
 export default {
   name: "About",
