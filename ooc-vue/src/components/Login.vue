@@ -97,27 +97,28 @@
 </template>
 
 <script>
-  import {AXIOS} from '../http-common'
   export default {
     name: "Login",
     data() {
       return {
         email: '',
-        password: ''
+        password: '',
+        message: ''
       }
     },
     methods: {
       login() {
-        AXIOS.post("api/auth", {
+        this.$http.post("api/auth", {
           email: this.email,
           password: this.password
         })
-        .then(function (response) {
-          console.log(response);
+        .then(response => {
+          this.message  = response.data
+          console.log(this.message)
         })
-        .catch(function (error) {
-          console.log(error);
-        });
+        .catch(e => {
+          console.log(e)
+        })
       }
     }
   }
