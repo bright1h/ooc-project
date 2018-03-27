@@ -18,14 +18,7 @@ import Footer from "../components/Footer";
 
 export default {
   name: "About",
-  components: { Header, Footer },
-  data: {
-    items: []
-  },
-  created: function() {
-    fetchItem;
-  },
-  methods: {}
+  components: { Header, Footer }
 };
 </script>
 
