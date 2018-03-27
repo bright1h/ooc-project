@@ -1,5 +1,6 @@
 package com.mapringg.bab.controllers;
 
+import com.mapringg.bab.jsons.AuthenticateStatus;
 import com.mapringg.bab.jsons.LoginForm;
 import com.mapringg.bab.models.User;
 import com.mapringg.bab.repositories.UserRepository;
@@ -23,7 +24,7 @@ public class AuthenticationController {
 
 
     @PostMapping
-    public String authenticated(@RequestBody LoginForm loginForm) {
+    public AuthenticateStatus authenticated(@RequestBody LoginForm loginForm) {
         String email = loginForm.getEmail();
         String password = loginForm.getPassword();
 
@@ -31,19 +32,18 @@ public class AuthenticationController {
         User user = userRepository.findUserByEmail(email);
 
         String hashedPassword = user.getPassword();
-        String message;
 
+        AuthenticateStatus authenticateStatus = new AuthenticateStatus();
 
         if (BCrypt.checkpw(password, hashedPassword)) {
-            message = "Login success";
+            authenticateStatus.setLoginSuccess(true);
+            authenticateStatus.setUserType(user.getUserType());
         }
         else {
-            message = "Login failed";
+            authenticateStatus.setLoginSuccess(false);
         }
 
-
-
-        return message;
+        return authenticateStatus;
     }
 
 }
