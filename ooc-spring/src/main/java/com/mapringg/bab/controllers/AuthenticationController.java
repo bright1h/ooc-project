@@ -23,7 +23,7 @@ public class AuthenticationController {
     }
 
 
-    @PostMapping
+    @PostMapping({"/", ""})
     public AuthenticateStatus authenticated(@RequestBody LoginForm loginForm) {
         String email = loginForm.getEmail();
         String password = loginForm.getPassword();
@@ -50,5 +50,6 @@ public class AuthenticationController {
             return authenticateStatus;
         }
     }
+
 
 }
