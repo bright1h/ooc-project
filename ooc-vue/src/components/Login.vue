@@ -15,7 +15,7 @@
             <div class="row">
               <div class="col-md mt-2 mx-3">
                 
-                <form @submit="login()">
+                <form @submit.prevent="login()">
                   <div class="form-row">
                     <div class="form-group col-md">
                       <input type="text" class="form-control" v-model="email" placeholder="Email">
@@ -32,7 +32,7 @@
                       <div class="col-md">
                         <div class="d-flex">
                           <div class="pt-1">
-                            <button type="button" class="btn btn-primary">Login</button>
+                            <button class="btn btn-primary">Login</button>
                           </div>
                           <div class="pt-2 pl-3">
                             <u class="text-primary" data-toggle="modal" data-dismiss="modal" data-target="#myForgotPassword">Forgot your Password?</u>
@@ -103,21 +103,18 @@
       return {
         email: '',
         password: '',
-        message: ''
       }
     },
     methods: {
       login() {
-        this.$http.post("api/auth", {
+        this.$http.post("/api/auth", {
           email: this.email,
           password: this.password
         })
         .then(response => {
-          this.message  = response.data
-          console.log(this.message)
+          console.log(response.data)
         })
         .catch(e => {
-          console.log(e)
         })
       }
     }

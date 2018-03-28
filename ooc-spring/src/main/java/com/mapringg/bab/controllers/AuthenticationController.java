@@ -31,20 +31,24 @@ public class AuthenticationController {
 
         User user = userRepository.findUserByEmail(email);
 
-        String hashedPassword = user.getPassword();
-
         AuthenticateStatus authenticateStatus = new AuthenticateStatus();
 
-        if (BCrypt.checkpw(password, hashedPassword)) {
-            authenticateStatus.setLoginSuccess(true);
-            authenticateStatus.setUserType(user.getUserType());
+
+        if (user != null) {
+
+            String hashedPassword = user.getPassword();
+
+            if (BCrypt.checkpw(password, hashedPassword)) {
+                authenticateStatus.setLoginSuccess(true);
+                authenticateStatus.setUserType(user.getUserType());
+            }
+            System.out.println("email:" + email);
+            System.out.println("password:" + password);
+            return authenticateStatus;
         }
         else {
-            authenticateStatus.setLoginSuccess(false);
+            return authenticateStatus;
         }
-        System.out.println("email:" + email);
-        System.out.println("password:" + password);
-        return authenticateStatus;
     }
 
 }

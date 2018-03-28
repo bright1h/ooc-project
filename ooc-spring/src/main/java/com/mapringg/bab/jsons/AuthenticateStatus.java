@@ -5,7 +5,7 @@ import com.mapringg.bab.models.UserType;
 public class AuthenticateStatus {
 
 
-    private boolean loginSuccess;
+    private boolean loginSuccess = false;
     private UserType userType;
 
     public boolean isLoginSuccess() {
