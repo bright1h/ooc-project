@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author mapring
  */
 @RestController
-@RequestMapping("/api/toppings")
+@RequestMapping("/api/topping")
 public class ToppingController {
 
     private final ToppingService toppingService;
@@ -24,7 +24,7 @@ public class ToppingController {
 
     @GetMapping
     @Cacheable("toppings")
-    public Iterable<Topping> getAllToppings() {
+    public Iterable<Topping> findAll() {
         return toppingService.getToppings();
     }
 }

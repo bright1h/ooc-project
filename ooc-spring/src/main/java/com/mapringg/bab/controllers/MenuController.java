@@ -14,7 +14,7 @@ import java.util.Optional;
  * @author mapring
  */
 @RestController
-@RequestMapping("/api/menus")
+@RequestMapping("/api/menu")
 public class MenuController {
 
     private final MenuRepository menuRepository;
@@ -24,8 +24,9 @@ public class MenuController {
         this.menuRepository = menuRepository;
     }
 
+
     @GetMapping(path = "/search")
-    public Menu getMenu(@RequestParam(required = false, defaultValue = "Mocha Hot") String name) {
+    public Menu get(@RequestParam(required = false, defaultValue = "Mocha Hot") String name) {
         Optional<Menu> menuOptional =  menuRepository.findByName(name);
         if (!menuOptional.isPresent()) {
             throw new RuntimeException("Expected Menu Not Found");
@@ -34,7 +35,7 @@ public class MenuController {
     }
 
     @GetMapping
-    public Iterable<Menu> getAllMenus() {
+    public Iterable<Menu> findAll() {
         return menuRepository.findAll();
     }
 }

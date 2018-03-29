@@ -4,16 +4,13 @@ import com.mapringg.bab.models.Menu;
 import com.mapringg.bab.services.MainDishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author mapring
  */
 @RestController
-@RequestMapping("/api/main_dishes")
+@RequestMapping("/api/main_dish")
 public class MainDishController {
 
     private final MainDishService mainDishService;
@@ -23,9 +20,14 @@ public class MainDishController {
         this.mainDishService = mainDishService;
     }
 
+    @PostMapping(path = "/add")
+    public Menu add(@RequestBody String json) {
+        return mainDishService.add(json);
+    }
+
     @GetMapping
     @Cacheable("main_dishes")
-    public Iterable<Menu> getAllMainDishes() {
-        return mainDishService.getMainDishes();
+    public Iterable<Menu> findAll() {
+        return mainDishService.list();
     }
 }

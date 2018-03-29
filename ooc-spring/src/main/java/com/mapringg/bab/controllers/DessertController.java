@@ -4,15 +4,13 @@ import com.mapringg.bab.models.Menu;
 import com.mapringg.bab.services.DessertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author mapring
  */
 @RestController
-@RequestMapping("/api/desserts")
+@RequestMapping("/api/dessert")
 public class DessertController {
 
     private final DessertService dessertService;
@@ -22,9 +20,14 @@ public class DessertController {
         this.dessertService = dessertService;
     }
 
+    @PostMapping(path = "/add")
+    public Menu add(@RequestBody String json) {
+        return dessertService.add(json);
+    }
+
     @GetMapping
     @Cacheable("desserts")
-    public Iterable<Menu> getAllDesserts() {
-        return dessertService.getDesserts();
+    public Iterable<Menu> findAll() {
+        return dessertService.list();
     }
 }

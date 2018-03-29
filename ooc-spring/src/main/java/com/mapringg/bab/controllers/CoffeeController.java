@@ -4,16 +4,13 @@ import com.mapringg.bab.models.Menu;
 import com.mapringg.bab.services.CoffeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author mapring
  */
 @RestController
-@RequestMapping("/api/coffees")
+@RequestMapping("/api/coffee")
 public class CoffeeController {
 
     private final CoffeeService coffeeService;
@@ -23,9 +20,14 @@ public class CoffeeController {
         this.coffeeService = coffeeService;
     }
 
+    @PostMapping(path = "/add")
+    public Menu add(@RequestBody String json) {
+        return coffeeService.add(json);
+    }
+
     @GetMapping
     @Cacheable("coffees")
-    public Iterable<Menu> getAllCoffees() {
-        return coffeeService.getCoffees();
+    public Iterable<Menu> findAll() {
+        return coffeeService.list();
     }
 }

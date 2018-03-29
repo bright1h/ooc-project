@@ -4,15 +4,13 @@ import com.mapringg.bab.models.Menu;
 import com.mapringg.bab.services.NonCoffeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author mapring
  */
 @RestController
-@RequestMapping("/api/non_coffees")
+@RequestMapping("/api/non_coffee")
 public class NonCoffeeController {
 
     private final NonCoffeeService nonCoffeeService;
@@ -22,9 +20,14 @@ public class NonCoffeeController {
         this.nonCoffeeService = nonCoffeeService;
     }
 
+    @PostMapping(path = "/add")
+    public Menu add(@RequestBody String json) {
+        return nonCoffeeService.add(json);
+    }
+
     @GetMapping
     @Cacheable("non_coffees")
-    public Iterable<Menu> getAllNonCoffees() {
-        return nonCoffeeService.getNonCoffees();
+    public Iterable<Menu> findAll() {
+        return nonCoffeeService.list();
     }
 }
