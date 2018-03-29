@@ -1,5 +1,7 @@
 package com.mapringg.bab.models;
 
+import com.google.gson.annotations.Expose;
+
 import javax.persistence.*;
 
 /**
@@ -12,14 +14,17 @@ public class Menu {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
+    @Expose
     private String name;
 
+    @Expose
     private Integer price;
 
     @OneToOne
     private MenuType menuType;
 
     @Lob
+    @Expose
     private Byte[] image;
 
     public Menu() {}
