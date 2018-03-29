@@ -16,7 +16,7 @@ import java.util.List;
 
 
 @Service
-public class DatabaseUserDetailsManager implements UserDetailsService {
+public class DatabaseUserDetails implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;

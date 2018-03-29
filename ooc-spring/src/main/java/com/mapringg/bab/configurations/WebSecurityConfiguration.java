@@ -1,6 +1,6 @@
 package com.mapringg.bab.configurations;
 
-import com.mapringg.bab.security.DatabaseUserDetailsManager;
+import com.mapringg.bab.security.DatabaseUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private DatabaseUserDetailsManager databaseUserDetailsManager;
+    private DatabaseUserDetails databaseUserDetails;
 
 
     @Override
@@ -39,7 +39,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(databaseUserDetailsManager);
+        authProvider.setUserDetailsService(databaseUserDetails);
         authProvider.setPasswordEncoder(encoder());
         return authProvider;
     }
