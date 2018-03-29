@@ -6,7 +6,7 @@ import javax.persistence.*;
  * @author mapring
  */
 @Entity
-@Inheritance
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Customer {
 
     @Id

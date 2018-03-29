@@ -1,0 +1,167 @@
+[
+  {
+    "id": 12,
+    "name": "Espresso Hot",
+    "price": 40,
+    "menuType": {
+      "id": 12,
+      "hot": true,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 13,
+    "name": "Americano Hot",
+    "price": 40,
+    "menuType": {
+      "id": 13,
+      "hot": true,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 14,
+    "name": "Americano Iced",
+    "price": 45,
+    "menuType": {
+      "id": 14,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 15,
+    "name": "Latte Hot",
+    "price": 50,
+    "menuType": {
+      "id": 15,
+      "hot": true,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 16,
+    "name": "Latte Iced",
+    "price": 55,
+    "menuType": {
+      "id": 16,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 17,
+    "name": "Cappuccino Hot",
+    "price": 50,
+    "menuType": {
+      "id": 17,
+      "hot": true,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 18,
+    "name": "Cappuccino Iced",
+    "price": 55,
+    "menuType": {
+      "id": 18,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 19,
+    "name": "Mocha Hot",
+    "price": 55,
+    "menuType": {
+      "id": 19,
+      "hot": true,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 20,
+    "name": "Mocha Iced",
+    "price": 60,
+    "menuType": {
+      "id": 20,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 21,
+    "name": "Mocha Blend",
+    "price": 65,
+    "menuType": {
+      "id": 21,
+      "hot": null,
+      "blend": true
+    },
+    "image": null
+  },
+  {
+    "id": 22,
+    "name": "Caramel Macchiato Hot",
+    "price": 55,
+    "menuType": {
+      "id": 22,
+      "hot": true,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 23,
+    "name": "Caramel Macchiato Iced",
+    "price": 60,
+    "menuType": {
+      "id": 23,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 24,
+    "name": "Caramel Macchiato Blend",
+    "price": 65,
+    "menuType": {
+      "id": 24,
+      "hot": null,
+      "blend": true
+    },
+    "image": null
+  },
+  {
+    "id": 25,
+    "name": "Hazelnut Latte Hot",
+    "price": 60,
+    "menuType": {
+      "id": 25,
+      "hot": true,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 26,
+    "name": "Hazelnut Latte Iced",
+    "price": 65,
+    "menuType": {
+      "id": 26,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  }
+]

@@ -1,0 +1,266 @@
+[
+  {
+    "id": 49,
+    "name": "Belgian Chocolate Hot",
+    "price": 50,
+    "menuType": {
+      "id": 49,
+      "hot": true,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 50,
+    "name": "Belgian Chocolate Iced",
+    "price": 55,
+    "menuType": {
+      "id": 50,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 51,
+    "name": "Chococino Blend",
+    "price": 60,
+    "menuType": {
+      "id": 51,
+      "hot": null,
+      "blend": true
+    },
+    "image": null
+  },
+  {
+    "id": 52,
+    "name": "Vanilla Milky Shakie",
+    "price": 60,
+    "menuType": {
+      "id": 52,
+      "hot": null,
+      "blend": true
+    },
+    "image": null
+  },
+  {
+    "id": 53,
+    "name": "Strawberry Shakie Blend",
+    "price": 60,
+    "menuType": {
+      "id": 53,
+      "hot": null,
+      "blend": true
+    },
+    "image": null
+  },
+  {
+    "id": 54,
+    "name": "Matcha Latte Hot",
+    "price": 50,
+    "menuType": {
+      "id": 54,
+      "hot": true,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 55,
+    "name": "Matcha Latte Iced",
+    "price": 55,
+    "menuType": {
+      "id": 55,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 56,
+    "name": "Matcha Latte Blend",
+    "price": 60,
+    "menuType": {
+      "id": 56,
+      "hot": null,
+      "blend": true
+    },
+    "image": null
+  },
+  {
+    "id": 57,
+    "name": "BB Twister Iced",
+    "price": 50,
+    "menuType": {
+      "id": 57,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 58,
+    "name": "BB Twister Blend",
+    "price": 55,
+    "menuType": {
+      "id": 58,
+      "hot": null,
+      "blend": true
+    },
+    "image": null
+  },
+  {
+    "id": 59,
+    "name": "Tropical Breeze Blend",
+    "price": 55,
+    "menuType": {
+      "id": 59,
+      "hot": null,
+      "blend": true
+    },
+    "image": null
+  },
+  {
+    "id": 60,
+    "name": "Tea Mixed Fruit Iced",
+    "price": 50,
+    "menuType": {
+      "id": 60,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 61,
+    "name": "Tea Lemon Iced",
+    "price": 50,
+    "menuType": {
+      "id": 61,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 62,
+    "name": "Smoothies Strawberry Blend",
+    "price": 55,
+    "menuType": {
+      "id": 62,
+      "hot": null,
+      "blend": true
+    },
+    "image": null
+  },
+  {
+    "id": 63,
+    "name": "Smoothies Passion Fruit Blend",
+    "price": 55,
+    "menuType": {
+      "id": 63,
+      "hot": null,
+      "blend": true
+    },
+    "image": null
+  },
+  {
+    "id": 64,
+    "name": "Sparkling Cooler Apple Iced",
+    "price": 45,
+    "menuType": {
+      "id": 64,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 65,
+    "name": "Sparkling Cooler Strawberry Iced",
+    "price": 45,
+    "menuType": {
+      "id": 65,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 66,
+    "name": "Sparkling Cooler Lemon Iced",
+    "price": 45,
+    "menuType": {
+      "id": 66,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 67,
+    "name": "Twinning Hot",
+    "price": 25,
+    "menuType": {
+      "id": 67,
+      "hot": true,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 68,
+    "name": "Twinning Iced",
+    "price": 30,
+    "menuType": {
+      "id": 68,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 69,
+    "name": "Thai Tea Iced",
+    "price": 50,
+    "menuType": {
+      "id": 69,
+      "hot": false,
+      "blend": null
+    },
+    "image": null
+  },
+  {
+    "id": 70,
+    "name": "Thai Tea Blend",
+    "price": 55,
+    "menuType": {
+      "id": 70,
+      "hot": null,
+      "blend": true
+    },
+    "image": null
+  },
+  {
+    "id": 71,
+    "name": "Brownie Blend",
+    "price": 65,
+    "menuType": {
+      "id": 71,
+      "hot": null,
+      "blend": true
+    },
+    "image": null
+  },
+  {
+    "id": 72,
+    "name": "Granola Blend",
+    "price": 65,
+    "menuType": {
+      "id": 72,
+      "hot": null,
+      "blend": true
+    },
+    "image": null
+  }
+]

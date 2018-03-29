@@ -1,6 +1,7 @@
 package com.mapringg.bab.models;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * @author mapring
@@ -17,6 +18,17 @@ public class OrderList {
 
     @OneToOne
     private Menu menu;
+
+    @OneToMany
+    @JoinTable(
+            name = "drink_order_list_topping",
+            joinColumns = @JoinColumn(name = "drink_order_list_id"),
+            inverseJoinColumns = @JoinColumn(name = "topping_id")
+    )
+    private Set<Topping> toppings;
+
+    @Enumerated(value = EnumType.STRING)
+    private Sweetness sweetness;
 
     private Integer quantity;
 
@@ -44,6 +56,22 @@ public class OrderList {
 
     public void setMenu(Menu menu) {
         this.menu = menu;
+    }
+
+    public Set<Topping> getToppings() {
+        return toppings;
+    }
+
+    public void setToppings(Set<Topping> toppings) {
+        this.toppings = toppings;
+    }
+
+    public Sweetness getSweetness() {
+        return sweetness;
+    }
+
+    public void setSweetness(Sweetness sweetness) {
+        this.sweetness = sweetness;
     }
 
     public Integer getQuantity() {

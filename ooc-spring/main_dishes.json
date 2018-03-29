@@ -1,0 +1,128 @@
+[
+  {
+    "id": 35,
+    "name": "All Day Breakfast",
+    "price": 75,
+    "menuType": {
+      "id": 35
+    },
+    "image": null
+  },
+  {
+    "id": 36,
+    "name": "Grilled Sandwich Chicken",
+    "price": 65,
+    "menuType": {
+      "id": 36
+    },
+    "image": null
+  },
+  {
+    "id": 37,
+    "name": "Grilled Sandwich Tuna",
+    "price": 65,
+    "menuType": {
+      "id": 37
+    },
+    "image": null
+  },
+  {
+    "id": 38,
+    "name": "Grilled Sandwich Ham Cheese",
+    "price": 65,
+    "menuType": {
+      "id": 38
+    },
+    "image": null
+  },
+  {
+    "id": 39,
+    "name": "Grilled Sausage",
+    "price": 75,
+    "menuType": {
+      "id": 39
+    },
+    "image": null
+  },
+  {
+    "id": 40,
+    "name": "House Sandwich",
+    "price": 70,
+    "menuType": {
+      "id": 40
+    },
+    "image": null
+  },
+  {
+    "id": 41,
+    "name": "Spaghetti Carbonara",
+    "price": 70,
+    "menuType": {
+      "id": 41
+    },
+    "image": null
+  },
+  {
+    "id": 42,
+    "name": "Spaghetti Meat Ball",
+    "price": 70,
+    "menuType": {
+      "id": 42
+    },
+    "image": null
+  },
+  {
+    "id": 43,
+    "name": "Spaghetti Dry Chili",
+    "price": 70,
+    "menuType": {
+      "id": 43
+    },
+    "image": null
+  },
+  {
+    "id": 44,
+    "name": "BB Fried Rice",
+    "price": 69,
+    "menuType": {
+      "id": 44
+    },
+    "image": null
+  },
+  {
+    "id": 45,
+    "name": "Omu Rice",
+    "price": 59,
+    "menuType": {
+      "id": 45
+    },
+    "image": null
+  },
+  {
+    "id": 46,
+    "name": "BBQ Burger",
+    "price": 99,
+    "menuType": {
+      "id": 46
+    },
+    "image": null
+  },
+  {
+    "id": 47,
+    "name": "Teriyaki Salmon Rice",
+    "price": 99,
+    "menuType": {
+      "id": 47
+    },
+    "image": null
+  },
+  {
+    "id": 48,
+    "name": "Dry Chili Rice",
+    "price": 59,
+    "menuType": {
+      "id": 48
+    },
+    "image": null
+  }
+]

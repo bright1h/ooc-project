@@ -1,0 +1,74 @@
+[
+  {
+    "id": 27,
+    "name": "Banoffee",
+    "price": 55,
+    "menuType": {
+      "id": 27
+    },
+    "image": null
+  },
+  {
+    "id": 28,
+    "name": "Chocolate Banana Roti",
+    "price": 75,
+    "menuType": {
+      "id": 28
+    },
+    "image": null
+  },
+  {
+    "id": 29,
+    "name": "Cookies",
+    "price": 25,
+    "menuType": {
+      "id": 29
+    },
+    "image": null
+  },
+  {
+    "id": 30,
+    "name": "Brownies",
+    "price": 55,
+    "menuType": {
+      "id": 30
+    },
+    "image": null
+  },
+  {
+    "id": 31,
+    "name": "Chocolate Lava",
+    "price": 65,
+    "menuType": {
+      "id": 31
+    },
+    "image": null
+  },
+  {
+    "id": 32,
+    "name": "Pana Cotta",
+    "price": 45,
+    "menuType": {
+      "id": 32
+    },
+    "image": null
+  },
+  {
+    "id": 33,
+    "name": "Blueberry Cheese Pie",
+    "price": 55,
+    "menuType": {
+      "id": 33
+    },
+    "image": null
+  },
+  {
+    "id": 34,
+    "name": "Chocolate Pie",
+    "price": 55,
+    "menuType": {
+      "id": 34
+    },
+    "image": null
+  }
+]

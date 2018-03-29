@@ -12,6 +12,7 @@ import MainDish from './views/MainDish'
 import Register from './components/Register'
 import Profile from './views/Profile'
 import Checkout from './views/CheckOut'
+import Menu from './views/Menu'
 
 Vue.use(Router);
 
@@ -77,6 +78,11 @@ export default new Router({
       path: '/checkout',
       name: '/checkout',
       component: Checkout
+    },
+    {
+      path: '/menu',
+      name: '/menu',
+      component: Menu
     }
   ]
 })

@@ -1,7 +1,8 @@
 package com.mapringg.bab.models;
 
-import javax.persistence.*;
-import java.util.Set;
+import com.google.gson.annotations.Expose;
+
+import javax.persistence.Entity;
 
 /**
  * @author mapring
@@ -9,28 +10,17 @@ import java.util.Set;
 @Entity
 public class NonCoffee extends MenuType {
 
+    @Expose
     private Boolean isHot;
 
+    @Expose
     private Boolean isBlend;
-
-    @OneToMany
-    @JoinTable(
-            name = "non_coffee_topping",
-            joinColumns = @JoinColumn(name = "non_coffee_id"),
-            inverseJoinColumns = @JoinColumn(name = "topping_id")
-    )
-    private Set<Topping> toppings;
-
-    @Enumerated(value = EnumType.STRING)
-    private Sweetness sweetness;
 
     public NonCoffee() {}
 
-    public NonCoffee(Boolean isHot, Boolean isBlend, Set<Topping> toppings, Sweetness sweetness) {
+    public NonCoffee(Boolean isHot, Boolean isBlend) {
         this.isHot = isHot;
         this.isBlend = isBlend;
-        this.toppings = toppings;
-        this.sweetness = sweetness;
     }
 
     public Boolean getHot() {
@@ -49,19 +39,4 @@ public class NonCoffee extends MenuType {
         isBlend = blend;
     }
 
-    public Set<Topping> getToppings() {
-        return toppings;
-    }
-
-    public void setToppings(Set<Topping> toppings) {
-        this.toppings = toppings;
-    }
-
-    public Sweetness getSweetness() {
-        return sweetness;
-    }
-
-    public void setSweetness(Sweetness sweetness) {
-        this.sweetness = sweetness;
-    }
 }

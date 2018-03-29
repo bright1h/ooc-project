@@ -1,6 +1,7 @@
 package com.mapringg.bab.services;
 
 import com.mapringg.bab.models.Menu;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -9,5 +10,7 @@ import java.util.List;
  */
 public interface MainDishService {
 
-    List<Menu> getMainDishes();
+    List<Menu> list();
+
+    Menu add(@RequestBody String json);
 }
