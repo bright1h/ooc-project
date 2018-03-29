@@ -1,5 +1,9 @@
 package com.mapringg.bab;
 
+import com.mapringg.bab.models.User;
+import com.mapringg.bab.models.UserType;
+import com.mapringg.bab.repositories.CustomerRepository;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
@@ -28,5 +32,12 @@ public class BabApplication {
                 registry.addMapping("/api/*").allowedOrigins("http://localhost:8080");
             }
         };
+    }
+
+    @Bean
+    CommandLineRunner init(final CustomerRepository customerRepository) {
+
+        return arg0 -> customerRepository.save(new User("Sorawit", "trainer.mapring@gmail.com", "0955746161", "Kongnurat", "1234", UserType.USER));
+
     }
 }
