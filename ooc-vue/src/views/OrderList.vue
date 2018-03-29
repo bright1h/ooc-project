@@ -2,10 +2,10 @@
   <div class="order-list">
     <Header/>
     <div class="container py-2">
-      <div class="row border-bottom my-4">
+      <div class="row border-bottom py-2">
         <h1 class="text-dark ">Order List</h1>
       </div>
-      <div class="row">
+      <div class="row my-4">
         <AdminSideBar/>
         <div class="col">
           <table class="table">

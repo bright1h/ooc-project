@@ -68,22 +68,11 @@
     data() {
       return {
         menus: [
-          //   {name: "Fish & Chips", price: "65"},
-          //   {name: "Sausage Stick", price: "50"},
-          //   {name: "Holy Chick", price: "55"},
-          //   {name: "Salad - Ceasar", price: "59"},
-          //   {name: "Salad - Tuna", price: "59"},
-          //   {name: "Salad - Garden", price: "59"},
-          //   {name: "Seasoning French Fries", price: "60"},
-          //   {name: "Chicken Ceasar Wrap", price: "49"},
-          //   {name: "Superbowl", price: "99"},
-          //   {name: "Normal Fries", price: "55"},
-          //   {name: "Cheesy Fries", price: "65"},
         ]
       }
     },
     mounted() {
-      AXIOS.get('api/appetizers')
+      AXIOS.get('api/appetizer')
         .then(response => {
           this.menus = response.data
         })

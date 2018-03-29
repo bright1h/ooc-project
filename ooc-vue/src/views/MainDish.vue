@@ -71,7 +71,7 @@
       }
     },
     mounted() {
-      AXIOS.get('api/main_dishes')
+      AXIOS.get('api/main_dish')
         .then(response => {
           this.main_dish = response.data
         })

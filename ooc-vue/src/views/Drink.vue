@@ -92,11 +92,11 @@
       }
     },
     mounted() {
-      AXIOS.get('api/non_coffees')
+      AXIOS.get('api/non_coffee')
         .then(response => {
           this.non_coffee = response.data
         });
-      AXIOS.get('api/coffees')
+      AXIOS.get('api/coffee')
         .then(response => {
           this.coffee = response.data
         })

@@ -72,7 +72,7 @@
       }
     },
     mounted() {
-        AXIOS.get('api/desserts')
+        AXIOS.get('api/dessert')
         .then(response => {
             this.dessert = response.data
         })
