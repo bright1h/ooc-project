@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "name": "Fish and Chips",
+    "price": 65,
+    "menuType": {
+      "id": 1
+    },
+    "image": null
+  },
+  {
+    "id": 2,
+    "name": "Sausage Stick",
+    "price": 50,
+    "menuType": {
+      "id": 2
+    },
+    "image": null
+  },
+  {
+    "id": 3,
+    "name": "Holy Chick",
+    "price": 55,
+    "menuType": {
+      "id": 3
+    },
+    "image": null
+  },
+  {
+    "id": 4,
+    "name": "Salad  Caesar",
+    "price": 59,
+    "menuType": {
+      "id": 4
+    },
+    "image": null
+  },
+  {
+    "id": 5,
+    "name": "Salad Tuna",
+    "price": 59,
+    "menuType": {
+      "id": 5
+    },
+    "image": null
+  },
+  {
+    "id": 6,
+    "name": "Salad Garden",
+    "price": 59,
+    "menuType": {
+      "id": 6
+    },
+    "image": null
+  },
+  {
+    "id": 7,
+    "name": "Seasoning French Fries",
+    "price": 60,
+    "menuType": {
+      "id": 7
+    },
+    "image": null
+  },
+  {
+    "id": 8,
+    "name": "Chicken Caesar Wrap",
+    "price": 49,
+    "menuType": {
+      "id": 8
+    },
+    "image": null
+  },
+  {
+    "id": 9,
+    "name": "Superbowl",
+    "price": 99,
+    "menuType": {
+      "id": 9
+    },
+    "image": null
+  },
+  {
+    "id": 10,
+    "name": "Normal Fries",
+    "price": 55,
+    "menuType": {
+      "id": 10
+    },
+    "image": null
+  },
+  {
+    "id": 11,
+    "name": "Cheesy Fries",
+    "price": 65,
+    "menuType": {
+      "id": 11
+    },
+    "image": null
+  }
+]
