@@ -15,7 +15,7 @@
             <div class="row">
               <div class="col-md mt-2 mx-3">
                 
-                <form @submit.prevent="login()">
+                <form>
                   <div class="form-row">
                     <div class="form-group col-md">
                       <input type="text" class="form-control" v-model="email" placeholder="Email">
@@ -105,19 +105,6 @@
         password: '',
       }
     },
-    methods: {
-      login() {
-        this.$http.post("/api/auth", {
-          email: this.email,
-          password: this.password
-        })
-        .then(response => {
-          console.log(response.data)
-        })
-        .catch(e => {
-        })
-      }
-    }
   }
 </script>
 
