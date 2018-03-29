@@ -134,7 +134,6 @@
   import Header from "../components/Header";
   import AdminSideBar from "../components/AdminSideBar";
   import Footer from "../components/Footer";
-  import {AXIOS} from "../http-common";
 
   export default {
     name: "Menu",
@@ -149,23 +148,23 @@
       }
     },
     mounted() {
-      AXIOS.get('api/appetizer')
+      this.$http.get('api/appetizer')
         .then(response => {
           this.appetizer = response.data
         });
-      AXIOS.get('api/dessert')
+      this.$http.get('api/dessert')
         .then(response => {
           this.dessert = response.data
         });
-      AXIOS.get('api/coffee')
+      this.$http.get('api/coffee')
         .then(response => {
           this.coffee = response.data
         });
-      AXIOS.get('api/non_coffee')
+      this.$http.get('api/non_coffee')
         .then(response => {
           this.non_coffee = response.data
         });
-      AXIOS.get('api/main_dish')
+      this.$http.get('api/main_dish')
         .then(response => {
           this.main_dish = response.data
         });
