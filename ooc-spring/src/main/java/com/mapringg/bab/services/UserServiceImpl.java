@@ -5,6 +5,7 @@ import com.mapringg.bab.models.Customer;
 import com.mapringg.bab.models.User;
 import com.mapringg.bab.models.UserType;
 import com.mapringg.bab.repositories.CustomerRepository;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -37,6 +38,7 @@ public class UserServiceImpl implements UserService {
     public Customer add(String json) {
         Gson gson = new Gson();
         User user = gson.fromJson(json, User.class);
+        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
         user.setUserType(UserType.USER);
         customerRepository.save(user);
         return user;

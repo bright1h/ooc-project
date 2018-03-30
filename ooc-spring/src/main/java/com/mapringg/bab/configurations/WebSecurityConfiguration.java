@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.authentication.configuration.GlobalAuthenticationConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * @author mapring
@@ -25,7 +27,7 @@ public class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdap
 
     @Override
     public void init(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService());
+        auth.userDetailsService(userDetailsService()).passwordEncoder(Bcrypt());
     }
 
     @Bean
@@ -33,8 +35,8 @@ public class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdap
         return username -> {
             User user = customerRepository.findByEmail(username);
             if (user != null) {
-                return org.springframework.security.core.userdetails.User.withDefaultPasswordEncoder()
-                        .username(user.getEmail())
+                return org.springframework.security.core.userdetails.User
+                        .withUsername(user.getEmail())
                         .password(user.getPassword())
                         .roles(user.getUserType().toString())
                         .build();
@@ -42,5 +44,10 @@ public class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdap
                 throw new UsernameNotFoundException("Could not find the username: " + username);
             }
         };
+    }
+
+    @Bean
+    public PasswordEncoder Bcrypt() {
+        return new BCryptPasswordEncoder();
     }
 }
