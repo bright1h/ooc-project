@@ -25,29 +25,25 @@
             </div>
           </div>
           <div class="row border-bottom font-italic">
-            <div class="col-4 border-right ">
+            <div class="col-7 border-right ">
                 Name
-            </div>
-            <div class="col-3 border-right px-auto">
-                QTY
             </div>
             <div class="col-3 border-right">
                 Price
             </div>
+            <div class="col-2">
+            </div>
           </div>
           
-          <div class="row border-bottom" 
+          <div class="row" 
               v-bind:key="data.id"
               v-for="data in cart"
               style="font-size: 15px;">
-            <div class="col-4 border-right">
+            <div class="col-7 border-right pt-2">
                 {{data.name}}
             </div>
-            <div class="col-3 border-right">
-                {{data.sumQuantity}}
-            </div>
-            <div class="col-3 border-right">
-                {{data.sumPrice}} ฿
+            <div class="col-3 border-right pt-2">
+                {{data.price}} ฿
             </div> 
             <div class="col-2 my-1 ">
               <button type="submit" 
@@ -59,22 +55,29 @@
                           cancel: doNothing,
                           message: 'Do you want to remove ' +data.name+ ' from the list?',
                         }">
-                <i class="fa fa-minus"></i>
+                <i class="fa fa-times"></i>
 
               </button>
             </div>
           </div>
           
-          <div class="row border-top border-bottom">
-            <div class="col-4 pt-1 border-right font-italic">
-              Total : 
+          <div class="row border-top border-bottom mt-2   ">
+            <div class="col-7 pt-1 border-right font-italic">
+              Total Items: 
             </div>
 
-             <div class="col-3 pt-1 m-auto border-right">
+             <div class="col-5 pt-1 m-auto">
               {{quantity}}
             </div>
-            <div class="col-5 pt-1 m-auto">
-              {{total}} ฿
+          </div>
+
+          <div class="row border-top border-bottom">
+            <div class="col-7 pt-1 border-right font-italic">
+              Total Price: 
+            </div>
+
+             <div class="col-5 pt-1 m-auto ">
+              {{quantity}} ฿
             </div>
           </div>
           

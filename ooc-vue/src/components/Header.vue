@@ -93,17 +93,10 @@
       return {
         isAdmin : 0,
         isUser : 1,
-        isLogin : 1,
-        
-        message : 'this is a great message',
-      }
+        isLogin : 1,        
+     }
     },
-    methods : {
-      incQuantity(event){
-        this.quantity_value = event.target.value;
-        this.emit('valueChanged',this.quantity_value);
-      },
-    }
+   
   }
 </script>
 

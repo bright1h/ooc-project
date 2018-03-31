@@ -27,38 +27,19 @@ export const store = new Vuex.Store({
 
         addItem(state, addedItem ){
           var item = state.cart.find(item => item.id === addedItem.id);
-          if(!item){
-            var copyItem = Object.assign({},addedItem);
-            copyItem.sumQuantity = 1;
-            copyItem.sumPrice = addedItem.price;
-            state.cart.push(copyItem);
-          }
-          else{
-            item.sumQuantity++;
-            item.sumPrice+=addedItem.price;
-          }
+          state.cart.push(item);
           state.cartQuantity++;
           state.totalPrice += addedItem.price;
         },
 
-        removeItem(state, id){
+        removeItem(state, name){
           // console.log(removedItem.id)
-          var item = state.cart.find(item => item.id === id);
-          
-          // var item = state.cart.find(index);
-          // console.log(index);
-          if (item.sumQuantity ===1){
-            var index = state.cart.indexOf(item);
-            state.cart.splice(index,1);
-
-          }
-          else{
-            item.sumQuantity--;
-            item.sumPrice-=item.price;
-          }
-
+          var item = state.cart.find(item => item.name === name);         
+          var index = state.cart.indexOf(item);
+            
           state.cartQuantity--;
           state.totalPrice-=item.price;
+          state.cart.splice(index,1);
 
         
         },
