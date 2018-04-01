@@ -38,5 +38,4 @@ public class NonCoffee extends MenuType {
     public void setBlend(Boolean blend) {
         isBlend = blend;
     }
-
 }

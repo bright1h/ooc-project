@@ -1,6 +1,10 @@
 <template>
   <div class="dessert content">
+<<<<<<< HEAD
     <Header/>
+=======
+    <!-- <Header/> -->
+>>>>>>> origin/register
     <div class="container py-2">
 
       <div class="container float-right"></div>
@@ -19,13 +23,30 @@
             <div class="card-footer">
               <div class="d-flex w-100">
                 <div class="py-2 font-weight-bold text-light"> {{data.price}} ฿</div>
+<<<<<<< HEAD
                 <button class="btn btn-info p-auto ml-auto " data-toggle="modal" data-target="#myModal"> SELECT</button>
               </div>
+=======
+                <button type="submit"
+                        class="btn btn-info p-auto ml-auto "
+                        v-confirm="{
+                          ok: dialog => add(data),
+                          okText : 'Add',
+                          animation: 'fade',
+                          cancel: doNothing,
+                          message: 'Add to List?'
+                        }"
+                    >
+                   SELECT
+                </button>
+                </div>
+>>>>>>> origin/register
             </div>
           </div>
         </div>
       </div>
     </div>
+<<<<<<< HEAD
     <!-- The Modal -->
     <div class="modal fade" id="myModal">
       <div class="modal-dialog modal-dialog-centered">
@@ -53,18 +74,28 @@
       </div>
     </div>
     <Footer/>
+=======
+>>>>>>> origin/register
   </div>
 
 </template>
 
 <script>
+<<<<<<< HEAD
   import Header from '../components/Header'
   import Footer from '../components/Footer'
+=======
+  import { mapGetters } from 'vuex'
+  import { mapMutations } from 'vuex'
+>>>>>>> origin/register
   import {AXIOS} from '../http-common'
 
   export default {
     name: 'Dessert',
+<<<<<<< HEAD
     components: {Header, Footer},
+=======
+>>>>>>> origin/register
     data() {
       return {
         dessert: [
@@ -72,10 +103,27 @@
       }
     },
     mounted() {
+<<<<<<< HEAD
         AXIOS.get('api/dessert')
         .then(response => {
             this.dessert = response.data
         })
+=======
+        AXIOS.get('api/desserts')
+        .then(response => {
+            this.dessert = response.data
+        })
+    },
+    methods : {
+    ...mapMutations([
+      'addItem', 
+      ]),
+    ...mapMutations({
+      add: 'addItem', // map `this.add()` to `this.$store.commit('increment')`
+      
+      }),
+      doNothing(){}
+>>>>>>> origin/register
     }
 
   }

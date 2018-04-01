@@ -81,4 +81,8 @@ module.exports = {
     pluginOptions: {
         // ...
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/register
