@@ -1,10 +1,7 @@
 package com.mapringg.bab.services;
 
 import com.mapringg.bab.models.Menu;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RequestBody;
-=======
->>>>>>> origin/register
 
 import java.util.List;
 
@@ -13,11 +10,7 @@ import java.util.List;
  */
 public interface CoffeeService {
 
-<<<<<<< HEAD
     Menu add(@RequestBody String json);
 
     List<Menu> list();
-=======
-    List<Menu> getCoffees();
->>>>>>> origin/register
 }

@@ -1,6 +1,5 @@
 package com.mapringg.bab.services;
 
-<<<<<<< HEAD
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mapringg.bab.deserializers.NonCoffeeDeserializer;
@@ -8,11 +7,6 @@ import com.mapringg.bab.models.Menu;
 import com.mapringg.bab.models.NonCoffee;
 import com.mapringg.bab.repositories.MenuRepository;
 import com.mapringg.bab.repositories.MenuTypeRepository;
-=======
-import com.mapringg.bab.models.Menu;
-import com.mapringg.bab.models.NonCoffee;
-import com.mapringg.bab.repositories.MenuRepository;
->>>>>>> origin/register
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,7 +19,6 @@ import java.util.List;
 public class NonCoffeeServiceImpl implements NonCoffeeService {
 
     private MenuRepository menuRepository;
-<<<<<<< HEAD
     private MenuTypeRepository menuTypeRepository;
 
     public NonCoffeeServiceImpl(MenuRepository menuRepository, MenuTypeRepository menuTypeRepository) {
@@ -52,21 +45,5 @@ public class NonCoffeeServiceImpl implements NonCoffeeService {
         Menu menu = gson.fromJson(json, Menu.class);
         menuRepository.save(menu);
         return menu;
-=======
-
-    public NonCoffeeServiceImpl(MenuRepository menuRepository) {
-        this.menuRepository = menuRepository;
-    }
-
-    @Override
-    public List<Menu> getNonCoffees() {
-        List<Menu> coffeeList = new ArrayList<>();
-        for (Menu menu : menuRepository.findAll()) {
-            if (menu.getMenuType() instanceof NonCoffee) {
-                coffeeList.add(menu);
-            }
-        }
-        return coffeeList;
->>>>>>> origin/register
     }
 }

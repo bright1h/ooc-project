@@ -1,13 +1,16 @@
 package com.mapringg.bab.repositories;
 
 import com.mapringg.bab.models.Customer;
-import com.mapringg.bab.models.User;
 import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
 
 /**
  * @author mapring
  */
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
 
-    User findByEmail(String email);
+    Customer findByEmail(String email);
+
+    List<Customer> findAllByEmail(String email);
 }

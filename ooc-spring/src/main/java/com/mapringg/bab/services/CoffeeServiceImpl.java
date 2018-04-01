@@ -1,6 +1,5 @@
 package com.mapringg.bab.services;
 
-<<<<<<< HEAD
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mapringg.bab.deserializers.CoffeeDeserializer;
@@ -8,11 +7,6 @@ import com.mapringg.bab.models.Coffee;
 import com.mapringg.bab.models.Menu;
 import com.mapringg.bab.repositories.MenuRepository;
 import com.mapringg.bab.repositories.MenuTypeRepository;
-=======
-import com.mapringg.bab.models.Coffee;
-import com.mapringg.bab.models.Menu;
-import com.mapringg.bab.repositories.MenuRepository;
->>>>>>> origin/register
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,7 +19,6 @@ import java.util.List;
 public class CoffeeServiceImpl implements CoffeeService {
 
     private MenuRepository menuRepository;
-<<<<<<< HEAD
     private MenuTypeRepository menuTypeRepository;
 
     public CoffeeServiceImpl(MenuRepository menuRepository, MenuTypeRepository menuTypeRepository) {
@@ -35,15 +28,6 @@ public class CoffeeServiceImpl implements CoffeeService {
 
     @Override
     public List<Menu> list() {
-=======
-
-    public CoffeeServiceImpl(MenuRepository menuRepository) {
-        this.menuRepository = menuRepository;
-    }
-
-    @Override
-    public List<Menu> getCoffees() {
->>>>>>> origin/register
         List<Menu> coffeeList = new ArrayList<>();
         for (Menu menu : menuRepository.findAll()) {
             if (menu.getMenuType() instanceof Coffee) {
@@ -52,7 +36,6 @@ public class CoffeeServiceImpl implements CoffeeService {
         }
         return coffeeList;
     }
-<<<<<<< HEAD
 
     @Override
     public Menu add(String json) {
@@ -63,6 +46,4 @@ public class CoffeeServiceImpl implements CoffeeService {
         menuRepository.save(menu);
         return menu;
     }
-=======
->>>>>>> origin/register
 }

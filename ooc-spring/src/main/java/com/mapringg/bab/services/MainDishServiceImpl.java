@@ -1,6 +1,5 @@
 package com.mapringg.bab.services;
 
-<<<<<<< HEAD
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mapringg.bab.models.MainDish;
@@ -10,13 +9,6 @@ import com.mapringg.bab.repositories.MenuTypeRepository;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Modifier;
-=======
-import com.mapringg.bab.models.MainDish;
-import com.mapringg.bab.models.Menu;
-import com.mapringg.bab.repositories.MenuRepository;
-import org.springframework.stereotype.Service;
-
->>>>>>> origin/register
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +19,6 @@ import java.util.List;
 public class MainDishServiceImpl implements MainDishService {
 
     private MenuRepository menuRepository;
-<<<<<<< HEAD
     private MenuTypeRepository menuTypeRepository;
 
     public MainDishServiceImpl(MenuRepository menuRepository, MenuTypeRepository menuTypeRepository) {
@@ -58,21 +49,5 @@ public class MainDishServiceImpl implements MainDishService {
         menu.setMenuType(mainDish);
         menuRepository.save(menu);
         return menu;
-=======
-
-    public MainDishServiceImpl(MenuRepository menuRepository) {
-        this.menuRepository = menuRepository;
-    }
-
-    @Override
-    public List<Menu> getMainDishes() {
-        List<Menu> coffeeList = new ArrayList<>();
-        for (Menu menu : menuRepository.findAll()) {
-            if (menu.getMenuType() instanceof MainDish) {
-                coffeeList.add(menu);
-            }
-        }
-        return coffeeList;
->>>>>>> origin/register
     }
 }
