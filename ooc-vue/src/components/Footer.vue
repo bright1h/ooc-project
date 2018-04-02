@@ -42,9 +42,9 @@
       </div>
 
     </div>
-  </div>
-  <div class="footer-copyright-zone py-3 text-center text-light">
-    © 2018 Copyright: Brew & Bev
+    <div class="footer-copyright-zone py-3 text-center text-light">
+      © 2018 Copyright: Brew & Bev
+    </div>
   </div>
 </template>
 
