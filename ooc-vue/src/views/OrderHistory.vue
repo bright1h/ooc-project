@@ -1,6 +1,6 @@
 <template>
   <div class="order-history">
-    <Header/>
+    <!-- <Header/> -->
     <div class="container py-2">
       <div class="row border-bottom py-2">
         <h1 class="text-dark ">Order History</h1>
@@ -11,7 +11,7 @@
           <form class="form-inline">
             <div class="form-group mx-sm-3 mb-2">
               <label for="inputDate" class="sr-only">Date</label>
-              <input type="date" class="form-control" id="inputDate" v-bind:max="today">
+              <input type="date" class="form-control" id="inputDate">
             </div>
             <button type="submit" class="btn btn-primary mb-2">Search</button>
           </form>
@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-    <Footer/>
+    <!-- <Footer/> -->
   </div>
 </template>
 

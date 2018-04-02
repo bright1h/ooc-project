@@ -6,41 +6,36 @@
 
         <!--First column-->
         <div class="col-sm-6">
-          <h5 class="text-uppercase">Brew & Bev</h5>
-          <p>To be able to satisfy our valued customers in every possible way we can. We are here to make sure that the customers get what is feels like to be a customer, and we are here to ensure that our quality products and services will be delivered to our customers.</p>
-
+          <h5 class="text-uppercase font-weight-bold pt-2">Brew & Bev</h5>
+          <p>Here you can use rows and columns here to organize your footer content.</p>
+          
+          <div class="icon-circle my-1 pb-1">
+            <a href="https://www.facebook.com/brewnbev/" target="_blank" class="ifacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
+          </div>   
         </div>
         <!--/.First column-->
 
         <!--Second column-->
         <div class="col-sm-6">
-          <h5 class="text-uppercase">Contact Us</h5>
+          <h5 class="text-uppercase font-weight-bold pt-2">Contact Us</h5>
 
           <ul class="list-unstyled">
             <li class="">
-              Phone Number : 02-441-0098
+              Phone Number : 08-12345678
             </li>
             <li>
 
-              Email : brewandbev.muic@gmail.com
+              Email : test@website.com
             </li>
             <li>
-              Open Time : 7:30 - 18:00
+              Open Time : 8:00 - 17:00
             </li>
             <li>
               Location : Mahidol University
             </li>
           </ul>
-          <div class="icon-circle my-1 pb-1">
-            <a href="https://www.facebook.com/brewnbev/" target="_blank" class="ifacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
-          </div>
-          <!-- TODO Add Instagram icon http://instagram.com/brewnbev/ -->
-          <!--<div class="icon-circle my-1 pb-1">-->
-            <!--<a href="https://www.facebook.com/brewnbev/" target="_blank" title="Instagram"><i class="fa fa-facebook"></i></a>-->
-          <!--</div>-->
         </div>
-        <!--/.Second column-->
-
+      
     </div>
    </div>
   <div class="footer-copyright-zone py-3 text-center text-light">
@@ -57,9 +52,7 @@
 </script>
 
 <style>
-
-@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
-  .footer-copyright-zone {
+.footer-copyright-zone {
     background-color: #13254f;
     height: 50px;
   }
@@ -148,5 +141,5 @@
     color: #fff;
     border: 1px solid #3B5998;
   }
-
+ 
 </style>

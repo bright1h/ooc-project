@@ -1,6 +1,6 @@
 <template>
   <div class="drink content">
-    <Header/>
+    <!-- <Header/> -->
     <div class="container py-2">
 
       <div class="container float-right"></div>
@@ -19,7 +19,16 @@
             <div class="card-footer">
               <div class="d-flex w-100">
                 <div class="py-2 font-weight-bold text-light"> {{data.price}} ฿</div>
-                <button class="btn btn-info p-auto ml-auto " data-toggle="modal" data-target="#myModal"> SELECT</button>
+                <button type="submit"
+                        class="btn btn-info p-auto ml-auto "
+                        v-confirm="{
+                          ok: dialog => add(data),
+                          cancel: doNothing,
+                          message: 'Add to List?'
+                        }"
+                >
+                  SELECT
+                </button>
               </div>
             </div>
           </div>
@@ -40,50 +49,32 @@
             <div class="card-footer">
               <div class="d-flex w-100">
                 <div class="py-2 font-weight-bold text-light"> {{data.price}} ฿</div>
-                <button class="btn btn-info p-auto ml-auto " data-toggle="modal" data-target="#myModal"> SELECT</button>
+                <button type="submit"
+                        class="btn btn-info p-auto ml-auto "
+                        v-confirm="{
+                          ok: dialog => add(data),
+                          okText : 'Add',
+                          animation: 'fade',
+                          cancel: doNothing,
+                          message: 'Add to List?'
+                        }"
+                >
+                  SELECT
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- The Modal -->
-    <div class="modal fade" id="myModal">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">Add to list?</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-
-          <!-- Modal body
-          <div class="modal-body">
-            Modal body..
-          </div>
-           -->
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-success" data-dismiss="modal">Add</button>
-
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <Footer/>
   </div>
 </template>
 
 <script>
-  import Header from '../components/Header'
-  import Footer from '../components/Footer'
+  import {mapMutations} from 'vuex'
 
   export default {
     name: 'Drink',
-    components: {Header, Footer},
     data() {
       return {
         coffee: [],
@@ -91,14 +82,24 @@
       }
     },
     mounted() {
-      this.$http.get('api/non_coffees')
+      this.$http.get('api/non_coffee')
         .then(response => {
           this.non_coffee = response.data
         });
-      this.$http.get('api/coffees')
+      this.$http.get('api/coffee')
         .then(response => {
           this.coffee = response.data
         })
+    },
+    methods : {
+      ...mapMutations([
+        'addItem',
+      ]),
+      ...mapMutations({
+        add: 'addItem', // map `this.add()` to `this.$store.commit('increment')`
+
+      }),
+      doNothing(){}
     }
   }
 </script>
