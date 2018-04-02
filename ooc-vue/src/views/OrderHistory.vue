@@ -1,10 +1,6 @@
 <template>
   <div class="order-history">
-<<<<<<< HEAD
-    <Header/>
-=======
     <!-- <Header/> -->
->>>>>>> origin/register
     <div class="container py-2">
       <div class="row border-bottom py-2">
         <h1 class="text-dark ">Order History</h1>
@@ -15,11 +11,7 @@
           <form class="form-inline">
             <div class="form-group mx-sm-3 mb-2">
               <label for="inputDate" class="sr-only">Date</label>
-<<<<<<< HEAD
-              <input type="date" class="form-control" id="inputDate" v-bind:max="today">
-=======
               <input type="date" class="form-control" id="inputDate">
->>>>>>> origin/register
             </div>
             <button type="submit" class="btn btn-primary mb-2">Search</button>
           </form>
@@ -52,11 +44,7 @@
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-    <Footer/>
-=======
     <!-- <Footer/> -->
->>>>>>> origin/register
   </div>
 </template>
 
@@ -65,7 +53,6 @@
   import Header from "../components/Header";
   import Footer from "../components/Footer";
 
-<<<<<<< HEAD
   function getToday() {
     let today = new Date();
     let dd = today.getDate();
@@ -95,11 +82,6 @@
     created() {
       this.today = getToday();
     }
-=======
-  export default {
-    name: 'OrderHistory',
-    components: {Footer, Header, AdminSideBar}
->>>>>>> origin/register
   }
 </script>
 

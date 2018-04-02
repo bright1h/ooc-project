@@ -1,71 +1,8 @@
-<template>
-<<<<<<< HEAD
-  <div class="register">
-    <!-- <Header/> -->
-    <!-- <div class="container py-2"> -->
-      <!-- <div class="row border-bottom py-2">
-        <h1 class="text-dark ">Register</h1>
-      </div> -->
-      <div class="row pt-2">
-        <div class="col-md mt-2 mx-3">
-          <!-- <div class="border"> -->
-            <form>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <input type="text" class="form-control" placeholder="First name">
-                </div>
-                <div class="form-group col-md-6">
-                  <input type="text" class="form-control" placeholder="Last name">
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md">
-                  <input type="text" class="form-control" placeholder="Phone number">
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md">
-                  <input type="email" class="form-control" placeholder="Email">
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md">
-                  <input type="password" class="form-control" placeholder="Password">
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md">
-                  <input type="password" class="form-control" placeholder="Confirm password">
-                </div>
-              </div>
-              <div class="form-footer ">
-                <button type="button" class="btn btn-primary">Register</button>
-              </div>
-            </form>
-          <!-- </div> -->
-        </div>
-      </div>
-    </div>
-    <!-- <Footer/> -->
-  <!-- </div> -->
-</template>
-
-<script>
-  import Header from "./Header";
-  import Footer from "./Footer";
-
-  export default {
-    name: "Register",
-    components: {Footer, Header}
-  };
-</script>
-
-<style scoped>
-=======
+<template xmlns:v-validate="http://www.w3.org/1999/xhtml">
 <div class="register">
 
   <a class="nav-link text-light" data-toggle="modal" data-target="#register-modal">Register</a>
-         
+
   <div class="modal fade" id="register-modal">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -84,22 +21,22 @@
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <input type="text"
-                              class="form-control" 
-                              placeholder="First Name" 
-                              name="first name"
-                              v-validate="'required|alpha'"
-                              v-model="fName">
+                               class="form-control"
+                               placeholder="First Name"
+                               name="first name"
+                               v-validate="'required|alpha'"
+                               v-model="fName">
                         <span v-if="errors.has('first name')">
                           <p class="alert alert-warning py-0 text-left my-1">{{errors.first('first name')}}</p>
                         </span>
                       </div>
                       <div class="form-group col-md-6">
-                        <input type="text" 
-                              class="form-control"
-                              placeholder="Last Name"
-                              name="last name"
-                              v-validate ="'required|alpha'" 
-                              v-model="lName" >
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Last Name"
+                               name="last name"
+                               v-validate="'required|alpha'"
+                               v-model="lName">
                         <span v-if="errors.has('last name')">
                           <p class="alert alert-warning py-0 text-left my-1">{{errors.first('last name')}}</p>
                         </span>
@@ -108,12 +45,12 @@
 
                     <div class="form-row">
                       <div class="form-group col-md">
-                        <input type="email" 
-                              class="form-control" 
-                              placeholder="Email"
-                              name="email" 
-                              v-model="email"
-                              v-validate:email="'required|email'">
+                        <input type="email"
+                               class="form-control"
+                               placeholder="Email"
+                               name="email"
+                               v-model="email"
+                               v-validate:email="'required|email'">
                         <span v-if="errors.has('email')">
                           <p class="alert alert-warning py-0 text-left my-1">{{errors.first('email')}}</p>
                         </span>
@@ -122,26 +59,26 @@
 
                     <div class="form-row">
                       <div class="form-group col-md">
-                        <input type="text" 
-                              class="form-control" 
-                              placeholder="Mobile Number" 
-                              name="mobile number"
-                              v-validate="'required|digits:10'"
-                              v-model="phoneNo" >
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Mobile Number"
+                               name="mobile number"
+                               v-validate="'required|digits:10'"
+                               v-model="phoneNo">
                         <span v-if="errors.has('mobile number')">
                           <p class="alert alert-warning py-0 text-left my-1">{{errors.first('mobile number')}}</p>
                         </span>
                       </div>
                     </div>
-                    
+
                     <div class="form-row">
                       <div class="form-group col-md">
-                        <input type="password" 
-                              class="form-control" 
-                              placeholder="Password"
-                              name="password" 
-                              v-validate="'required'"
-                              v-model="pwd" >
+                        <input type="password"
+                               class="form-control"
+                               placeholder="Password"
+                               name="password"
+                               v-validate="'required'"
+                               v-model="pwd">
                         <span v-if="errors.has('password')">
                           <p class="alert alert-warning py-0 text-left my-1">{{errors.first('password')}}</p>
                         </span>
@@ -149,17 +86,17 @@
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md">
-                        <input type="password" 
-                              class="form-control" 
-                              placeholder="Confirmed Password" 
-                              name="confirmed password"
-                              v-validate="'required|confirmed:password'"
-                              v-model="cPwd" >
+                        <input type="password"
+                               class="form-control"
+                               placeholder="Confirmed Password"
+                               name="confirmed password"
+                               v-validate="'required|confirmed:password'"
+                               v-model="cPwd">
                         <span v-if="errors.has('confirmed password')">
                           <p class="alert alert-warning py-0 text-left my-1">{{errors.first('confirmed password')}}</p>
                         </span>
                       </div>
-                      
+
                     </div>
                     <div class="form-footer ">
                       <button class="btn btn-primary">Register</button>
@@ -184,9 +121,9 @@
   import {AXIOS} from '../http-common'
 
   export default {
-    
+
     name: "Register",
-    
+
 
     data() {
       return {
@@ -241,8 +178,8 @@
           alert('Please fill all required fields correctly');
         });
 
-        
-        }
+
+      }
       }
     }
 
@@ -251,8 +188,7 @@
 <style scoped>
   .alert{
     font-size: 10px;
-     
+
   }
->>>>>>> origin/register
 </style>
 

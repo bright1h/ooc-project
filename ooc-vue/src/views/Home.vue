@@ -1,10 +1,6 @@
 <template>
   <div class="home content">
-<<<<<<< HEAD
-    <Header/>
-=======
     <!-- <Header/> -->
->>>>>>> origin/register
     <div class="container py-2">
       <div class="row border-bottom py-2">
         <h1 class="text-dark ">News</h1>
@@ -12,18 +8,14 @@
       <div class="row py-4">
         <div class="col">
 
-         <Carousel/>
+          <Carousel/>
         </div>
       </div>
-  
-      
+
+
     </div>
-<<<<<<< HEAD
-        <Footer/>
-=======
-        <!-- <Footer/> -->
->>>>>>> origin/register
-      
+    <!-- <Footer/> -->
+
   </div>
 
 </template>
@@ -35,11 +27,7 @@
 
   export default {
     name: 'Home',
-<<<<<<< HEAD
-    components: {Carousel, Header, Footer}
-=======
     components: {Carousel, Header, Footer},
->>>>>>> origin/register
   }
 </script>
 

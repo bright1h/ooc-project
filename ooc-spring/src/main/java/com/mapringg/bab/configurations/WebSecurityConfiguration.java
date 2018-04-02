@@ -31,7 +31,7 @@ public class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdap
     @Bean
     UserDetailsService userDetailsService() {
         return username -> {
-            User user = customerRepository.findByEmail(username);
+            User user = (User) customerRepository.findByEmail(username);
             if (user != null) {
                 return org.springframework.security.core.userdetails.User.withDefaultPasswordEncoder()
                         .username(user.getEmail())
