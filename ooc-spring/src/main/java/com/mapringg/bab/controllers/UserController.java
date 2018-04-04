@@ -41,7 +41,7 @@ public class UserController {
             loginResponse.setMessage("error");
         }
         else {
-            loginResponse.setId(user.getId());
+            loginResponse.setEmail(user.getEmail());
             loginResponse.setUserType(user.getUserType().toString());
             loginResponse.setMessage("success");
         }

@@ -106,7 +106,11 @@
     data() {
       return {
         email: '',
-        password: ''
+        password: '',
+        auth: {
+          email: '',
+          userType: ''
+        }
       }
     },
     methods: {
@@ -125,8 +129,10 @@
           }
         })
         .then(response => {
-          window.location.href="/"
-          console.log("success")
+          // window.location.href="/"
+          this.auth = response.data;
+          console.log("success");
+          console.log(this.auth);
         })
         .catch(e => {
           console.log("fail");
