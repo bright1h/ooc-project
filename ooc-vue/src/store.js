@@ -15,6 +15,8 @@ export const store = new Vuex.Store({
         cart : [],
         totalPrice : 0,
         checkoutStatus : 0,
+        email: '',
+        userType: ''
       },
       plugins: [createPersistedState({
         storage: {
@@ -48,5 +50,10 @@ export const store = new Vuex.Store({
           state.cartQuantity=0;
           state.totalPrice=0;
         },
+
+        setAuth(state, email, userType) {
+          state.email = email,
+          state.userType = userType
+        }
       },
 });

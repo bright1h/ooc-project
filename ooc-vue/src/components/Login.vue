@@ -100,18 +100,13 @@
 </template>
 
 <script>
-
+  import {mapMutations} from "vuex"
   export default {
     name: "Login",
     data() {
       return {
         email: '',
-        password: '',
-        res: {
-          id: '',
-          userType: '',
-          message: ''
-        }
+        password: ''
       }
     },
     methods: {
@@ -130,19 +125,20 @@
           }
         })
         .then(response => {
-          if (response.status == 200) {
-            this.res = response.data
-            window.location.href="/";
-          }
-          else {
-          }
-          this.resetForm();
-          console.log(this.res.message);
+          window.location.href="/"
+          console.log("success")
         })
         .catch(e => {
           console.log("fail");
+          alert("Login failed")
         })
+        this.resetForm();
       }
+    },
+    computed: {
+      ...mapMutations([
+        'setAuth'
+      ]),
     }
   };
 </script>
