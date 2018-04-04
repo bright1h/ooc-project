@@ -26,7 +26,7 @@ public class UserController {
     @PostMapping(path = "/add")
     public ResponseEntity<String> add(@RequestBody String json) {
         if (userService.add(json) == null) {
-            return ResponseEntity.badRequest().body("Email already exist");
+            return ResponseEntity.badRequest().body("Email already existed");
         }
         else {
             return ResponseEntity.ok("Registered");
