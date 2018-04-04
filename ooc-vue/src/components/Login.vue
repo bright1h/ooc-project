@@ -20,12 +20,28 @@
                 <form @submit.prevent="login()">
                   <div class="form-row">
                     <div class="form-group col-md">
-                      <input type="text" class="form-control" v-model="email" placeholder="Email">
+                      <input type="text"
+                            class="form-control"
+                            v-model="email"
+                            v-validate:email="'required|email'"
+                            name="email"
+                            placeholder="Email">
+                        <span v-if="errors.has('email')">
+                          <p class="alert alert-warning py-0 text-left my-1">{{errors.first('email')}}</p>
+                        </span>
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md">
-                      <input type="password" class="form-control" v-model="password" placeholder="Password">
+                      <input type="password"
+                            class="form-control"
+                            v-model="password"
+                            v-validate="'required'"
+                            name="password"
+                            placeholder="Password">
+                          <span v-if="errors.has('password')">
+                          <p class="alert alert-warning py-0 text-left my-1">{{errors.first('password')}}</p>
+                        </span>
                     </div>
                   </div>
 
@@ -119,26 +135,31 @@
         this.password = ''
       },
       login() {
-        this.$http.post('/user/login', {
-          email: this.email
-        },
-        {
-          auth: {
-            username: this.email,
-            password: this.password
+        this.$validator.validateAll().then((result) => {
+          if (result) {
+            this.$http.post('/user/login', {
+              email: this.email
+            },
+            {
+              auth: {
+                username: this.email,
+                password: this.password
+              }
+            })
+            .then(response => {
+              window.location.href="/"
+              this.auth = response.data;
+              console.log("success");
+              console.log(this.auth);
+            })
+            .catch(e => {
+              console.log("fail");
+              alert("Login failed")
+            })
+            this.resetForm();
+            return;
           }
-        })
-        .then(response => {
-          // window.location.href="/"
-          this.auth = response.data;
-          console.log("success");
-          console.log(this.auth);
-        })
-        .catch(e => {
-          console.log("fail");
-          alert("Login failed")
-        })
-        this.resetForm();
+        });
       }
     },
     computed: {
@@ -146,9 +167,13 @@
         'setAuth'
       ]),
     }
-  };
+  }
 </script>
 
 <style scoped>
+  .alert{
+    font-size: 10px;
+     
+  }
 </style>
 
