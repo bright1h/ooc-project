@@ -107,24 +107,40 @@
       return {
         email: '',
         password: '',
-        message: ''
+        res: {
+          id: '',
+          userType: '',
+          message: ''
+        }
       }
     },
     methods: {
+      resetForm() {
+        this.email = '',
+        this.password = ''
+      },
       login() {
         this.$http.post('/user/login', {
-          email: this.email,
+          email: this.email
+        },
+        {
           auth: {
             username: this.email,
             password: this.password
           }
         })
         .then(response => {
-          this.message = response.data
-          console.log(message);
+          if (response.status == 200) {
+            this.res = response.data
+            window.location.href="/";
+          }
+          else {
+          }
+          this.resetForm();
+          console.log(this.res.message);
         })
         .catch(e => {
-
+          console.log("fail");
         })
       }
     }
