@@ -17,15 +17,15 @@
           <div class="modal-body">
             <div class="row">
               <div class="col-md mt-2 mx-3">
-                <form>
+                <form @submit.prevent="login()">
                   <div class="form-row">
                     <div class="form-group col-md">
-                      <input type="text" class="form-control" placeholder="Email or Phone Number">
+                      <input type="text" class="form-control" v-model="email" placeholder="Email">
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md">
-                      <input type="password" class="form-control" placeholder="Password">
+                      <input type="password" class="form-control" v-model="password" placeholder="Password">
                     </div>
                   </div>
 
@@ -34,7 +34,7 @@
                             <div class="col-md">
                                 <div class="d-flex">
                                     <div class="pt-1">
-                                      <button type="button" class="btn btn-primary">Login</button>
+                                      <button class="btn btn-primary">Login</button>
                                     </div>
                                     <div class="pt-2 pl-3">
                                       <u class="text-primary" data-toggle="modal" data-dismiss="modal" data-target="#myForgotPassword">Forgot your Password?</u>
@@ -80,7 +80,7 @@
                               <button type="button" class="btn btn-primary">Submit</button>
                             </div>
                             <div class="pt-1 pl-2">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                           </div>
                         </div>
@@ -103,6 +103,31 @@
 
   export default {
     name: "Login",
+    data() {
+      return {
+        email: '',
+        password: '',
+        message: ''
+      }
+    },
+    methods: {
+      login() {
+        this.$http.post('/user/login', {
+          email: this.email,
+          auth: {
+            username: this.email,
+            password: this.password
+          }
+        })
+        .then(response => {
+          this.message = response.data
+          console.log(message);
+        })
+        .catch(e => {
+
+        })
+      }
+    }
   };
 </script>
 

@@ -22,12 +22,12 @@
         <div class="collapse navbar-collapse flex-row-reverse" id="collapsibleNavbar">
 
           <ul class="navbar-nav font-weight-bold ml-auto">
-            <li class="nav-item " v-if="!isLogin">
+            <!-- <li class="nav-item " v-if="!isLogin"> -->
               <Login/>
-            </li>
-            <li class="nav-item " v-if="!isLogin">
+            <!-- </li> -->
+            <!-- <li class="nav-item " v-if="!isLogin"> -->
               <Register/>
-            </li>
+            <!-- </li> -->
             <!-- User -->
             <li class="nav-item dropdown" v-if="isUser ">
               <a class="nav-link dropdown-toggle text-light " href="#" id="navbardrop" data-toggle="dropdown">
