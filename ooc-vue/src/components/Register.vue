@@ -25,7 +25,7 @@
                                placeholder="First Name"
                                name="first name"
                                v-validate="'required|alpha'"
-                               v-model="fName">
+                               v-model="firstName">
                         <span v-if="errors.has('first name')">
                           <p class="alert alert-warning py-0 text-left my-1">{{errors.first('first name')}}</p>
                         </span>
@@ -36,7 +36,7 @@
                                placeholder="Last Name"
                                name="last name"
                                v-validate="'required|alpha'"
-                               v-model="lName">
+                               v-model="lastName">
                         <span v-if="errors.has('last name')">
                           <p class="alert alert-warning py-0 text-left my-1">{{errors.first('last name')}}</p>
                         </span>
@@ -64,7 +64,7 @@
                                placeholder="Mobile Number"
                                name="mobile number"
                                v-validate="'required|digits:10'"
-                               v-model="phoneNo">
+                               v-model="mobilePhone">
                         <span v-if="errors.has('mobile number')">
                           <p class="alert alert-warning py-0 text-left my-1">{{errors.first('mobile number')}}</p>
                         </span>
@@ -78,7 +78,7 @@
                                placeholder="Password"
                                name="password"
                                v-validate="'required'"
-                               v-model="pwd">
+                               v-model="password">
                         <span v-if="errors.has('password')">
                           <p class="alert alert-warning py-0 text-left my-1">{{errors.first('password')}}</p>
                         </span>
@@ -91,7 +91,7 @@
                                placeholder="Confirmed Password"
                                name="confirmed password"
                                v-validate="'required|confirmed:password'"
-                               v-model="cPwd">
+                               v-model="checkPassword">
                         <span v-if="errors.has('confirmed password')">
                           <p class="alert alert-warning py-0 text-left my-1">{{errors.first('confirmed password')}}</p>
                         </span>
@@ -126,12 +126,12 @@
 
     data() {
       return {
-        fName : "",
-        lName : "",
+        firstName : "",
+        lastName : "",
         email : "",
-        phoneNo : "",
-        pwd : "",
-        cPwd : "",
+        mobilePhone : "",
+        password : "",
+        checkPassword : "",
         message : ""
       }
     },
@@ -139,12 +139,12 @@
     methods :{
 
       resetForm(){
-        this.fName ="",
-        this.lName ="",
+        this.firstName ="",
+        this.lastName ="",
         this.email ="",
-        this.phoneNo = "",
-        this.pwd = "",
-        this.cPwd = ""
+        this.mobilePhone = "",
+        this.password = "",
+        this.checkPassword = ""
         this.message = ""
       },
 
@@ -152,26 +152,30 @@
         this.$validator.validateAll().then((result) => {
           if (result){
             alert('Your form is submitted')
-            AXIOS.post(`/api/register`,{
-              fName : this.fName,
-              lName : this.lName,
+            this.$http.post(`/user/add`,{
+              firstName : this.firstName,
+              lastName : this.lastName,
               email : this.email,
-              phoneNo : this.phoneNo,
-              pwd : this.pwd,
-              cPwd : this.cPwd,
+              mobilePhone : this.mobilePhone,
+              password : this.password
             })
             .then(response => {
+              
               this.message  = response.data
               // const status = JSON.parse(response.data.response.status);
-              console.log(this.message)
-              // console.log(status);
-              if ( this.message == 'Register Successfully') {
-                alert(this.message);
-                this.resetForm();
-                window.location.href="/" ;
+              console.log(this.message);
+              if (this.message == "fail") {
+                this.email = '';
+                alert("Email alreay existed");
+              }
+              else {
+                window.location.href="/";
+                alert("Register successful");
               }
             })
-            .catch(e =>{})
+            .catch(e =>{
+              console.log(e);
+            })
             return;
           }
           alert('Please fill all required fields correctly');
