@@ -11,10 +11,11 @@
           <img src="../assets/logo.png" alt="Logo" class="rounded-circle" style="width:40px;">
           Bev
         </a>
-
-
+        <div>
+          
+        </div>
         <!-- Toggler/collapsibe Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -22,14 +23,14 @@
         <div class="collapse navbar-collapse flex-row-reverse" id="collapsibleNavbar">
 
           <ul class="navbar-nav font-weight-bold ml-auto">
-            <li class="nav-item " v-if="!isLogin">
+            <li class="nav-item pt-1" v-if="!isLogin">
               <Login/>
             </li>
-            <li class="nav-item " v-if="!isLogin">
+            <li class="nav-item pt-1" v-if="!isLogin">
               <Register/>
             </li>
             <!-- User -->
-            <li class="nav-item dropdown" v-if="isUser ">
+            <li class="nav-item dropdown pt-1" v-if="isUser ">
               <a class="nav-link dropdown-toggle text-light " href="#" id="navbardrop" data-toggle="dropdown">
                 <!-- Change to {{User}} after done  login -->
                 User
@@ -39,7 +40,7 @@
                 <a class="dropdown-item" href="#">Logout</a>
               </div>
             </li>
-            <li class="nav-item dropdown" v-if="isAdmin">
+            <li class="nav-item dropdown pt-1" v-if="isAdmin">
               <a class="nav-link dropdown-toggle text-light " href="#" id="navbardrop" data-toggle="dropdown">
                 <!-- Change to {{User}} after done  login -->
                 Admin
@@ -68,8 +69,8 @@
               <router-link class="nav-link text-light" to="/drink">Drink</router-link>
             </li>
 
-            <li class="nav-item px-2">
-              <router-link class="nav-link text-light" to="/main_dish">Main Dish</router-link>
+            <li class="nav-item px-1">
+              <router-link class="nav-link text-light" to="/main_dish">MainDish</router-link>
             </li>
           </ul>
 
@@ -92,8 +93,8 @@
     data(){
       return {
         isAdmin : 0,
-        isUser : 1,
-        isLogin: 1,
+        isUser : 0,
+        isLogin: 0,
       }
     },
 

@@ -1,12 +1,10 @@
 <template>
-  <div class="menu content">
-    <Header/>
-    <div class="container py-2">
-      <div class="row border-bottom py-2">
+  <div class="menu">
+    <div class="container">
+      <div class="row border-bottom py-1">
         <h1 class="text-dark ">Menu</h1>
       </div>
       <div class="row my-4">
-        <AdminSideBar/>
         <div class="col">
           <nav class="nav nav-tabs">
             <a data-toggle="tab" class="nav-link active" href="#appetizer">Appetizer</a>
@@ -126,19 +124,14 @@
         </div>
       </div>
     </div>
-    <Footer/>
   </div>
 </template>
 
 <script>
-  import Header from "../components/Header";
-  import AdminSideBar from "../components/AdminSideBar";
-  import Footer from "../components/Footer";
   import {AXIOS} from "../http-common";
 
   export default {
     name: "Menu",
-    components: {Footer, AdminSideBar, Header},
     data() {
       return {
         appetizer: [],

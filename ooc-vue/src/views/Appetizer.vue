@@ -58,7 +58,7 @@
       }
     },
     mounted() {
-      AXIOS.get('api/appetizer')
+      AXIOS.get('/api/appetizer')
         .then(response => {
           this.menus = response.data
         })

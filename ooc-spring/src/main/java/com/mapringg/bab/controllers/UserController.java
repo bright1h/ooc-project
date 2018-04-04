@@ -19,8 +19,9 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping(path = "/add")
+    @PostMapping(path = "/register")
     public Customer add(@RequestBody String json) {
+        System.out.println(json);
         return userService.add(json);
     }
 

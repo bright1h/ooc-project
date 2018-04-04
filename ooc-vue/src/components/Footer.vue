@@ -6,14 +6,14 @@
 
         <!--First column-->
         <div class="col-sm-6">
-          <h5 class="text-uppercase">Brew & Bev</h5>
+          <h5 class="text-uppercase font-weight-bold pt-2">Brew & Bev</h5>
           <p>To be able to satisfy our valued customers in every possible way we can. We are here to make sure that the customers get what is feels like to be a customer, and we are here to ensure that our quality products and services will be delivered to our customers.</p>
 
         </div>
 
         <!--Second column-->
         <div class="col-sm-6">
-          <h5 class="text-uppercase">Contact Us</h5>
+          <h5 class="text-uppercase font-weight-bold pt-2">Contact Us</h5>
 
           <ul class="list-unstyled">
             <li class="">
@@ -40,11 +40,11 @@
         </div>
         <!--/.Second column-->
       </div>
-
     </div>
-  </div>
+
   <div class="footer-copyright-zone py-3 text-center text-light">
     © 2018 Copyright: Brew & Bev
+  </div>
   </div>
 </template>
 
@@ -59,7 +59,7 @@
 
   @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
   .footer-copyright-zone {
-  >>> >>> > origin / register background-color: #13254f;
+    background-color: #13254f;
     height: 50px;
   }
   .footer {
@@ -67,7 +67,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 210px;
+    height: 220px;
     background-color: #0d47a1;
   }
   .footer-bg{

@@ -153,7 +153,7 @@
         this.$validator.validateAll().then((result) => {
           if (result){
             alert('Your form is submitted')
-            AXIOS.post(`/api/register`,{
+            AXIOS.post(`/api/user/register`,{
               fName : this.fName,
               lName : this.lName,
               email : this.email,
@@ -165,6 +165,7 @@
               this.message  = response.data
               // const status = JSON.parse(response.data.response.status);
               console.log(this.message)
+              alert(this.message);
               // console.log(status);
               if ( this.message == 'Register Successfully') {
                 alert(this.message);

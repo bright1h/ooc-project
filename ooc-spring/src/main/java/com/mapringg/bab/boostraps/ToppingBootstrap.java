@@ -29,6 +29,10 @@ public class ToppingBootstrap implements CommandLineRunner {
 
     private void initData() {
 
+
+        Topping noTopping = new Topping(ToppingType.NO_TOPPING, 0);
+        toppingRepository.save(noTopping);
+
         Topping caramel = new Topping(ToppingType.CARAMEL, 10);
         toppingRepository.save(caramel);
 

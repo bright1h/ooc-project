@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <a class="nav-link text-light text-light" data-toggle="modal" data-target="#login-modal">Login</a>
+    <a class="nav-link text-light" data-toggle="modal" data-target="#login-modal">Login</a>
 
 
     <div class="modal fade" id="login-modal">
