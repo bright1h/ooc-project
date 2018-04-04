@@ -13,4 +13,6 @@ public interface UserService {
     List<Customer> list();
 
     Customer add(@RequestBody String json);
+
+    Customer getUser(String json);
 }

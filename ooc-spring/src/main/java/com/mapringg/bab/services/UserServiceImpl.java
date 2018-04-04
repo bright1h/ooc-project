@@ -5,6 +5,8 @@ import com.mapringg.bab.models.Customer;
 import com.mapringg.bab.models.User;
 import com.mapringg.bab.models.UserType;
 import com.mapringg.bab.repositories.CustomerRepository;
+import com.mapringg.bab.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
@@ -17,16 +19,20 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private CustomerRepository customerRepository;
+    private UserRepository userRepository;
 
-    public UserServiceImpl(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
+    private final Gson gson;
+
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository, Gson gson) {
+        this.userRepository = userRepository;
+        this.gson = gson;
     }
 
     @Override
     public List<Customer> list() {
         List<Customer> userList = new ArrayList<>();
-        for (Customer customer : customerRepository.findAll()) {
+        for (Customer customer : userRepository.findAll()) {
             if (customer instanceof User) {
                 userList.add(customer);
             }
@@ -36,11 +42,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Customer add(String json) {
-        Gson gson = new Gson();
         User user = gson.fromJson(json, User.class);
+        if (userRepository.existsByEmail(user.getEmail())) {
+            return null;
+        }
         user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
         user.setUserType(UserType.USER);
-        customerRepository.save(user);
+        userRepository.save(user);
         return user;
+    }
+
+    public Customer getUser(String json) {
+        User user = gson.fromJson(json, User.class);
+        if (!userRepository.existsByEmail(user.getEmail())) {
+            return null;
+        }
+        return userRepository.findByEmail(user.getEmail());
     }
 }

@@ -16,8 +16,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/api/**").permitAll()
-                .anyRequest().fullyAuthenticated().and().
-                httpBasic().and().
-                csrf().disable();
+                .antMatchers("/user/add").permitAll()
+                .antMatchers("/user/all").hasRole("ADMIN")
+                .antMatchers("/user/login").authenticated().and()
+                .httpBasic().and()
+                .csrf().disable()
+                .cors();
     }
 }
