@@ -8,7 +8,6 @@ import Drink from './views/Drink'
 import Dessert from './views/Dessert'
 import Appetizer from './views/Appetizer'
 import MainDish from './views/MainDish'
-import Register from './components/Register'
 import Profile from './views/Profile'
 import Checkout from './views/CheckOut'
 import Menu from './views/Menu'
@@ -60,11 +59,7 @@ export default new Router({
       component: MainDish
     },
 
-    {
-      path: '/register',
-      name: 'register',
-      component: Register
-    },
+    
     {
       path: '/profile',
       name: 'profile',

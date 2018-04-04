@@ -2,9 +2,6 @@
   <div class="drink content">
     <!-- <Header/> -->
     <div class="container py-2">
-
-      <div class="container float-right"></div>
-
       <div class="row border-bottom py-2">
         <h1 class="text-dark ">Coffee</h1>
       </div>

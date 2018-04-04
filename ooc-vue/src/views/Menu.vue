@@ -1,128 +1,152 @@
 <template>
-  <div class="menu">
+  <div class="menu p-2 rounded"
+  style="
+    background-color: #ffffff;">
     <div class="container">
+
       <div class="row border-bottom py-1">
-        <h1 class="text-dark ">Menu</h1>
-      </div>
-      <div class="row my-4">
+        <div class="col-2">
+          
+         <h1 class="text-dark ">Menu</h1>
+        </div>
         <div class="col">
-          <nav class="nav nav-tabs">
-            <a data-toggle="tab" class="nav-link active" href="#appetizer">Appetizer</a>
-            <a data-toggle="tab" class="nav-link" href="#dessert">Dessert</a>
-            <a data-toggle="tab" class="nav-link" href="#coffee">Coffee</a>
-            <a data-toggle="tab" class="nav-link" href="#non_coffee">Non Coffee</a>
-            <a data-toggle="tab" class="nav-link mr-auto" href="#main_dish">Main Dish</a>
-            <button class="btn btn-primary mr-5">Add Menu</button>
+           <nav class="nav nav-tabs ">
+            <a data-toggle="tab" class="nav-link col active" href="#appetizer">Appetizer</a>
+            <a data-toggle="tab" class="nav-link col" href="#dessert">Dessert</a>
+            <a data-toggle="tab" class="nav-link col" href="#coffee">Coffee</a>
+            <a data-toggle="tab" class="nav-link col" href="#non_coffee">Non Coffee</a>
+            <a data-toggle="tab" class="nav-link col" href="#main_dish">Main Dish</a>
+              <!-- <button class="btn btn-primary mr-5">Add Menu</button> -->
           </nav>
-          <div class="tab-content">
-            <div id="appetizer" class="tab-pane fade show active">
-              <table class="table">
-                <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Menu Type</th>
-                  <th>Image</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-bind:key="index" v-for="(data, index) in appetizer">
-                  <td>{{data.name}}</td>
-                  <td>{{data.price}}</td>
-                  <td>Appetizer</td>
-                  <td>null</td>
-                  <td><button class="btn btn-primary">Edit</button></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-            <div id="dessert" class="tab-pane fade">
-              <table class="table">
-                <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Menu Type</th>
-                  <th>Image</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-bind:key="index" v-for="(data, index) in dessert">
-                  <td>{{data.name}}</td>
-                  <td>{{data.price}}</td>
-                  <td>Dessert</td>
-                  <td>null</td>
-                  <td><button class="btn btn-primary">Edit</button></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-            <div id="coffee" class="tab-pane fade">
-              <table class="table">
-                <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Menu Type</th>
-                  <th>Image</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-bind:key="index" v-for="(data, index) in coffee">
-                  <td>{{data.name}}</td>
-                  <td>{{data.price}}</td>
-                  <td>Coffee</td>
-                  <td>null</td>
-                  <td><button class="btn btn-primary">Edit</button></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-            <div id="non_coffee" class="tab-pane fade">
-              <table class="table">
-                <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Menu Type</th>
-                  <th>Image</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-bind:key="index" v-for="(data, index) in non_coffee">
-                  <td>{{data.name}}</td>
-                  <td>{{data.price}}</td>
-                  <td>Non Coffee</td>
-                  <td>null</td>
-                  <td><button class="btn btn-primary">Edit</button></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-            <div id="main_dish" class="tab-pane fade">
-              <table class="table">
-                <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Menu Type</th>
-                  <th>Image</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-bind:key="index" v-for="(data, index) in main_dish">
-                  <td>{{data.name}}</td>
-                  <td>{{data.price}}</td>
-                  <td>Main Dish</td>
-                  <td>null</td>
-                  <td><button class="btn btn-primary">Edit</button></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
         </div>
       </div>
+
+
+      <div class="row" >
+        <div class="col">
+          
+          <div class="tab-content">
+
+            <div class="row border-bottom py-2 mx-auto">
+              <div class="col-5 border-right">
+                <th>Name</th>
+              </div>
+              <div class="col-2 border-right">
+                <th>Price</th>
+              </div>
+              <div class="col-3 border-right">
+                <th>Image</th>
+              </div>
+              <div class="col-2">
+                <button class="btn btn-sm btn-success"><i class="fa fa-plus"></i> </button>
+              </div>
+            </div>
+
+            <div id="appetizer" class="tab-pane fade show active">
+                <div class="row py-1" v-bind:key="index" v-for="(data, index) in appetizer">
+                  <div class="col-5">
+                    <td>{{data.name}}</td>
+                  </div>
+                  <div class="col-2">
+
+                    <td>{{data.price}} ฿</td>
+                  </div>
+                  <div class="col-3">
+                    <td v-if="data.image">{{data.image}}</td>
+                    <td><i class="fa fa-minus"></i> </td>
+                  </div>
+                  <div class="col-2  mx-auto">
+                  
+                    <td><button class="btn btn-sm btn-primary">Edit</button></td>
+                  </div>
+                </div>
+            </div>
+
+            <div id="dessert" class="tab-pane fade">
+                <div class="row py-1" v-bind:key="index" v-for="(data, index) in dessert">
+                  <div class="col-5">
+                    <td>{{data.name}}</td>
+                  </div>
+                  <div class="col-2">
+
+                    <td>{{data.price}} ฿</td>
+                  </div>
+                  <div class="col-3">
+                    <td v-if="data.image">{{data.image}}</td>
+                    <td><i class="fa fa-minus"></i> </td>
+                  </div>
+                  <div class="col-2 mx-auto">
+                  
+                    <td><button class="btn btn-sm btn-primary">Edit</button></td>
+                  </div>
+                </div>
+            </div>
+
+            <div id="coffee" class="tab-pane fade">
+                <div class="row py-1" v-bind:key="index" v-for="(data, index) in coffee">
+                  <div class="col-5">
+                    <td>{{data.name}}</td>
+                  </div>
+                  <div class="col-2">
+
+                    <td>{{data.price}} ฿</td>
+                  </div>
+                  <div class="col-3">
+                    <td v-if="data.image">{{data.image}}</td>
+                    <td><i class="fa fa-minus"></i> </td>
+                  </div>
+                  <div class="col-2  mx-auto">
+              
+                    <td><button class="btn btn-sm btn-primary">Edit</button></td>
+                  </div>
+                </div>
+            </div>
+
+            <div id="non_coffee" class="tab-pane fade">
+                <div class="row py-1" v-bind:key="index" v-for="(data, index) in non_coffee">
+                  <div class="col-5">
+                    <td>{{data.name}}</td>
+                  </div>
+                  <div class="col-2">
+
+                    <td>{{data.price}} ฿</td>
+                  </div>
+                  <div class="col-3">
+                    <td v-if="data.image">{{data.image}}</td>
+                    <td><i class="fa fa-minus"></i> </td>
+                  </div>
+                  <div class="col-2  mx-auto">
+                  
+                    <td><button class="btn btn-sm btn-primary">Edit</button></td>
+                  </div>
+                </div>
+            </div>
+
+            <div id="main_dish" class="tab-pane fade">
+                <div class="row py-1" v-bind:key="index" v-for="(data, index) in main_dish">
+                  <div class="col-5">
+                    <td>{{data.name}}</td>
+                  </div>
+                  <div class="col-2">
+
+                    <td>{{data.price}}</td>
+                  </div>
+                  <div class="col-3">
+                    <td v-if="data.image">{{data.image}}</td>
+                    <td><i class="fa fa-minus"></i> </td>
+                  </div>
+                  <div class="col-2  mx-auto">
+                  
+                    <td><button class="btn btn-sm btn-primary">Edit</button></td>
+                  </div>
+                </div>
+            </div>
+            
+          </div>
+
+        </div>
+      </div>
+        
     </div>
   </div>
 </template>
@@ -167,26 +191,9 @@
 </script>
 
 <style scoped>
-  table {
-    width: 100%;
-  }
-
-  thead, tbody, tr, td, th { display: block; }
-
-  tr:after {
-    content: ' ';
-    display: block;
-    visibility: hidden;
-    clear: both;
-  }
-
-  tbody {
-    height: 300px;
-    overflow-y: auto;
-  }
-
-  tbody td, thead th {
-    width: 19.2%;
-    float: left;
+  .tab-content{
+    overflow-y:auto;
+    overflow-x: hidden;
+    max-height: 400px;
   }
 </style>
