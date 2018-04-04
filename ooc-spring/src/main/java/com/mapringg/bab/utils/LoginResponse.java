@@ -4,7 +4,6 @@ public class LoginResponse {
 
     private String email;
     private String userType;
-    private String message;
 
     public String getEmail() {
         return email;
@@ -22,11 +21,4 @@ public class LoginResponse {
         this.userType = userType;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }

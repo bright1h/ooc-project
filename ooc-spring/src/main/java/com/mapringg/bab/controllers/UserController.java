@@ -37,14 +37,8 @@ public class UserController {
     public LoginResponse login(@RequestBody String json) {
         User user = (User) userService.getUser(json);
         LoginResponse loginResponse = new LoginResponse();
-        if (user == null) {
-            loginResponse.setMessage("error");
-        }
-        else {
-            loginResponse.setEmail(user.getEmail());
-            loginResponse.setUserType(user.getUserType().toString());
-            loginResponse.setMessage("success");
-        }
+        loginResponse.setEmail(user.getEmail());
+        loginResponse.setUserType(user.getUserType().toString());
         return loginResponse;
     }
 
