@@ -11,6 +11,7 @@ import MainDish from './views/MainDish'
 import Profile from './views/Profile'
 import Checkout from './views/CheckOut'
 import Menu from './views/Menu'
+import { store } from './store';
 
 
 Vue.use(Router);
@@ -21,22 +22,21 @@ export default new Router({
     {
       path: '/admin_home',
       name: 'admin_home',
-      component: AdminHome
+      component: AdminHome,
+      beforeEnter : (to,from,next)=>{
+        if(store.state.user.userType==="error"){
+          next()
+        }
+        else{
+          next('/');
+        }
+      }
+      
     },
     {
       path: '/',
       name: 'home',
       component: Home
-    },
-    {
-      path: '/order_list',
-      name: 'order_list',
-      component: OrderList
-    },
-    {
-      path: '/order_history',
-      name: 'order_history',
-      component: OrderHistory
     },
     {
       path: '/appetizer',
@@ -59,12 +59,6 @@ export default new Router({
       component: MainDish
     },
 
-    
-    {
-      path: '/profile',
-      name: 'profile',
-      component: Profile
-    },
     {
       path: '/checkout',
       name: '/checkout',
@@ -78,7 +72,15 @@ export default new Router({
     {
       path: '/profile',
       name: '/profile',
-      component: Profile
+      component: Profile,
+      beforeEnter : (to,from,next)=>{
+        if(store.state.user.userType==="USER"){
+          next()
+        }
+        else{
+          next('/');
+        }
+      }
     }
   ]
 })

@@ -86,22 +86,20 @@
               <textarea class="form-control"
                         placeholder="Add Your Special Request"
                         
-                        v-model="cart.special_request">
+                        v-model="specialRequest">
               </textarea>
 
-              {{cart}}
           </form>
-          <!-- {{data.special_request}} -->
         </div>
 
         <div class="row">
           <div class="col">
-            <button v-if="!isLogin" 
+            <button v-if="user.email" 
                     class="btn btn-primary w-25 my-2 float-right"
                     @click="submit">Confirm</button>
 
             <div>
-              <span v-if="!isLogin"
+              <span v-if="!user.email"
                     class="float-right my-2">
                   Please <u class="font-weight-bold">Login</u> to continue.
                 </span>
@@ -139,8 +137,8 @@
       specialRequest(){
         return this.$store.state.specialRequest
       },
-      isLogin(){
-        return this.$store.state.isLogin
+      user(){
+        return this.$store.state.user
       }
     },
     methods: {

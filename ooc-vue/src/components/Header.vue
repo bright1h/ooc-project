@@ -23,8 +23,8 @@
         <div class="collapse navbar-collapse flex-row-reverse" id="collapsibleNavbar">
 
           <ul class="navbar-nav font-weight-bold ml-auto">
-              <Login v-if="user.email == ''"/>
-              <Register v-if="user.email == ''"/>
+              <Login v-if="user.email == ''" class="pt-1"/>
+              <Register v-if="user.email == ''" class="pt-1"/>
             <!-- User -->
             <li class="nav-item dropdown" v-if="user.userType === 'USER'">
               <a class="nav-link dropdown-toggle text-light " href="#" id="navbardrop" data-toggle="dropdown">

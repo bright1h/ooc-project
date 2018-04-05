@@ -17,7 +17,8 @@ export const store = new Vuex.Store({
         user: {
           email: '',
           userType: ''
-        }
+        },
+        specialRequest: ''
       },
       plugins: [createPersistedState({
         storage: {
