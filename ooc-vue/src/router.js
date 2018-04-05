@@ -24,7 +24,7 @@ export default new Router({
       name: 'admin_home',
       component: AdminHome,
       beforeEnter : (to,from,next)=>{
-        if(store.state.user.userType==="error"){
+        if(store.state.user.userType==="ADMIN"){
           next()
         }
         else{

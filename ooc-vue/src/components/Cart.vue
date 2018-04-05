@@ -167,11 +167,6 @@
       height: 35px;
       width: 35px;
       line-height: 35px;
-      }
-    
+      } 
   }
-    .break {
-    word-wrap: break-word;
-  }
- 
 </style>

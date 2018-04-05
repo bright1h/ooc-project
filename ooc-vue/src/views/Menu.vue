@@ -1,157 +1,26 @@
 <template>
-  <div class="menu content">
-    <div class="container py-2">
-      <div class="row border-bottom py-2">
-        <h1 class="text-dark ">Menu</h1>
-      </div>
-      <div class="row my-4">
-        <AdminSideBar/>
+<div class="menu p-2 rounded"
+    style=" background-color: #ffffff;">
+    <div class="container">
+
+      <div class="row border-bottom py-1">
+        <div class="col-sm-3">
+          
+         <h1 class="text-dark ">Menu</h1>
+        </div>
         <div class="col">
-          <nav class="nav nav-tabs">
-            <a data-toggle="tab" class="nav-link active" href="#appetizer">Appetizer</a>
-            <a data-toggle="tab" class="nav-link" href="#dessert">Dessert</a>
-            <a data-toggle="tab" class="nav-link" href="#coffee">Coffee</a>
-            <a data-toggle="tab" class="nav-link" href="#non_coffee">Non Coffee</a>
-            <a data-toggle="tab" class="nav-link mr-auto" href="#main_dish">Main Dish</a>
-            <button class="btn btn-primary mr-5" data-toggle="modal" data-target="#addModal">Add Menu</button>
+          <nav class="nav nav-tabs ">
+            <a data-toggle="tab" class="nav-link col active" href="#appetizer">Appetizer</a>
+            <a data-toggle="tab" class="nav-link col" href="#dessert">Dessert</a>
+            <a data-toggle="tab" class="nav-link col" href="#coffee">Coffee</a>
+            <a data-toggle="tab" class="nav-link col" href="#non_coffee">Non Coffee</a>
+            <a data-toggle="tab" class="nav-link col" href="#main_dish">Main Dish</a>
           </nav>
+        </div>
+      </div>
 
-          <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Add new menu</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="add-modal-name" class="col-form-label">Name:</label>
-                      <input type="text" class="form-control" id="add-modal-name" v-model="add_menu_name">
-                    </div>
-                    <div class="form-group">
-                      <label for="add-modal-price" class="col-form-label">Price:</label>
-                      <input type="text" class="form-control" id="add-modal-price" v-model="add_menu_price">
-                    </div>
-                    <div v-if="menu_type_checkbox === 'checkbox-coffee' || menu_type_checkbox === 'checkbox-non-coffee'" class="form-group">
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" v-model="add_menu_is_hot"> isHot
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" v-model="add_menu_is_blend"> isBlend
-                        </label>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-appetizer"> Appetizer
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-dessert"> Dessert
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-coffee"> Coffee
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-non-coffee"> Non Coffee
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-main-dish"> Main Dish
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button class="btn btn-primary" v-on:click="addMenu">Add Menu</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Update menu</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="update-modal-name" class="col-form-label">Name:</label>
-                      <input type="text" class="form-control" id="update-modal-name" v-model="update_menu_name">
-                    </div>
-                    <div class="form-group">
-                      <label for="update-modal-price" class="col-form-label">Price:</label>
-                      <input type="text" class="form-control" id="update-modal-price" v-model="update_menu_price">
-                    </div>
-                    <div v-if="menu_type_checkbox === 'checkbox-coffee' || menu_type_checkbox === 'checkbox-non-coffee'" class="form-group">
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" v-model="update_menu_is_hot"> isHot
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" v-model="update_menu_is_blend"> isBlend
-                        </label>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-appetizer"> Appetizer
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-dessert"> Dessert
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-coffee"> Coffee
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-non-coffee"> Non Coffee
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-main-dish"> Main Dish
-                        </label>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button class="btn btn-primary" v-on:click="updateMenu">Update Menu</button>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col">
 
           <div class="tab-content">
 
@@ -165,126 +34,242 @@
               <div class="col-3 border-right">
                 <th>Image</th>
               </div>
-              <div class="col-2">
-                <button class="btn btn-sm btn-success"><i class="fa fa-plus"></i> </button>
-              </div>
+              <div class="col-2 m-auto">
+                
+                  <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#addModal"><i class="fa fa-plus"></i></button></div>
             </div>
 
             <div id="appetizer" class="tab-pane fade show active">
-              <table class="table">
-                <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Menu Type</th>
-                  <th>Image</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-bind:key="index" v-for="(data, index) in appetizer">
-                  <td>{{data.name}}</td>
-                  <td>{{data.price}}</td>
-                  <td>Appetizer</td>
-                  <td>{{data.imageName}}</td>
-                  <td><button class="btn btn-primary" v-on:click="editMenu(data)">Edit</button></td>
-                </tr>
-                </tbody>
-              </table>
+              <div class="row py-1" v-bind:key="index" v-for="(data, index) in appetizer">
+                <div class="col-5 text-left">
+                  <span class="break">{{data.name}}</span>
+                </div>
+                <div class="col-2">
+                  <span>{{data.price}} ฿</span>
+                </div>
+                <div class="col-3">
+                  <span v-if="data.imageName" class="break">{{data.imageName}}</span>
+                  <span v-else><i class="fa fa-minus"></i> </span></div>
+                <div class="col-2  mx-auto">
+                  <button class="btn btn-primary btn-sm" v-on:click="editMenu(data)"><i class="fa fa-cog"></i></button>
+                </div>
+              </div>
             </div>
 
-            <div id="dessert" class="tab-pane fade">
-              <table class="table">
-                <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Menu Type</th>
-                  <th>Image</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-bind:key="index" v-for="(data, index) in dessert">
-                  <td>{{data.name}}</td>
-                  <td>{{data.price}}</td>
-                  <td>Dessert</td>
-                  <td>{{data.imageName}}</td>
-                  <td><button class="btn btn-primary" v-on:click="editMenu(data)">Edit</button></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
+            <div id="dessert" class="tab-pane fade show">
+              <div class="row py-1" v-bind:key="index" v-for="(data, index) in dessert">
+                <div class="col-5 text-left">
+                  <span class="break">{{data.name}}</span>
+                </div>
+                <div class="col-2">
+                  <span>{{data.price}} ฿</span>
+                </div>
+                <div class="col-3">
+                  
+                  <span v-if="data.imageName" class="break">{{data.imageName}}</span>
+                  <span v-else><i class="fa fa-minus"></i> </span></div>
+                <div class="col-2  mx-auto">
+                  <button class="btn btn-primary btn-sm" v-on:click="editMenu(data)"><i class="fa fa-cog"></i></button>
+                
+                </div>
+              </div>
+            </div>   
 
-            <div id="coffee" class="tab-pane fade">
-              <table class="table">
-                <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Menu Type</th>
-                  <th>Image</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-bind:key="index" v-for="(data, index) in coffee">
-                  <td>{{data.name}}</td>
-                  <td>{{data.price}}</td>
-                  <td>Coffee</td>
-                  <td>{{data.imageName}}</td>
-                  <td><button class="btn btn-primary" v-on:click="editMenu(data)">Edit</button></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
+            <div id="coffee" class="tab-pane fade show">
+              <div class="row py-1" v-bind:key="index" v-for="(data, index) in coffee">
+                <div class="col-5 text-left">
+                  <span class="break">{{data.name}}</span>
+                </div>
+                <div class="col-2">
+                  <span>{{data.price}} ฿</span>
+                </div>
+                <div class="col-3">
+                 
+                  <span v-if="data.imageName" class="break">{{data.imageName}}</span>
+                  <span v-else><i class="fa fa-minus"></i> </span></div>
+                <div class="col-2  mx-auto">
+                  <button class="btn btn-primary btn-sm" v-on:click="editMenu(data)"><i class="fa fa-cog"></i></button>
+                </div>
+              </div>
+            </div>   
 
-            <div id="non_coffee" class="tab-pane fade">
-              <table class="table">
-                <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Menu Type</th>
-                  <th>Image</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-bind:key="index" v-for="(data, index) in non_coffee">
-                  <td>{{data.name}}</td>
-                  <td>{{data.price}}</td>
-                  <td>Non Coffee</td>
-                  <td>{{data.imageName}}</td>
-                  <td><button class="btn btn-primary" v-on:click="editMenu(data)">Edit</button></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
+            <div id="non_coffee" class="tab-pane fade show">
+              <div class="row py-1" v-bind:key="index" v-for="(data, index) in non_coffee">
+                <div class="col-5 text-left">
+                  <span  class="break">{{data.name}}</span>
+                </div>
+                <div class="col-2">
+                  <span>{{data.price}} ฿</span>
+                </div>
+                <div class="col-3">
+                  <span v-if="data.imageName" class="break">{{data.imageName}}</span>
+                  <span v-else><i class="fa fa-minus"></i> </span></div>
+                <div class="col-2  mx-auto">
+                  <button class="btn btn-primary btn-sm" v-on:click="editMenu(data)"><i class="fa fa-cog"></i></button>
+                </div>
+              </div>
+            </div>   
 
-            <div id="main_dish" class="tab-pane fade">
-              <table class="table">
-                <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Menu Type</th>
-                  <th>Image</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-bind:key="index" v-for="(data, index) in main_dish">
-                  <td>{{data.name}}</td>
-                  <td>{{data.price}}</td>
-                  <td>Main Dish</td>
-                  <td>{{data.imageName}}</td>
-                  <td><button class="btn btn-primary" v-on:click="editMenu(data)">Edit</button></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-            
+            <div id="main_dish" class="tab-pane fade show">
+              <div class="row py-1" v-bind:key="index" v-for="(data, index) in main_dish">
+                <div class="col-5 text-left">
+                  <span class="break">{{data.name}}</span>
+                </div>
+                <div class="col-2">
+                  <span>{{data.price}} ฿</span>
+                </div>
+                <div class="col-3">
+                  <span v-if="data.imageName" class="break">{{data.imageName}}</span>
+                  <span v-else><i class="fa fa-minus"></i> </span>
+                </div>
+                <div class="col-2  mx-auto">
+                  <button class="btn btn-primary btn-sm" v-on:click="editMenu(data)"><i class="fa fa-cog"></i></button>
+                </div>
+              </div>
+            </div>    
+
           </div>
 
         </div>
       </div>
-        
+
+      <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add new menu</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="add-modal-name" class="col-form-label">Name:</label>
+                  <input type="text" class="form-control" id="add-modal-name" v-model="add_menu_name">
+                </div>
+                <div class="form-group">
+                  <label for="add-modal-price" class="col-form-label">Price:</label>
+                  <input type="text" class="form-control" id="add-modal-price" v-model="add_menu_price">
+                </div>
+                <div v-if="menu_type_checkbox === 'checkbox-coffee' || menu_type_checkbox === 'checkbox-non-coffee'" class="form-group">
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" v-model="add_menu_is_hot"> isHot
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" v-model="add_menu_is_blend"> isBlend
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-appetizer"> Appetizer
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-dessert"> Dessert
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-coffee"> Coffee
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-non-coffee"> Non Coffee
+                    </label>
+                   </div>
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-main-dish"> Main Dish
+                    </label>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button class="btn btn-primary" v-on:click="addMenu">Add Menu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Update menu</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="update-modal-name" class="col-form-label">Name:</label>
+                  <input type="text" class="form-control" id="update-modal-name" v-model="update_menu_name">
+                </div>
+                <div class="form-group">
+                  <label for="update-modal-price" class="col-form-label">Price:</label>
+                  <input type="text" class="form-control" id="update-modal-price" v-model="update_menu_price">
+                </div>
+                <div v-if="menu_type_checkbox === 'checkbox-coffee' || menu_type_checkbox === 'checkbox-non-coffee'" class="form-group">
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" v-model="update_menu_is_hot"> isHot
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" v-model="update_menu_is_blend"> isBlend
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-appetizer"> Appetizer
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-dessert"> Dessert
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-coffee"> Coffee
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-non-coffee"> Non Coffee
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" v-model="menu_type_checkbox" value="checkbox-main-dish"> Main Dish
+                    </label>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button class="btn btn-primary" v-on:click="updateMenu">Update Menu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
 </template>

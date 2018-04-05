@@ -160,8 +160,5 @@
 </script>
 
 <style scoped>
-  .break {
-    word-wrap: break-word;
-  }
 
 </style>

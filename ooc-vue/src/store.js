@@ -16,7 +16,7 @@ export const store = new Vuex.Store({
         totalPrice : 0,
         user: {
           email: '',
-          userType: ''
+          userType: 'ADMIN'
         },
         specialRequest: ''
       },
