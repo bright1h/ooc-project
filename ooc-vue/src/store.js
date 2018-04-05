@@ -51,8 +51,10 @@ export const store = new Vuex.Store({
           var name = addedItem.name;
           var newPrice = addedItem.price;
           if(addedItem.sweetness){
-            name += ' (' + addedItem.sweetness +' )';
-            console.log(name);
+            if(!addedItem.sweetness ==="Normal"){
+              name += ' (' + addedItem.sweetness +' )';
+              console.log(name);
+            }
           }
           if(addedItem.topping && addedItem.topping.id !== 1){
             name += ' (' + addedItem.topping.toppingType +' )';
