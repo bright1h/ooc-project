@@ -10,7 +10,9 @@ import java.util.List;
  */
 public interface AppetizerService {
 
+    List<Menu> list();
+
     Menu add(@RequestBody String json);
 
-    List<Menu> list();
+    Menu update(@RequestBody String json);
 }

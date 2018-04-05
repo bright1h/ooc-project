@@ -8,7 +8,7 @@
       "hot": true,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 13,
@@ -19,7 +19,7 @@
       "hot": true,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 14,
@@ -30,7 +30,7 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 15,
@@ -41,7 +41,7 @@
       "hot": true,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 16,
@@ -52,7 +52,7 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 17,
@@ -63,7 +63,7 @@
       "hot": true,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 18,
@@ -74,7 +74,7 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 19,
@@ -85,7 +85,7 @@
       "hot": true,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 20,
@@ -96,7 +96,7 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 21,
@@ -107,7 +107,7 @@
       "hot": null,
       "blend": true
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 22,
@@ -118,7 +118,7 @@
       "hot": true,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 23,
@@ -129,7 +129,7 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 24,
@@ -140,7 +140,7 @@
       "hot": null,
       "blend": true
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 25,
@@ -151,7 +151,7 @@
       "hot": true,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 26,
@@ -162,6 +162,6 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": "hazelnutLatteIced"
   }
 ]

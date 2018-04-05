@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
-import com.mapringg.bab.deserializers.NonCoffeeDeserializer;
+import com.mapringg.bab.deserializers.AddNonCoffeeDeserializer;
 import com.mapringg.bab.models.Menu;
 import com.mapringg.bab.repositories.MenuRepository;
 import com.mapringg.bab.repositories.MenuTypeRepository;
@@ -40,7 +40,7 @@ public class NonCoffeeBootstrap implements CommandLineRunner {
 
     private void initData() {
         Gson gson = new GsonBuilder()
-                .registerTypeAdapter(Menu.class, new NonCoffeeDeserializer(menuTypeRepository))
+                .registerTypeAdapter(Menu.class, new AddNonCoffeeDeserializer(menuTypeRepository))
                 .create();
         try {
             JsonReader jsonReader = new JsonReader(new FileReader("non_coffees.json"));

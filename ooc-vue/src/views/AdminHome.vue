@@ -38,7 +38,6 @@
 </template>
 
 <script>
-  //   import CustomerSideBar from '../components/AdminSideBar'
   import Carousel from '../components/Carousel'
   import OrderList from '../views/OrderList'
   import Menu from '../views/Menu'

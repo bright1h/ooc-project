@@ -3,7 +3,7 @@ package com.mapringg.bab.controllers;
 import com.mapringg.bab.models.Menu;
 import com.mapringg.bab.services.CoffeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -26,8 +26,13 @@ public class CoffeeController {
     }
 
     @GetMapping
-    @Cacheable("coffees")
+    @CachePut("coffees")
     public Iterable<Menu> findAll() {
         return coffeeService.list();
+    }
+
+    @PutMapping(path = "/update")
+    public Menu update(@RequestBody String json) {
+        return coffeeService.update(json);
     }
 }

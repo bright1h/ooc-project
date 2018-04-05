@@ -1,5 +1,5 @@
 <template>
-  <div class="order-list p-2 rounded"
+  <!-- <div class="order-list p-2 rounded"
   style="
     background-color: #ffffff;">
     <div class="container">
@@ -8,9 +8,9 @@
 
           <h1 class="text-dark ">Order History</h1>
         </div>
-        <div class="col-sm m-auto">
+        <div class="col-sm m-auto"> -->
           <!-- use result.filter in list -->
-          <form class="form-inline my-3 my-lg-0 float-right">
+          <!-- <form class="form-inline my-3 my-lg-0 float-right">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
@@ -18,12 +18,12 @@
       </div>
       <div class="row my-4">
         <div class="col">
-          <div id="accordion">
+          <div id="accordion"> -->
             <!-- add this later v-bind:key="index" v-for="(order,index) in orderlist" -->
-              <div class="card"  >
-                <div class="card-header alert-success" id="headingOne">
+              <!-- <div class="card"  >
+                <div class="card-header alert-success" id="headingOne"> -->
                   <!-- Change collapse one to other name otherwise it's not gonna toggle -->
-                  <h6 class="row mb-0 font-weight-bold" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <!-- <h6 class="row mb-0 font-weight-bold" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     
                     <div class="col-sm-4 m-auto">
                     
@@ -63,9 +63,9 @@
                       <li>4</li>
                     </ul>
                     <u>Special Request: </u>
-                    <ul>
+                    <ul> -->
                       <!-- <li>{{data.specialRequest}}</li> -->
-                      <li>test</li>
+                      <!-- <li>test</li>
                     </ul>
                     <div class="alert alert-danger text-right">
                       <span class="font-weight-bold"> Price : xx</span>
@@ -100,6 +100,9 @@
           </table>
         </div>
     </div>
+  </div> -->
+  <div class="div">
+    
   </div>
 </template>
 

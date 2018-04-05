@@ -2,7 +2,8 @@ package com.mapringg.bab.services;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.mapringg.bab.deserializers.NonCoffeeDeserializer;
+import com.mapringg.bab.deserializers.AddNonCoffeeDeserializer;
+import com.mapringg.bab.deserializers.UpdateDrinkDeserializer;
 import com.mapringg.bab.models.Menu;
 import com.mapringg.bab.models.NonCoffee;
 import com.mapringg.bab.repositories.MenuRepository;
@@ -40,10 +41,18 @@ public class NonCoffeeServiceImpl implements NonCoffeeService {
     @Override
     public Menu add(String json) {
         Gson gson = new GsonBuilder()
-                .registerTypeAdapter(Menu.class, new NonCoffeeDeserializer(menuTypeRepository))
+                .registerTypeAdapter(Menu.class, new AddNonCoffeeDeserializer(menuTypeRepository))
                 .create();
         Menu menu = gson.fromJson(json, Menu.class);
         menuRepository.save(menu);
         return menu;
+    }
+
+    @Override
+    public Menu update(String json) {
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(Menu.class, new UpdateDrinkDeserializer(menuTypeRepository, menuRepository))
+                .create();
+        return gson.fromJson(json, Menu.class);
     }
 }

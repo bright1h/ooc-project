@@ -8,7 +8,7 @@
       "hot": true,
       "blend": null
     },
-    "image": null
+    "imageName": "belgianChocolateHot"
   },
   {
     "id": 50,
@@ -19,7 +19,7 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 51,
@@ -30,7 +30,7 @@
       "hot": null,
       "blend": true
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 52,
@@ -41,7 +41,7 @@
       "hot": null,
       "blend": true
     },
-    "image": null
+    "imageName": "vanillaMilkyShakie"
   },
   {
     "id": 53,
@@ -52,7 +52,7 @@
       "hot": null,
       "blend": true
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 54,
@@ -63,7 +63,7 @@
       "hot": true,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 55,
@@ -74,7 +74,7 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 56,
@@ -85,7 +85,7 @@
       "hot": null,
       "blend": true
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 57,
@@ -96,7 +96,7 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 58,
@@ -107,7 +107,7 @@
       "hot": null,
       "blend": true
     },
-    "image": null
+    "imageName": "bbTwisterBlend"
   },
   {
     "id": 59,
@@ -118,7 +118,7 @@
       "hot": null,
       "blend": true
     },
-    "image": null
+    "imageName": "tropicalBreezeBlend"
   },
   {
     "id": 60,
@@ -129,7 +129,7 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 61,
@@ -140,7 +140,7 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 62,
@@ -151,7 +151,7 @@
       "hot": null,
       "blend": true
     },
-    "image": null
+    "imageName": "smoothiesStrawberryBlend"
   },
   {
     "id": 63,
@@ -162,7 +162,7 @@
       "hot": null,
       "blend": true
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 64,
@@ -173,7 +173,7 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": "sparklingCoolerAppleIced"
   },
   {
     "id": 65,
@@ -184,7 +184,7 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 66,
@@ -195,7 +195,7 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 67,
@@ -206,7 +206,7 @@
       "hot": true,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 68,
@@ -217,7 +217,7 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 69,
@@ -228,7 +228,7 @@
       "hot": false,
       "blend": null
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 70,
@@ -239,7 +239,7 @@
       "hot": null,
       "blend": true
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 71,
@@ -250,7 +250,7 @@
       "hot": null,
       "blend": true
     },
-    "image": null
+    "imageName": "brownieBlend"
   },
   {
     "id": 72,
@@ -261,6 +261,6 @@
       "hot": null,
       "blend": true
     },
-    "image": null
+    "imageName": null
   }
 ]

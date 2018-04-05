@@ -23,17 +23,16 @@ public class Menu {
     @OneToOne
     private MenuType menuType;
 
-    @Lob
     @Expose
-    private Byte[] image;
+    private String imageName;
 
     public Menu() {}
 
-    public Menu(String name, Integer price, MenuType menuType, Byte[] image) {
+    public Menu(String name, Integer price, MenuType menuType, String imageName) {
         this.name = name;
         this.price = price;
         this.menuType = menuType;
-        this.image = image;
+        this.imageName = imageName;
     }
 
     public Long getId() {
@@ -68,12 +67,11 @@ public class Menu {
         this.menuType = menuType;
     }
 
-    public Byte[] getImage() {
-        return image;
+    public String getImageName() {
+        return imageName;
     }
 
-    public void setImage(Byte[] image) {
-        this.image = image;
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
-
 }

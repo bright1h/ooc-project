@@ -2,11 +2,10 @@
   <div class="order-list p-2 rounded"
   style="
     background-color: #ffffff;">
-    <div class="container">
+    <!-- <div class="container">
       <div class="row border-bottom py-1">
         <h1 class="text-dark ">Order List</h1>
   <div class="order-list">
-    <!-- <Header/> -->
     <div class="container py-2">
       <div class="row border-bottom my-4">
         <h1 class="text-dark ">Customer Order</h1>
@@ -14,7 +13,6 @@
       <div class="row my-4">
         <div class="col">
           <div id="accordion">
-            <!-- add this later v-bind:key="index" v-for="(order,index) in orderlist" -->
               <div class="card"  >
                 <div class="card-header alert-info" id="headingOne">
                   <h6 class="row mb-0 font-weight-bold" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -32,12 +30,10 @@
                     </div>
                     <div class="col-sm-4 mx-auto">
                       <div class="btn-group">
-                        <!-- Change to {{status later}} -->
                         <button type="button" class="btn btn-info btn-sm">Status</button>
                         <button type="button" class="btn btn-info btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <span class="sr-only">Toggle Dropdown</span>
                         </button>
-                        <!-- Use v-bind later -->
                         <div class="dropdown-menu dropdown-menu-right">
                           <a class="dropdown-item " >In Queue</a>
                           <a class="dropdown-item " >Preparing</a>
@@ -70,7 +66,6 @@
                     </ul>
                     <u>Special Request: </u>
                     <ul>
-                      <!-- <li>{{data.specialRequest}}</li> -->
                       <li>test</li>
                     </ul>
                     <div class="alert alert-danger text-right">
@@ -89,8 +84,6 @@
               <th>ID</th>
               <th>Customer Name</th>
               <th>Date</th>
-              <!-- <th>Quantity</th>
-              <th>Price</th> -->
               <th>Status</th>
             </tr>
             </thead>
@@ -104,7 +97,7 @@
             </tbody>
           </table>
         </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

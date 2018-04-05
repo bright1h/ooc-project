@@ -13,4 +13,6 @@ public interface NonCoffeeService {
     List<Menu> list();
 
     Menu add(@RequestBody String json);
+
+    Menu update(@RequestBody String json);
 }

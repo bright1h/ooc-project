@@ -2,6 +2,7 @@ package com.mapringg.bab.services;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.mapringg.bab.deserializers.UpdateNonDrinkDeserializer;
 import com.mapringg.bab.models.Dessert;
 import com.mapringg.bab.models.Menu;
 import com.mapringg.bab.repositories.MenuRepository;
@@ -49,5 +50,13 @@ public class DessertServiceImpl implements DessertService {
         menu.setMenuType(dessert);
         menuRepository.save(menu);
         return menu;
+    }
+
+    @Override
+    public Menu update(String json) {
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(Menu.class, new UpdateNonDrinkDeserializer(menuTypeRepository, menuRepository))
+                .create();
+        return gson.fromJson(json, Menu.class);
     }
 }
