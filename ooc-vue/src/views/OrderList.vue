@@ -5,6 +5,11 @@
     <div class="container">
       <div class="row border-bottom py-1">
         <h1 class="text-dark ">Order List</h1>
+  <div class="order-list">
+    <!-- <Header/> -->
+    <div class="container py-2">
+      <div class="row border-bottom my-4">
+        <h1 class="text-dark ">Customer Order</h1>
       </div>
       <div class="row my-4">
         <div class="col">
@@ -78,6 +83,26 @@
               
             </div>
           </div>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Customer Name</th>
+              <th>Date</th>
+              <!-- <th>Quantity</th>
+              <th>Price</th> -->
+              <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr v-bind:key="index" v-for="(data,index) in customerorder">
+                <td>{{data.id}}</td>
+                <td>{{data.customer.firstName}}</td>
+                <td>{{data.date}}</td>
+                <td>{{data.status}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
     </div>
   </div>
@@ -85,8 +110,21 @@
 
 
 <script>
+
+  import {mapMutations} from 'vuex'
+
+
   export default {
     name: 'OrderList',
+
+    data() {
+      return {
+        customerorder: []
+      }
+    },
+    mounted() {
+      this.$http.get('api/customerorder').then(response => {this.customerorder = response.data});
+    }
   }
 </script>
 

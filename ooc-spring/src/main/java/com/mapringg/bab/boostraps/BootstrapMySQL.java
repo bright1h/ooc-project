@@ -1,5 +1,6 @@
 package com.mapringg.bab.boostraps;
 
+import com.mapringg.bab.repositories.CustomerOrderRepository;
 import com.mapringg.bab.repositories.MenuRepository;
 import com.mapringg.bab.repositories.MenuTypeRepository;
 import com.mapringg.bab.repositories.ToppingRepository;
@@ -26,7 +27,7 @@ public class BootstrapMySQL implements CommandLineRunner {
     @Autowired
     public BootstrapMySQL(
             MenuRepository menuRepository,
-            MenuTypeRepository menuTypeRepository, ToppingRepository toppingRepository
+            MenuTypeRepository menuTypeRepository, ToppingRepository toppingRepository, CustomerOrderRepository customerOrderRepository
     ) {
         this.menuRepository = menuRepository;
         this.menuTypeRepository = menuTypeRepository;

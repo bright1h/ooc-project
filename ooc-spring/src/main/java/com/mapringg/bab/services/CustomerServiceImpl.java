@@ -22,6 +22,16 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public Customer getCustomerById(Long id) {
+        for(Customer customer : customerRepository.findAll()){
+            if(customer.getId().equals(id)){
+                return customer;
+            }
+        }
+        return null;
+    }
+
+    @Override
     public List<Customer> getGuests() {
         List<Customer> guestList = new ArrayList<>();
         for (Customer customer : customerRepository.findAll()) {
