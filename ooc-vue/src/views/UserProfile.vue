@@ -173,8 +173,7 @@
           email : this.user.email,
           mobilePhone : this.user.mobilePhone
         })
-        .then(respose => {
-          console.log(respose.data.email),
+        .then(response => {
           this.editEmail(response.data.email),
           window.location='/profile'
         })
