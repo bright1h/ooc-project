@@ -27,10 +27,10 @@ public class BabApplication {
 
 
     }
-
-    @Bean
-    CommandLineRunner init(final CustomerRepository customerRepository){
-        return arg0 -> customerRepository.save(new User("Sorawit","0222222222","trainer.mapring@gmail.com","Kongurat","1234",UserType.USER));
-    }
+//
+//    @Bean
+//    CommandLineRunner init(final CustomerRepository customerRepository){
+//        return arg0 -> customerRepository.save(new User("Sorawit","0222222222","trainer.mapring@gmail.com","Kongurat","1234",UserType.USER));
+//    }
 
 }
