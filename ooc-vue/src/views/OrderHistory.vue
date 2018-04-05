@@ -4,7 +4,17 @@
     background-color: #ffffff;">
     <div class="container">
       <div class="row border-bottom py-1">
-        <h1 class="text-dark ">Order History</h1>
+        <div class="col-sm-4">
+
+          <h1 class="text-dark ">Order History</h1>
+        </div>
+        <div class="col-sm m-auto">
+          <!-- use result.filter in list -->
+          <form class="form-inline my-3 my-lg-0 float-right">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
       </div>
       <div class="row my-4">
         <div class="col">
