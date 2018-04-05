@@ -18,6 +18,9 @@ export const store = new Vuex.Store({
         totalPrice : 0,
         isLogin : 0,
         specialRequest : "",
+        user : {
+          userType : "",
+        }
       },
       plugins: [createPersistedState({
         storage: {
