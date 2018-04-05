@@ -23,13 +23,8 @@
         <div class="collapse navbar-collapse flex-row-reverse" id="collapsibleNavbar">
 
           <ul class="navbar-nav font-weight-bold ml-auto">
-            {{user}}
-            <!-- <li class="nav-item " v-if="!isLogin"> -->
-              <Login/>
-            <!-- </li> -->
-            <!-- <li class="nav-item " v-if="!isLogin"> -->
-              <Register v-if="!user"/>
-            <!-- </li> -->
+              <Login v-if="user.email == ''"/>
+              <Register v-if="user.email == ''"/>
             <!-- User -->
             <li class="nav-item dropdown" v-if="user.userType === 'USER'">
               <a class="nav-link dropdown-toggle text-light " href="#" id="navbardrop" data-toggle="dropdown">
@@ -38,7 +33,7 @@
               </a>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">Logout</a>
+                <a class="dropdown-item" href="/" @click="logout">Logout</a>
               </div>
             </li>
             <li class="nav-item dropdown" v-if="user.userType === 'ADMIN'">
@@ -48,7 +43,7 @@
               </a>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Store</a>
-                <a class="dropdown-item" href="#">Logout</a>
+                <a class="dropdown-item" href="/" @click="logout">Logout</a>
               </div>
             </li>
             <Cart/>
@@ -87,6 +82,7 @@
   import Login from "./Login";
   import Register from "./Register";
   import Cart from "./Cart";
+  import { mapMutations } from 'vuex'
 
   export default {
     name: 'Header',
@@ -95,6 +91,11 @@
       user() {
         return this.$store.state.user;
       }
+    },
+    methods: {
+      ...mapMutations([
+        'logout'
+      ])
     }
 
   }
