@@ -39,8 +39,8 @@ public class OrderList {
     @Expose
     private Integer quantity;
 
-    @Expose
-    private String specialRequest;
+//    @Expose
+//    private String specialRequest;
 
     public Long getId() {
         return id;
@@ -90,12 +90,12 @@ public class OrderList {
         this.quantity = quantity;
     }
 
-    public String getSpecialRequest() {
-        return specialRequest;
-    }
-
-    public void setSpecialRequest(String specialRequest) {
-        this.specialRequest = specialRequest;
-    }
+//    public String getSpecialRequest() {
+//        return specialRequest;
+//    }
+//
+//    public void setSpecialRequest(String specialRequest) {
+//        this.specialRequest = specialRequest;
+//    }
 
 }

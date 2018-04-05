@@ -36,7 +36,9 @@ public class CustomerDeserializer implements JsonDeserializer<CustomerOrder>{
         return new CustomerOrder(
                 curCustomer,
                 java.sql.Date.valueOf(jsonObject.get("date").getAsString()),
-                jsonObject.get("status").getAsString()
+                jsonObject.get("status").getAsString(),
+                jsonObject.get("totalPrice").getAsInt(),
+                jsonObject.get("specialRequest").getAsString()
         );
     }
 }

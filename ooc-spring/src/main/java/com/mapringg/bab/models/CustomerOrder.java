@@ -13,10 +13,12 @@ public class CustomerOrder {
 
 
 
-    public CustomerOrder(Customer customer, java.sql.Date date,String status){
+    public CustomerOrder(Customer customer, java.sql.Date date,String status, Integer totalPrice, String specialRequest){
         this.customer = customer;
         this.date = date;
         this.status = status;
+        this.totalPrice = totalPrice;
+        this.specialRequest = specialRequest;
     }
 
     public CustomerOrder(){}
@@ -31,6 +33,12 @@ public class CustomerOrder {
 
     @Expose
     private java.sql.Date date;
+    
+    @Expose
+    private Integer totalPrice;
+    
+    @Expose
+    private String specialRequest;
 
     @Expose
     private String status;
@@ -65,5 +73,21 @@ public class CustomerOrder {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Integer getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(Integer totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public String getSpecialRequest() {
+        return specialRequest;
+    }
+
+    public void setSpecialRequest(String specialRequest) {
+        this.specialRequest = specialRequest;
     }
 }
