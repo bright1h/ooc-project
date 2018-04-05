@@ -102,6 +102,15 @@ export const store = new Vuex.Store({
           state.cart = [];
           state.cartQuantity=0;
           state.totalPrice=0;
+        },
+
+        authUser(state, data){
+          state.user.email = data.email;
+          state.user.userType = data.userType;
+        },
+        logout(state){
+          state.user.email = "";
+          state.user.userType ="";
         }
       },
 });
