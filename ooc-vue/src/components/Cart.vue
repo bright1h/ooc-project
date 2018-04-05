@@ -46,7 +46,7 @@
               v-bind:key="data.name"
               v-for="data in cart"
               style="font-size: 15px;">
-            <div class="col-4 border-right pt-2">
+            <div class="col-4 border-right pt-2 break">
                 {{data.name}}
             </div>
             <div class="col-3 border-right pt-2" >
@@ -169,6 +169,9 @@
       line-height: 35px;
       }
     
+  }
+    .break {
+    word-wrap: break-word;
   }
  
 </style>

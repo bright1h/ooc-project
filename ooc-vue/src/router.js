@@ -74,6 +74,11 @@ export default new Router({
       path: '/menu',
       name: '/menu',
       component: Menu
+    },
+    {
+      path: '/profile',
+      name: '/profile',
+      component: Profile
     }
   ]
 })

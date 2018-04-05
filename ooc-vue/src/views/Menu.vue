@@ -5,7 +5,7 @@
     <div class="container">
 
       <div class="row border-bottom py-1">
-        <div class="col-2">
+        <div class="col-sm-3">
           
          <h1 class="text-dark ">Menu</h1>
         </div>

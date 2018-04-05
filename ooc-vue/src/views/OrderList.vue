@@ -11,20 +11,37 @@
           <div id="accordion">
             <!-- add this later v-bind:key="index" v-for="(order,index) in orderlist" -->
               <div class="card"  >
-                <div class="card-header" id="headingOne">
-                  <h5 class="mb-0">
-                    <button class="btn btn-sm btn-link w-75 float-left " data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      <span class="float-left">OrderID # 1</span>
-                      <span class="float-right font-weight-bold">  
+                <div class="card-header alert-info" id="headingOne">
+                  <h6 class="row mb-0 font-weight-bold" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    
+                    <div class="col-sm-4 m-auto">
+                    
+                      <span class="">OrderID # 1</span>
+                    
+                    </div>
+                    <div class="col-sm-4 m-auto">
+                      <span>  
                         By FirstName, LastName
                       </span>
-                      
-                    </button>
-                    <div class="w-25 float-right">
-                      <button class="btn btn-sm btn-warning float-right">Status</button>
+                    
                     </div>
-
-                  </h5>
+                    <div class="col-sm-4 mx-auto">
+                      <div class="btn-group">
+                        <!-- Change to {{status later}} -->
+                        <button type="button" class="btn btn-info btn-sm">Status</button>
+                        <button type="button" class="btn btn-info btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <!-- Use v-bind later -->
+                        <div class="dropdown-menu dropdown-menu-right">
+                          <a class="dropdown-item " >In Queue</a>
+                          <a class="dropdown-item " >Preparing</a>
+                          <a class="dropdown-item " >Done</a>
+                        </div>
+                      </div>  
+                    </div>
+                    
+                  </h6>
                 </div>
 
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
@@ -62,20 +79,14 @@
             </div>
           </div>
         </div>
-        
     </div>
   </div>
 </template>
 
 
 <script>
-  import AdminSideBar from '../components/AdminSideBar'
-  import Header from "../components/Header";
-  import Footer from "../components/Footer";
-
   export default {
     name: 'OrderList',
-    components: {Footer, Header, AdminSideBar}
   }
 </script>
 
