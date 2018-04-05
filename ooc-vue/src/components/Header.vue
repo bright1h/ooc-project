@@ -22,24 +22,25 @@
         <div class="collapse navbar-collapse flex-row-reverse" id="collapsibleNavbar">
 
           <ul class="navbar-nav font-weight-bold ml-auto">
+            {{user}}
             <!-- <li class="nav-item " v-if="!isLogin"> -->
               <Login/>
             <!-- </li> -->
             <!-- <li class="nav-item " v-if="!isLogin"> -->
-              <Register/>
+              <Register v-if="!user"/>
             <!-- </li> -->
             <!-- User -->
-            <li class="nav-item dropdown" v-if="isUser ">
+            <li class="nav-item dropdown" v-if="user.userType === 'USER'">
               <a class="nav-link dropdown-toggle text-light " href="#" id="navbardrop" data-toggle="dropdown">
                 <!-- Change to {{User}} after done  login -->
-                User
+                {{user.email}}
               </a>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Profile</a>
                 <a class="dropdown-item" href="#">Logout</a>
               </div>
             </li>
-            <li class="nav-item dropdown" v-if="isAdmin">
+            <li class="nav-item dropdown" v-if="user.userType === 'ADMIN'">
               <a class="nav-link dropdown-toggle text-light " href="#" id="navbardrop" data-toggle="dropdown">
                 <!-- Change to {{User}} after done  login -->
                 Admin
@@ -89,13 +90,11 @@
   export default {
     name: 'Header',
     components: {Register, Login, Cart},
-    data(){
-      return {
-        isAdmin : 0,
-        isUser : 1,
-        isLogin: 1,
+    computed: {
+      user() {
+        return this.$store.state.user;
       }
-    },
+    }
 
   }
 </script>

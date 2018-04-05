@@ -116,7 +116,6 @@
 </template>
 
 <script>
-  import {mapMutations} from "vuex"
   export default {
     name: "Login",
     data() {
@@ -127,6 +126,12 @@
           email: '',
           userType: ''
         }
+      }
+    },
+
+    computed: {
+      user() {
+        return this.$store.state.user;
       }
     },
     methods: {
@@ -147,10 +152,12 @@
               }
             })
             .then(response => {
-              window.location.href="/"
-              this.auth = response.data;
+              this.user.email = response.data.email;
+              this.user.userType = response.data.userType;
               console.log("success");
-              console.log(this.auth);
+              // console.log(this.auth);
+
+              window.location.href="#"
             })
             .catch(e => {
               console.log("fail");
@@ -162,11 +169,6 @@
         });
       }
     },
-    computed: {
-      ...mapMutations([
-        'setAuth'
-      ]),
-    }
   }
 </script>
 

@@ -6,7 +6,7 @@ import * as Cookies from 'js-cookie'
 
 Vue.use(Vuex);
 
-var expireIn = 1/144; //10mins
+var expireIn = 1/60; 
 
 export const store = new Vuex.Store({
     state: {
@@ -14,9 +14,10 @@ export const store = new Vuex.Store({
         cartQuantity : 0,
         cart : [],
         totalPrice : 0,
-        checkoutStatus : 0,
-        email: '',
-        userType: ''
+        user: {
+          email: '',
+          userType: ''
+        }
       },
       plugins: [createPersistedState({
         storage: {
@@ -49,11 +50,6 @@ export const store = new Vuex.Store({
           state.cart = [];
           state.cartQuantity=0;
           state.totalPrice=0;
-        },
-
-        setAuth(state, email, userType) {
-          state.email = email,
-          state.userType = userType
         }
       },
 });
