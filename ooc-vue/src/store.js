@@ -26,23 +26,75 @@ export const store = new Vuex.Store({
           removeItem: key => Cookies.remove(key)
         }
       })],
-      mutations: {
 
+      mutations: {
+        submitCart(state){
+          AXIOS.post(`/api/checkout`,{
+            order : this.state.cart,
+            specialRequest : this.state.specialRequest,
+          })
+          .then(response => {
+            this.resetCart();
+            this.message  = response.data;
+            console.log(this.message);
+            if ( this.message == 'Order Successfully') {
+              alert(this.message);
+              this.resetForm();
+              window.location.href="/" ;
+            }
+          })
+          .catch(e =>{})
+          
+        },
+  
         addItem(state, addedItem ){
-          var item = state.cart.find(item => item.id === addedItem.id);
-          state.cart.push(item);
+          var name = addedItem.name;
+          var newPrice = addedItem.price;
+          if(addedItem.sweetness){
+            name += ' (' + addedItem.sweetness +' )';
+            console.log(name);
+          }
+          if(addedItem.topping && addedItem.topping.id !== 1){
+            name += ' (' + addedItem.topping.toppingType +' )';
+            newPrice += addedItem.topping.price;
+          }
+          var item = state.cart.find(item => item.name === name);
+          if(!item){
+
+            var copyItem = Object.assign({}, addedItem);
+            copyItem.name = name;
+            copyItem.quantity=1;
+            copyItem.sumPrice = newPrice;
+            state.cart.push(copyItem);
+          }
+          else{
+            item.quantity++;
+            item.sumPrice+=newPrice;
+          }
           state.cartQuantity++;
           state.totalPrice += addedItem.price;
         },
 
-        removeItem(state, name){
-          // console.log(removedItem.id)
-          var item = state.cart.find(item => item.name === name);         
-          var index = state.cart.indexOf(item);
-            
+        removeItem(state, removedItem){
+          
+          var item = state.cart.find(item => item.name === removedItem.name);
+          if(item){
+            if(item.quantity===1){
+              var index = state.cart.indexOf(item);       
+              state.cart.splice(index,1);
+            }
+            else if(item.quantity>1){
+              item.quantity--;
+              item.sumPrice-=removedItem.price;
+            }
+          }
+          else{
+            console.log("Error in remove function");
+          }
+          
+          
           state.cartQuantity--;
           state.totalPrice-=item.price;
-          state.cart.splice(index,1);
 
         
         },

@@ -11,10 +11,11 @@
           <img src="../assets/logo.png" alt="Logo" class="rounded-circle" style="width:40px;">
           Bev
         </a>
-
-
+        <div>
+          
+        </div>
         <!-- Toggler/collapsibe Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -69,8 +70,8 @@
               <router-link class="nav-link text-light" to="/drink">Drink</router-link>
             </li>
 
-            <li class="nav-item px-2">
-              <router-link class="nav-link text-light" to="/main_dish">Main Dish</router-link>
+            <li class="nav-item px-1">
+              <router-link class="nav-link text-light" to="/main_dish">MainDish</router-link>
             </li>
           </ul>
 
