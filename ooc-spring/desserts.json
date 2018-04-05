@@ -6,7 +6,7 @@
     "menuType": {
       "id": 27
     },
-    "image": null
+    "imageName": "banoffee"
   },
   {
     "id": 28,
@@ -15,7 +15,7 @@
     "menuType": {
       "id": 28
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 29,
@@ -24,7 +24,7 @@
     "menuType": {
       "id": 29
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 30,
@@ -33,7 +33,7 @@
     "menuType": {
       "id": 30
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 31,
@@ -42,7 +42,7 @@
     "menuType": {
       "id": 31
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 32,
@@ -51,7 +51,7 @@
     "menuType": {
       "id": 32
     },
-    "image": null
+    "imageName": "panaCotta"
   },
   {
     "id": 33,
@@ -60,7 +60,7 @@
     "menuType": {
       "id": 33
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 34,
@@ -69,6 +69,6 @@
     "menuType": {
       "id": 34
     },
-    "image": null
+    "imageName": "chocolatePie"
   }
 ]

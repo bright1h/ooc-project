@@ -6,7 +6,7 @@
     "menuType": {
       "id": 35
     },
-    "image": null
+    "imageName": "allDay"
   },
   {
     "id": 36,
@@ -15,7 +15,7 @@
     "menuType": {
       "id": 36
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 37,
@@ -24,7 +24,7 @@
     "menuType": {
       "id": 37
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 38,
@@ -33,7 +33,7 @@
     "menuType": {
       "id": 38
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 39,
@@ -42,7 +42,7 @@
     "menuType": {
       "id": 39
     },
-    "image": null
+    "imageName": "grillSausage"
   },
   {
     "id": 40,
@@ -51,7 +51,7 @@
     "menuType": {
       "id": 40
     },
-    "image": null
+    "imageName": "houseSandwich"
   },
   {
     "id": 41,
@@ -60,7 +60,7 @@
     "menuType": {
       "id": 41
     },
-    "image": null
+    "imageName": "spaghettiCarbonara"
   },
   {
     "id": 42,
@@ -69,7 +69,7 @@
     "menuType": {
       "id": 42
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 43,
@@ -78,7 +78,7 @@
     "menuType": {
       "id": 43
     },
-    "image": null
+    "imageName": "spaghettiDryChili"
   },
   {
     "id": 44,
@@ -87,7 +87,7 @@
     "menuType": {
       "id": 44
     },
-    "image": null
+    "imageName": "bbFriedRice"
   },
   {
     "id": 45,
@@ -96,7 +96,7 @@
     "menuType": {
       "id": 45
     },
-    "image": null
+    "imageName": "omuRice"
   },
   {
     "id": 46,
@@ -105,7 +105,7 @@
     "menuType": {
       "id": 46
     },
-    "image": null
+    "imageName": "bbqBurger"
   },
   {
     "id": 47,
@@ -114,7 +114,7 @@
     "menuType": {
       "id": 47
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 48,
@@ -123,6 +123,6 @@
     "menuType": {
       "id": 48
     },
-    "image": null
+    "imageName": "dryChiliRice"
   }
 ]

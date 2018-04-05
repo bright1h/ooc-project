@@ -1,6 +1,5 @@
 <template>
   <div class="order-list">
-    <Header/>
     <div class="container py-2">
       <div class="row border-bottom my-4">
         <h1 class="text-dark ">Order List</h1>
@@ -41,19 +40,16 @@
         </div>
       </div>
     </div>
-    <Footer/>
   </div>
 </template>
 
 
 <script>
   import AdminSideBar from '../components/AdminSideBar'
-  import Header from "../components/Header";
-  import Footer from "../components/Footer";
 
   export default {
     name: 'OrderList',
-    components: {Footer, Header, AdminSideBar}
+    components: {AdminSideBar}
   }
 </script>
 

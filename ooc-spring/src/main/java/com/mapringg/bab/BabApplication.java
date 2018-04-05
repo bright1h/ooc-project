@@ -28,8 +28,10 @@ public class BabApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/api/*/*").allowedOrigins("http://localhost:8080");
-                registry.addMapping("/api/*").allowedOrigins("http://localhost:8080");
+                registry.addMapping("/api/*/*").allowedOrigins("http://localhost:8080")
+                        .allowedMethods("POST", "GET", "PUT", "DELETE");
+                registry.addMapping("/api/*").allowedOrigins("http://localhost:8080")
+                        .allowedMethods("POST", "GET", "PUT", "DELETE");
             }
         };
     }
@@ -37,7 +39,7 @@ public class BabApplication {
     @Bean
     CommandLineRunner init(final CustomerRepository customerRepository) {
 
-        return arg0 -> customerRepository.save(new User("Sorawit", "trainer.mapring@gmail.com", "0955746161", "Kongnurat", "1234", UserType.USER));
+        return arg0 -> customerRepository.save(new User("Sorawit", "0955746161", "trainer.mapring@gmail.com", "Kongnurat", "1234", UserType.USER));
 
     }
 }

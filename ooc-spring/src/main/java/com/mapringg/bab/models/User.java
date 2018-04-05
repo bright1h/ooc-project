@@ -20,10 +20,10 @@ public class User extends Customer {
     public User() {
     }
 
-    public User(String firstName, String email, String mobilePhone, String lastName, String password, UserType userType) {
-        this.setEmail(email);
-        this.setMobilePhone(firstName);
-        this.setFirstName(mobilePhone);
+    public User(String firstName, String mobilePhone, String email, String lastName, String password, UserType userType) {
+        setFirstName(firstName);
+        setMobilePhone(mobilePhone);
+        setEmail(email);
         this.lastName = lastName;
         this.password = password;
         this.userType = userType;

@@ -6,7 +6,7 @@
     "menuType": {
       "id": 1
     },
-    "image": null
+    "imageName": "fishAndChip"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "menuType": {
       "id": 2
     },
-    "image": null
+    "imageName": "sausageStick"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "menuType": {
       "id": 3
     },
-    "image": null
+    "imageName": "holyChick"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "menuType": {
       "id": 4
     },
-    "image": null
+    "imageName": "saladCaesar"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "menuType": {
       "id": 5
     },
-    "image": null
+    "imageName": "saladTuna"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "menuType": {
       "id": 6
     },
-    "image": null
+    "imageName": "saladGarden"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "menuType": {
       "id": 7
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "menuType": {
       "id": 8
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "menuType": {
       "id": 9
     },
-    "image": null
+    "imageName": "superbowl"
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "menuType": {
       "id": 10
     },
-    "image": null
+    "imageName": null
   },
   {
     "id": 11,
@@ -96,6 +96,6 @@
     "menuType": {
       "id": 11
     },
-    "image": null
+    "imageName": "cheesyFries"
   }
 ]

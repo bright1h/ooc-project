@@ -11,7 +11,8 @@
       <div class="row py-3">
         <div class="col-lg-3 col-md-4 col-sm-6 p-3 " v-bind:key="index" v-for="(data, index) in menus">
           <div class="card bg-dark text-secondary">
-            <img class="card-img-top" src="../assets/logo.png" alt="Card image cap">
+            <img v-if="data.imageName !== null" class="card-img-top" :src="'http://localhost:8088/api/image/'+data.imageName" alt="Card image cap">
+            <img v-else class="card-img-top" src="../assets/logo.png" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title border-bottom text-light">{{data.name}}</h5>
 
