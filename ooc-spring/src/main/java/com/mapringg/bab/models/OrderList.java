@@ -1,5 +1,7 @@
 package com.mapringg.bab.models;
 
+import com.google.gson.annotations.Expose;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -13,6 +15,7 @@ public class OrderList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Expose
     @OneToOne
     private CustomerOrder customerOrder;
 
@@ -25,13 +28,18 @@ public class OrderList {
             joinColumns = @JoinColumn(name = "drink_order_list_id"),
             inverseJoinColumns = @JoinColumn(name = "topping_id")
     )
+
+    @Expose
     private Set<Topping> toppings;
 
+    @Expose
     @Enumerated(value = EnumType.STRING)
     private Sweetness sweetness;
 
+    @Expose
     private Integer quantity;
 
+    @Expose
     private String specialRequest;
 
     public Long getId() {

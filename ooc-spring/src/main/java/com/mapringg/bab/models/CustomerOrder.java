@@ -1,6 +1,9 @@
 package com.mapringg.bab.models;
 
+import com.google.gson.annotations.Expose;
+
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @author mapring
@@ -8,15 +11,28 @@ import javax.persistence.*;
 @Entity
 public class CustomerOrder {
 
+
+
+    public CustomerOrder(Customer customer, java.sql.Date date,String status){
+        this.customer = customer;
+        this.date = date;
+        this.status = status;
+    }
+
+    public CustomerOrder(){}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Expose
     @ManyToOne
     private Customer customer;
 
+    @Expose
     private java.sql.Date date;
 
+    @Expose
     private String status;
 
     public Long getId() {

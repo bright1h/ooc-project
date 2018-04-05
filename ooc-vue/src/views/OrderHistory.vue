@@ -8,37 +8,25 @@
       <div class="row my-4">
         <AdminSideBar/>
         <div class="col">
-          <form class="form-inline">
-            <div class="form-group mx-sm-3 mb-2">
-              <label for="inputDate" class="sr-only">Date</label>
-              <input type="date" class="form-control" id="inputDate">
-            </div>
-            <button type="submit" class="btn btn-primary mb-2">Search</button>
-          </form>
+          <div class="row-1">
+            <label for="inputDate" class="sr-only">Date</label>
+            <input type="date" class="form-control" id="inputDate" size="35" :max="today" v-model="date">
+            <button type="submit" class="btn btn-primary mb-2 pull-right my-2" v-on:click="updateTable">Search</button>
+          </div>
           <table class="table">
             <thead>
             <tr>
-              <th>First Name</th>
+              <th>ID</th>
+              <th>Customer Name</th>
               <th>Date</th>
-              <th>Menu</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>From</th>
-              <th>Till</th>
-              <th>Status</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>Sorawit</td>
-              <td>2018-02-20</td>
-              <td>Blueberry Cheesecake</td>
-              <td>1</td>
-              <td>100</td>
-              <td>2018-02-20</td>
-              <td>2018-02-22</td>
-              <td>Done</td>
-            </tr>
+              <tr v-bind:key="index" v-for="(data,index) in history">
+                <td>{{data.id}}</td>
+                <td>{{data.customer.firstName}}</td>
+                <td>{{data.date}}</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -49,15 +37,19 @@
 </template>
 
 <script>
+  import {AXIOS} from '../http-common'
+
+  import {mapMutations} from 'vuex'
+
   import AdminSideBar from '../components/AdminSideBar'
   import Header from "../components/Header";
   import Footer from "../components/Footer";
 
-  function getToday() {
-    let today = new Date();
-    let dd = today.getDate();
-    let mm = today.getMonth() + 1; //January is 0!
-    const yyyy = today.getFullYear();
+  function getdate() {
+    let date = new Date();
+    let dd = date.getDate();
+    let mm = date.getMonth() + 1; //January is 0!
+    const yyyy = date.getFullYear();
 
     if(dd<10) {
       dd = '0'+dd
@@ -67,8 +59,8 @@
       mm = '0'+mm
     }
 
-    today = yyyy + '-' + mm + '-' + dd;
-    return today;
+    date = yyyy + '-' + mm + '-' + dd;
+    return date;
   }
 
   export default {
@@ -76,11 +68,22 @@
     components: {Footer, Header, AdminSideBar},
     data() {
       return {
+        history : [],
+        date: '',
         today: ''
       }
     },
+    mounted() {
+      AXIOS.get('api/orderhistory').then(response => {this.history = response.data})
+    },
+    methods: {
+      updateTable: function() {
+        console.log(this.date);
+        AXIOS.get('api/orderhistory/search/'+this.date).then(response => {this.history = response.data})
+      }
+    },
     created() {
-      this.today = getToday();
+      this.today = getdate();
     }
   }
 </script>

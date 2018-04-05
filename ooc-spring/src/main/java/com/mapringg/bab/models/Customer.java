@@ -9,6 +9,14 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Customer {
 
+    public Customer(){}
+
+    public Customer(String fname, String email, String mobilePhone){
+        this.firstName = fname;
+        this.email = email;
+        this.mobilePhone = mobilePhone;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

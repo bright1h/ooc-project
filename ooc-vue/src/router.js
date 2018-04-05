@@ -30,8 +30,8 @@ export default new Router({
       component: Home
     },
     {
-      path: '/order_list',
-      name: 'order_list',
+      path: '/customer_order',
+      name: 'customer_order',
       component: OrderList
     },
     {

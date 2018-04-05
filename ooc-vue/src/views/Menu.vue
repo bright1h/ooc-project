@@ -1,6 +1,6 @@
 <template>
   <div class="menu content">
-    <Header/>
+    <!-- <Header/> -->
     <div class="container py-2">
       <div class="row border-bottom py-2">
         <h1 class="text-dark ">Menu</h1>
@@ -8,7 +8,7 @@
       <div class="row my-4">
         <AdminSideBar/>
         <div class="col">
-          <nav class="nav nav-tabs">
+          <nav class="nav nav-tabs pb-4">
             <a data-toggle="tab" class="nav-link active" href="#appetizer">Appetizer</a>
             <a data-toggle="tab" class="nav-link" href="#dessert">Dessert</a>
             <a data-toggle="tab" class="nav-link" href="#coffee">Coffee</a>
@@ -126,7 +126,7 @@
         </div>
       </div>
     </div>
-    <Footer/>
+    <!-- <Footer/> -->
   </div>
 </template>
 
