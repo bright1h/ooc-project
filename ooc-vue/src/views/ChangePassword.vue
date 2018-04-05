@@ -14,7 +14,7 @@
                         placeholder="New Password"
                         name="password"
                         v-validate="'required'"
-                        v-model="pwd">
+                        v-model="editPwd.pwd">
                     <span v-if="errors.has('password')">
                         <p class="alert alert-warning py-0 text-left my-1">{{errors.first('password')}}</p>
                     </span>
@@ -27,7 +27,7 @@
                                placeholder="Confirmed New Password"
                                name="confirmed password"
                                v-validate="'required|confirmed:password'"
-                               v-model="cPwd">
+                               v-model="editPwd.cPwd">
                     <span v-if="errors.has('confirmed password')">
                         <p class="alert alert-warning py-0 text-left my-1">{{errors.first('confirmed password')}}</p>
                     </span>

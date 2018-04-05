@@ -111,6 +111,9 @@ export const store = new Vuex.Store({
           state.user.email = data.email;
           state.user.userType = data.userType;
         },
+        editEmail(state, email) {
+          state.user.email = email;
+        },
         logout(state){
           state.user.email = "";
           state.user.userType ="";

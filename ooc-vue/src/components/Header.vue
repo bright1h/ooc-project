@@ -32,7 +32,7 @@
                 {{user.email}}
               </a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="/profile">Profile</a>
                 <a class="dropdown-item" href="/" @click="logout">Logout</a>
               </div>
             </li>

@@ -46,4 +46,15 @@ public class UserController {
     public Iterable<Customer> findAll() {
         return userService.list();
     }
+
+    @PostMapping("/find")
+    public Customer getUser(@RequestBody String json) {
+        Customer user = userService.getUser(json);
+        return user;
+    }
+
+    @PostMapping("/update")
+    public User editUser(@RequestBody String gson) {
+        return userService.editUser(gson);
+    }
 }

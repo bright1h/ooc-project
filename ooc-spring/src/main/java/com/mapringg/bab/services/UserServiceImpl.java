@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author mapring
@@ -52,11 +53,23 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+    @Override
     public Customer getUser(String json) {
         User user = gson.fromJson(json, User.class);
         if (!userRepository.existsByEmail(user.getEmail())) {
             return null;
         }
         return userRepository.findByEmail(user.getEmail());
+    }
+
+    public User editUser(String json) {
+        User user = gson.fromJson(json, User.class);
+        User userFromDB = userRepository.findUserById(user.getId());
+        userFromDB.setFirstName(user.getFirstName());
+        userFromDB.setLastName(user.getLastName());
+        userFromDB.setMobilePhone(user.getMobilePhone());
+        userFromDB.setEmail(user.getEmail());
+        userRepository.save(userFromDB);
+        return userFromDB;
     }
 }

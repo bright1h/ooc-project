@@ -17,7 +17,7 @@
                 First Name :
             </div>
             <div class="col text-left">
-                {{profile.fName}}
+                {{user.firstName}}
             </div>
         </div>
 
@@ -27,7 +27,7 @@
                 Last Name :
             </div>
             <div class="col text-left">
-                {{profile.lName}}
+                {{user.lastName}}
             </div>
         </div>
 
@@ -36,7 +36,7 @@
                 Email :
             </div>
             <div class="col text-left">
-                {{profile.email}}
+                {{user.email}}
             </div>
         </div>
 
@@ -45,7 +45,7 @@
                 Mobile Number :
             </div>
             <div class="col text-left">
-                {{profile.mobileNo}}
+                {{user.mobilePhone}}
             </div>
         </div>
     </div>
@@ -72,7 +72,7 @@
                                placeholder="First Name"
                                name="first name"
                                v-validate="'required|alpha'"
-                               v-model="fName">
+                               v-model="user.firstName">
                         <span v-if="errors.has('first name')">
                           <p class="alert alert-warning py-0 text-left my-1">{{errors.first('first name')}}</p>
                         </span>
@@ -86,7 +86,7 @@
                                placeholder="Last Name"
                                name="last name"
                                v-validate="'required|alpha'"
-                               v-model="lName">
+                               v-model="user.lastName">
                         <span v-if="errors.has('last name')">
                           <p class="alert alert-warning py-0 text-left my-1">{{errors.first('last name')}}</p>
                         </span>
@@ -99,7 +99,7 @@
                                class="form-control"
                                placeholder="Email"
                                name="email"
-                               v-model="email"
+                               v-model="user.email"
                                v-validate:email="'required|email'">
                         <span v-if="errors.has('email')">
                           <p class="alert alert-warning py-0 text-left my-1">{{errors.first('email')}}</p>
@@ -114,7 +114,7 @@
                                placeholder="Mobile Number"
                                name="mobile number"
                                v-validate="'required|digits:10'"
-                               v-model="phoneNo">
+                               v-model="user.mobilePhone">
                         <span v-if="errors.has('mobile number')">
                           <p class="alert alert-warning py-0 text-left my-1">{{errors.first('mobile number')}}</p>
                         </span>
@@ -141,28 +141,56 @@
 </template>
 
 <script>
+  import {mapMutations} from 'vuex'
   export default {
     name: "UserProfile",
     data(){
         return {
-            profile : {
-                fName : "test",
-                lName : "test",
-                email : "test",
-                mobileNo : "123456123",
+            user : {
+              id: 0,
+              firstName : "",
+              lastName : "",
+              email : "",
+              mobilePhone : "",
             },
-            editData : {
-                newFName : "",
-                newLName : "",
-                newEmail : "",
-                newMobileNo : "",
-            }
+            // editData : {
+            //     newFName : "",
+            //     newLName : "",
+            //     newEmail : "",
+            //     newMobileNo : "",
+            // }
         }
     },
     methods : {
-        edit(){
-
-        }
+      ...mapMutations([
+        'editEmail'
+      ]),
+      edit(){
+        this.$http.post("/user/update", {
+          id: this.user.id,
+          firstName : this.user.firstName,
+          lastName : this.user.lastName,
+          email : this.user.email,
+          mobilePhone : this.user.mobilePhone
+        })
+        .then(respose => {
+          console.log(respose.data.email),
+          this.editEmail(response.data.email),
+          window.location='/profile'
+        })
+        .catch(e => {
+          console.log(e)
+        })
+      }
+    },
+    mounted() {
+      this.$http.post('user/find', {
+        email: this.$store.state.user.email
+      })
+      .then(response => {
+        this.user = response.data
+        console.log(this.user)
+      });
     }
   };
 </script>
