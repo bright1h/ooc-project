@@ -3,6 +3,7 @@ package com.mapringg.bab.services;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mapringg.bab.deserializers.CustomerDeserializer;
+import com.mapringg.bab.models.Customer;
 import com.mapringg.bab.models.CustomerOrder;
 import com.mapringg.bab.repositories.CustomerOrderRepository;
 import com.mapringg.bab.repositories.CustomerRepository;
@@ -76,7 +77,14 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
 
     @Override
     public Iterable<CustomerOrder> getListFromDate(Date date) {
-        return customerOrderRepository.findAllByDate(date);
+        List<CustomerOrder> OrderByThatDay = customerOrderRepository.findAllByDate(date);
+        List<CustomerOrder> HistoryByThatDay = new ArrayList<>();
+        for(CustomerOrder customerOrder : OrderByThatDay){
+            if(customerOrder.getStatus().equals("Done")){
+                HistoryByThatDay.add(customerOrder);
+            }
+        }
+        return HistoryByThatDay;
     }
 
     @Override
