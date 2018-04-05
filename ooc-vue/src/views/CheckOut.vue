@@ -88,6 +88,7 @@
                         
                         v-model="specialRequest">
               </textarea>
+              {{cart}}
 
           </form>
         </div>

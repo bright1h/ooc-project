@@ -96,4 +96,12 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
         customerOrderRepository.save(customerOrder);
         return customerOrder;
     }
+
+    @Override
+    public CustomerOrder update(String json) {
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(CustomerOrder.class, new CustomerDeserializer(customerRepository, customerOrderRepository))
+                .create();
+        return gson.fromJson(json, CustomerOrder.class);
+    }
 }

@@ -13,7 +13,7 @@
      
       <div class="row my-4"
           v-bind:key="data.id" 
-          v-for="data in customerorder"
+          v-for="(data) in customerorder"
           v-else>
         <div class="col">
           <div id="accordion">
@@ -24,54 +24,66 @@
                     <span class="">OrderID # {{data.id}}</span>
                   </div>
                   <div class="col-sm-3 m-auto">
-                    <span>
-                      {{data.customer.firstName}}
+                    <span >
+
+                      {{data.customer.firstName}}, 
+                      {{data.customer.lastName}}
                     </span>
                   </div>
                   <div class="col-sm-3">
                     {{data.date}}
                   </div>
                   <div class="col-sm-3 mx-auto">
-                    <select v-model="data.status">
+                    <select class="btn btn-sm btn-secondary" v-model="data.status">
                       <option disabled value="">{{data.status}}</option>
-                      <option value="In queue"  >In Queue</option>
+                      <option type="button" value="In queue">In Queue</option>
                       <option value="Preparing">Preparing</option>
                       <option value="Done">Done</option>
                     </select>
-                    <span>Selected: {{ selected }}</span>
+                    <button class="btn btn-sm btn-danger mx-1"
+                            style="font-size: 12px;"
+                            v-confirm="{
+                                ok: dialog => updateStatus(data),
+                                okText : 'confirm',
+                                animation: 'fade',
+                                cancel: ()=> {}   ,
+                                message: 'Are you sure?'
+                              }"
+                      >Update
+                    </button>
                   </div>
                 </h6>
               </div>
             </div>
-          </div>
-        </div>
-        <!-- collapse -->
-        <div v-bind:id="'co'+data.id" class="collapse show" v-bind:aria-labelledby="'heading'+data.id" data-parent="#accordion">
-          <div class="card-body text-left">
-            <u>Order:</u>
-            <ul>
-              <li v-bind:key="index" v-for="(o,index) in order">
-                <div class="row">
-                  <div class="col">
-                    {{o.name}}
-                  </div>
-                  <div class="col">
-                    {{o.quantity}}
-                  </div>
+
+            <!-- collapse -->
+            <div v-bind:id="'co'+data.id" class="collapse show" v-bind:aria-labelledby="'heading'+data.id" data-parent="#accordion">
+              <div class="card-body text-left">
+                <u>Order:</u>
+                <ul>
+                  <li v-bind:key="index" v-for="(o,index) in order">
+                    <div class="row">
+                      <div class="col">
+                        {{o.name}}
+                      </div>
+                      <div class="col">
+                        {{o.quantity}}
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <u>Special Request: </u>
+                <ul>
+                  <li>{{data.specialRequest}}</li>
+                </ul>
+                <div class="alert alert-danger text-right">
+                  <span class="font-weight-bold"> Price : {{data.total_price}}</span>
                 </div>
-              </li>
-            </ul>
-            <u>Special Request: </u>
-            <ul>
-              <li>{{data.special_request}}</li>
-            </ul>
-            <div class="alert alert-danger text-right">
-              <span class="font-weight-bold"> Price : {{data.total_price}}</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      
     </div>
   </div>
 </template>
@@ -87,11 +99,32 @@
 
     data() {
       return {
-        customerorder: []
+        customerorder: [],
       }
     },
     mounted() {
       this.$http.get('api/customerorder').then(response => {this.customerorder = response.data});
+    },
+    methods : {
+      updateStatus(data){
+        this.$http.put(
+          'api/customerorder/update', {
+            id: data.id,
+            customer : data.customer,
+            date : data.date,
+            status : data.status,
+            totalPrice : data.totalPrice,
+            specialRequest : data.specialRequest,
+          })
+            .then(function (response) {
+              console.log(response);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+      }
+      
+
     }
   }
 </script>

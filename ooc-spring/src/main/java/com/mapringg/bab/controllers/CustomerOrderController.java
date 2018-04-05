@@ -16,9 +16,14 @@ public class CustomerOrderController {
     public CustomerOrderController(CustomerOrderService customerOrderService){this.customerOrderService = customerOrderService;}
 
     @PostMapping(path = "/add")
-    public CustomerOrder add(@RequestBody String json) {
+    public CustomerOrder add(@RequestBody String json) {return customerOrderService.add(json);}
+
+
+    @PostMapping(path = "/update")
+    public CustomerOrder update(@RequestBody String json) {
         System.out.println(json);
-        return customerOrderService.add(json);}
+        return customerOrderService.update(json);}
+
 
     @GetMapping
     public Iterable<CustomerOrder> findAll() {return customerOrderService.getCurrentOrders();}

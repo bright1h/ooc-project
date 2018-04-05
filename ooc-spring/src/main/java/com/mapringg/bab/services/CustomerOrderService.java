@@ -11,6 +11,8 @@ public interface CustomerOrderService {
 
     CustomerOrder add (@RequestBody String json);
 
+    CustomerOrder update (@RequestBody String json);
+
     List<CustomerOrder> getCustomerOrders();
 
     List<CustomerOrder> getCurrentOrders();

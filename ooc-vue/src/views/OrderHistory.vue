@@ -22,20 +22,22 @@
       </div>
      
       <div class="row my-4"
-          v-bind:key="index" 
-          v-for="(data,index) in history"
+          v-bind:key="data.id" 
+          v-for="(data) in history"
           v-else>
         <div class="col">
           <div id="accordion">
             <div class="card"  >
-              <div class="card-header alert-info" v-bind:id="'heading'+data.id">
+              <div class="card-header alert-success" v-bind:id="'heading'+data.id">
                 <h6 class="row mb-0 font-weight-bold" data-toggle="collapse" v-bind:data-target="'#oh' + data.id" aria-expanded="true" v-bind:aria-controls="'oh'+data.id">
                   <div class="col-sm-4 m-auto">
                     <span>OrderID # {{data.id}}</span>
                   </div>
                   <div class="col-sm-4 m-auto">
                     <span>
-                      {{data.customer.firstName}}
+                      {{data.customer.firstName}}, 
+                      {{data.customer.lastName}}
+                    
                     </span>
                   </div>
                   <div class="col-sm-4">
@@ -45,7 +47,7 @@
               </div>
             </div>
           </div>
-        </div>
+
         <!-- collapse -->
         <div v-bind:id="'oh'+data.id" class="collapse show" v-bind:aria-labelledby="'heading'+data.id" data-parent="#accordion">
           <div class="card-body text-left">
@@ -70,6 +72,7 @@
               <span class="font-weight-bold"> Price : {{data.total_price}}</span>
             </div>
           </div>
+        </div>
         </div>
       </div>
       
@@ -109,7 +112,9 @@
       }
     },
     mounted() {
-      this.$http.get('api/orderhistory').then(response => {this.history = response.data})
+      this.$http.get('api/orderhistory').then(response => {
+        console.log(response.data);
+        this.history = response.data})
     },
     methods: {
       updateTable: function() {
