@@ -10,6 +10,8 @@ public class CheckoutWrapper {
 
     private String specialRequest;
 
+    private int totalPrice;
+
     public String getEmail() {
         return email;
     }
@@ -20,5 +22,9 @@ public class CheckoutWrapper {
 
     public String getSpecialRequest() {
         return specialRequest;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
     }
 }

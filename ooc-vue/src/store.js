@@ -34,6 +34,7 @@ export const store = new Vuex.Store({
           axios.post(`/api/checkout`,{
             email : this.state.user.email,
             order : this.state.cart,
+            totalPrice: this.state.totalPrice,
             specialRequest : this.state.specialRequest,
           })
           .then(response => {

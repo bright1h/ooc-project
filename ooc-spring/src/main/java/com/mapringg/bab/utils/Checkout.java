@@ -1,6 +1,7 @@
 package com.mapringg.bab.utils;
 
 import com.mapringg.bab.models.MenuType;
+import com.mapringg.bab.models.Sweetness;
 
 public class Checkout {
 
@@ -18,6 +19,8 @@ public class Checkout {
     private int quantity;
 
     private int sumPrice;
+
+    private String sweetness;
 
     public long getId() {
         return id;
@@ -45,5 +48,9 @@ public class Checkout {
 
     public int getSumPrice() {
         return sumPrice;
+    }
+
+    public String getSweetness() {
+        return sweetness;
     }
 }

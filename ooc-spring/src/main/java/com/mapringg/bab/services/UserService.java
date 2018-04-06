@@ -15,4 +15,6 @@ public interface UserService {
     Customer add(@RequestBody String json);
 
     Customer getUser(String json);
+
+    Customer findByEmail(String email);
 }

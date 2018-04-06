@@ -24,4 +24,6 @@ public interface CustomerOrderService {
     List<CustomerOrder> getDoneOrders();
 
     Iterable<CustomerOrder> getListFromDate(java.sql.Date date);
+
+    CustomerOrder add(CustomerOrder customerOrder);
 }

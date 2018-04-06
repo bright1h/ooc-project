@@ -35,13 +35,13 @@
                   Sweet :
                 </div>
                 <div class="col-7 text-left">
-                  <input type="radio" id="one" value="Less Sweet" v-model="data.sweetness">
+                  <input type="radio" id="one" value="SWEET" v-model="data.sweetness">
                   <label for="one">Less Sweet</label>
                   <br>
-                  <input type="radio" id="two" value="Normal" v-model="data.sweetness">
+                  <input type="radio" id="two" value="SWEETER" v-model="data.sweetness">
                   <label for="two">Normal</label>
                   <br>
-                  <input type="radio" id="three" value="Extra Sweet" v-model="data.sweetness">
+                  <input type="radio" id="three" value="SWEETEST" v-model="data.sweetness">
                   <label for="two">Extra Sweet</label>
                   <br>
                 </div>
@@ -102,13 +102,13 @@
                   Sweet :
                 </div>
                 <div class="col-7 text-left">
-                  <input type="radio" id="one" value="Less Sweet" v-model="data.sweetness">
+                  <input type="radio" id="one" value="SWEET" v-model="data.sweetness">
                   <label for="one">Less Sweet</label>
                   <br>
-                  <input type="radio" id="two" value="Normal" v-model="data.sweetness">
+                  <input type="radio" id="two" value="SWEETER" v-model="data.sweetness">
                   <label for="two">Normal</label>
                   <br>
-                  <input type="radio" id="three" value="Extra Sweet" v-model="data.sweetness">
+                  <input type="radio" id="three" value="SWEETEST" v-model="data.sweetness">
                   <label for="two">Extra Sweet</label>
                   <br>
                 </div>
