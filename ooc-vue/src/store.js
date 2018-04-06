@@ -2,7 +2,8 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import createPersistedState from 'vuex-persistedstate'
 import * as Cookies from 'js-cookie'
-
+import axios from './vue-axios/axios'
+import './vue-axios'
 
 Vue.use(Vuex);
 
@@ -30,7 +31,8 @@ export const store = new Vuex.Store({
 
       mutations: {
         submitCart(state){
-          AXIOS.post(`/api/checkout`,{
+          axios.post(`/api/checkout`,{
+            email : this.state.user.email,
             order : this.state.cart,
             specialRequest : this.state.specialRequest,
           })
@@ -44,7 +46,9 @@ export const store = new Vuex.Store({
               window.location.href="/" ;
             }
           })
-          .catch(e =>{})
+          .catch(e =>{
+
+          })
           
         },
   
