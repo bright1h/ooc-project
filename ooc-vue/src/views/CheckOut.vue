@@ -86,9 +86,10 @@
               <textarea class="form-control"
                         placeholder="Add Your Special Request"
                         
-                        v-model="specialRequest">
+                        v-model="sr">
               </textarea>
-              {{cart}}
+              {{sr}}
+              <!-- {{cart}} -->
 
           </form>
         </div>
@@ -97,7 +98,7 @@
           <div class="col">
             <button v-if="user.email" 
                     class="btn btn-primary w-25 my-2 float-right"
-                    @click="submit">Confirm</button>
+                    @click="submit(sr)">Confirm</button>
 
             <div>
               <span v-if="!user.email"
@@ -124,6 +125,12 @@
 
     name: 'CheckOut',
     components: {Login},
+
+    data(){
+      return{
+        sr : "",
+      }
+    },
 
     computed : {
       totalQuantity(){

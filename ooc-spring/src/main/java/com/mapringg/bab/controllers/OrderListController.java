@@ -1,6 +1,7 @@
 package com.mapringg.bab.controllers;
 
 import com.mapringg.bab.models.Customer;
+import com.mapringg.bab.models.CustomerOrder;
 import com.mapringg.bab.models.OrderList;
 import com.mapringg.bab.services.CustomerOrderService;
 import com.mapringg.bab.services.OrderListService;
@@ -21,4 +22,9 @@ public class OrderListController {
 
     @GetMapping
     public Iterable<OrderList> findAll() {return orderListService.getOrderLists();}
+
+    @GetMapping(path = "/search/{id}")
+    public Iterable<OrderList> findListFromDate(@PathVariable Long id) {
+        return orderListService.getOrderListByCustomerOrderId(id);
+    }
 }

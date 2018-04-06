@@ -15,11 +15,12 @@ export const store = new Vuex.Store({
         cartQuantity : 0,
         cart : [],
         totalPrice : 0,
+
+        specialRequest: "dsdsd",
         user: {
           email: '',
           userType: 'ADMIN'
         },
-        specialRequest: ''
       },
       plugins: [createPersistedState({
         storage: {
@@ -30,12 +31,12 @@ export const store = new Vuex.Store({
       })],
 
       mutations: {
-        submitCart(state){
+        submitCart(state,sr){
           axios.post(`/api/checkout`,{
             email : this.state.user.email,
             order : this.state.cart,
             totalPrice: this.state.totalPrice,
-            specialRequest : this.state.specialRequest,
+            specialRequest : sr,
           })
           .then(response => {
             this.resetCart();
@@ -123,6 +124,9 @@ export const store = new Vuex.Store({
         logout(state){
           state.user.email = "";
           state.user.userType ="";
+        },
+        setSR(state,data){
+          state.specialRequest = data;
         }
       },
 });

@@ -46,6 +46,7 @@ public class CheckoutController {
         CustomerOrder customerOrder = new CustomerOrder();
         customerOrder.setCustomer(user);
         customerOrder.setSpecialRequest(checkoutWrapper.getSpecialRequest());
+        System.out.println(checkoutWrapper.getSpecialRequest());
         customerOrder.setTotalPrice(checkoutWrapper.getTotalPrice());
         customerOrder.setStatus("In queue");
         java.sql.Date curDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());

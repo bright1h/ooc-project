@@ -18,7 +18,8 @@
         <div class="col">
           <div id="accordion">
             <div class="card"  >
-              <div class="card-header alert-info" v-bind:id="'heading'+data.id">
+              <div class="card-header alert-info" v-bind:id="'heading'+data.id"
+                    @click="getOrderByID(data.id)">
                 <h6 class="row mb-0 font-weight-bold" data-toggle="collapse" v-bind:data-target="'#co'+data.id" aria-expanded="true" v-bind:aria-controls="'co'+data.id">
                   <div class="col-sm-3 m-auto">
                     <span class="">OrderID # {{data.id}}</span>
@@ -61,13 +62,16 @@
               <div class="card-body text-left">
                 <u>Order:</u>
                 <ul>
-                  <li v-bind:key="index" v-for="(o,index) in order">
+                  <li v-bind:key="index" v-for="(order,index) in orders">
                     <div class="row">
                       <div class="col">
-                        {{o.name}}
+
+                      {{order.menu.name}}
                       </div>
                       <div class="col">
-                        {{o.quantity}}
+
+                        x {{order.quantity}}
+
                       </div>
                     </div>
                   </li>
@@ -77,7 +81,7 @@
                   <li>{{data.specialRequest}}</li>
                 </ul>
                 <div class="alert alert-danger text-right">
-                  <span class="font-weight-bold"> Price : {{data.total_price}}</span>
+                  <span class="font-weight-bold"> Price : {{data.totalPrice}} B</span>
                 </div>
               </div>
             </div>
@@ -100,12 +104,21 @@
     data() {
       return {
         customerorder: [],
+        orders : [],
       }
     },
     mounted() {
       this.$http.get('api/customerorder').then(response => {this.customerorder = response.data});
     },
     methods : {
+      getOrderByID(custID){
+        this.$http.get('api/orderlist/search/'+custID).then(response => {
+          this.orders = response.data;
+          console.log(this.orders)
+          });
+        
+      }
+      ,
       updateStatus(data){
         this.$http.put(
           'api/customerorder/update', {
