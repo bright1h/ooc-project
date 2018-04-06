@@ -18,6 +18,13 @@ public class CustomerOrderController {
     @PostMapping(path = "/add")
     public CustomerOrder add(@RequestBody String json) {return customerOrderService.add(json);}
 
+
+    @PostMapping(path = "/update")
+    public CustomerOrder update(@RequestBody String json) {
+        System.out.println(json);
+        return customerOrderService.update(json);}
+
+
     @GetMapping
     public Iterable<CustomerOrder> findAll() {return customerOrderService.getCurrentOrders();}
 }

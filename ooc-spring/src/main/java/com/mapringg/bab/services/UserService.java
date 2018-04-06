@@ -18,4 +18,5 @@ public interface UserService {
     Customer getUser(String json);
 
     User editUser(String json);
+    Customer findByEmail(String email);
 }

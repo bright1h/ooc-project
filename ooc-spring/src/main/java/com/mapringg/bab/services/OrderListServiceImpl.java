@@ -43,4 +43,9 @@ public class OrderListServiceImpl implements OrderListService{
         orderListRepository.save(orderList);
         return orderList;
     }
+
+    @Override
+    public OrderList add(OrderList orderList) {
+        return orderListRepository.save(orderList);
+    }
 }

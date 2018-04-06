@@ -46,6 +46,12 @@ html {
     margin-bottom: 220px;
   }
 
+
+  .break {
+    word-wrap: break-word;
+  }
+ 
+
 #app {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

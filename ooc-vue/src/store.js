@@ -2,7 +2,8 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import createPersistedState from 'vuex-persistedstate'
 import * as Cookies from 'js-cookie'
-
+import axios from './vue-axios/axios'
+import './vue-axios'
 
 Vue.use(Vuex);
 
@@ -16,7 +17,7 @@ export const store = new Vuex.Store({
         totalPrice : 0,
         user: {
           email: '',
-          userType: ''
+          userType: 'ADMIN'
         },
         specialRequest: ''
       },
@@ -30,8 +31,10 @@ export const store = new Vuex.Store({
 
       mutations: {
         submitCart(state){
-          AXIOS.post(`/api/checkout`,{
+          axios.post(`/api/checkout`,{
+            email : this.state.user.email,
             order : this.state.cart,
+            totalPrice: this.state.totalPrice,
             specialRequest : this.state.specialRequest,
           })
           .then(response => {
@@ -44,7 +47,9 @@ export const store = new Vuex.Store({
               window.location.href="/" ;
             }
           })
-          .catch(e =>{})
+          .catch(e =>{
+
+          })
           
         },
   
@@ -58,6 +63,7 @@ export const store = new Vuex.Store({
             }
           }
           if(addedItem.topping && addedItem.topping.id !== 1){
+            console.log(addedItem);
             name += ' (' + addedItem.topping.toppingType +' )';
             newPrice += addedItem.topping.price;
           }

@@ -23,14 +23,14 @@ export default new Router({
       path: '/admin_home',
       name: 'admin_home',
       component: AdminHome,
-      beforeEnter : (to,from,next)=>{
-        if(store.state.user.userType==="error"){
-          next()
-        }
-        else{
-          next('/');
-        }
-      }
+      // beforeEnter : (to,from,next)=>{
+      //   if(store.state.user.userType==="ADMIN"){
+      //     next()
+      //   }
+      //   else{
+      //     next('/');
+      //   }
+      // }
       
     },
     {

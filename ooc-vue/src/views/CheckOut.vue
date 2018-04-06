@@ -88,6 +88,7 @@
                         
                         v-model="specialRequest">
               </textarea>
+              {{cart}}
 
           </form>
         </div>
@@ -160,8 +161,5 @@
 </script>
 
 <style scoped>
-  .break {
-    word-wrap: break-word;
-  }
 
 </style>

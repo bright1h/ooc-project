@@ -13,4 +13,6 @@ public interface OrderListService {
     List<OrderList> getOrderLists();
 
     OrderList add(@RequestBody String json);
+
+    OrderList add(OrderList orderList);
 }

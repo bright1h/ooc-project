@@ -2,102 +2,89 @@
   <div class="order-list p-2 rounded"
   style="
     background-color: #ffffff;">
-    <!-- <div class="container">
+    <div class="container">
       <div class="row border-bottom py-1">
-        <h1 class="text-dark ">Order List</h1>
-  <div class="order-list">
-    <div class="container py-2">
-      <div class="row border-bottom my-4">
         <h1 class="text-dark ">Customer Order</h1>
       </div>
-      <div class="row my-4">
+
+      <div class="row" v-if="customerorder.length===0">
+        <span>There is no order right now</span>
+      </div>
+     
+      <div class="row my-4"
+          v-bind:key="data.id" 
+          v-for="(data) in customerorder"
+          v-else>
         <div class="col">
           <div id="accordion">
-              <div class="card"  >
-                <div class="card-header alert-info" id="headingOne">
-                  <h6 class="row mb-0 font-weight-bold" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    
-                    <div class="col-sm-4 m-auto">
-                    
-                      <span class="">OrderID # 1</span>
-                    
-                    </div>
-                    <div class="col-sm-4 m-auto">
-                      <span>  
-                        By FirstName, LastName
-                      </span>
-                    
-                    </div>
-                    <div class="col-sm-4 mx-auto">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-info btn-sm">Status</button>
-                        <button type="button" class="btn btn-info btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span class="sr-only">Toggle Dropdown</span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                          <a class="dropdown-item " >In Queue</a>
-                          <a class="dropdown-item " >Preparing</a>
-                          <a class="dropdown-item " >Done</a>
-                        </div>
-                      </div>  
-                    </div>
-                    
-                  </h6>
-                </div>
-
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                  <div class="card-body text-left">
-                    <u>Order: </u>
-                    <ul>
-                      <li v-bind:key="index" v-for="(data,index) in order">
-                        <div class="row">
-                          <div class="col">
-                            {{data.name}}
-                          </div>
-                          <div class="col">
-                            {{data.quantity}}
-                          </div>
-                        </div>
-                      </li>
-                      <li>1</li>
-                      <li>2</li>
-                      <li>3</li>
-                      <li>4</li>
-                    </ul>
-                    <u>Special Request: </u>
-                    <ul>
-                      <li>test</li>
-                    </ul>
-                    <div class="alert alert-danger text-right">
-                      <span class="font-weight-bold"> Price : xx</span>
-                    </div>
+            <div class="card"  >
+              <div class="card-header alert-info" v-bind:id="'heading'+data.id">
+                <h6 class="row mb-0 font-weight-bold" data-toggle="collapse" v-bind:data-target="'#co'+data.id" aria-expanded="true" v-bind:aria-controls="'co'+data.id">
+                  <div class="col-sm-3 m-auto">
+                    <span class="">OrderID # {{data.id}}</span>
                   </div>
+                  <div class="col-sm-3 m-auto">
+                    <span >
 
+                      {{data.customer.firstName}}, 
+                      {{data.customer.lastName}}
+                    </span>
+                  </div>
+                  <div class="col-sm-3">
+                    {{data.date}}
+                  </div>
+                  <div class="col-sm-3 mx-auto">
+                    <select class="btn btn-sm btn-secondary" v-model="data.status">
+                      <option disabled value="">{{data.status}}</option>
+                      <option type="button" value="In queue">In Queue</option>
+                      <option value="Preparing">Preparing</option>
+                      <option value="Done">Done</option>
+                    </select>
+                    <button class="btn btn-sm btn-danger mx-1"
+                            style="font-size: 12px;"
+                            v-confirm="{
+                                ok: dialog => updateStatus(data),
+                                okText : 'confirm',
+                                animation: 'fade',
+                                cancel: ()=> {}   ,
+                                message: 'Are you sure?'
+                              }"
+                      >Update
+                    </button>
+                  </div>
+                </h6>
+              </div>
+            </div>
+
+            <!-- collapse -->
+            <div v-bind:id="'co'+data.id" class="collapse show" v-bind:aria-labelledby="'heading'+data.id" data-parent="#accordion">
+              <div class="card-body text-left">
+                <u>Order:</u>
+                <ul>
+                  <li v-bind:key="index" v-for="(o,index) in order">
+                    <div class="row">
+                      <div class="col">
+                        {{o.name}}
+                      </div>
+                      <div class="col">
+                        {{o.quantity}}
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <u>Special Request: </u>
+                <ul>
+                  <li>{{data.specialRequest}}</li>
+                </ul>
+                <div class="alert alert-danger text-right">
+                  <span class="font-weight-bold"> Price : {{data.total_price}}</span>
                 </div>
               </div>
-              
             </div>
           </div>
-          <table class="table">
-            <thead>
-            <tr>
-              <th>ID</th>
-              <th>Customer Name</th>
-              <th>Date</th>
-              <th>Status</th>
-            </tr>
-            </thead>
-            <tbody>
-              <tr v-bind:key="index" v-for="(data,index) in customerorder">
-                <td>{{data.id}}</td>
-                <td>{{data.customer.firstName}}</td>
-                <td>{{data.date}}</td>
-                <td>{{data.status}}</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
-    </div> -->
+      </div>
+    </div>
   </div>
 </template>
 
@@ -112,11 +99,32 @@
 
     data() {
       return {
-        customerorder: []
+        customerorder: [],
       }
     },
     mounted() {
       this.$http.get('api/customerorder').then(response => {this.customerorder = response.data});
+    },
+    methods : {
+      updateStatus(data){
+        this.$http.put(
+          'api/customerorder/update', {
+            id: data.id,
+            customer : data.customer,
+            date : data.date,
+            status : data.status,
+            totalPrice : data.totalPrice,
+            specialRequest : data.specialRequest,
+          })
+            .then(function (response) {
+              console.log(response);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+      }
+      
+
     }
   }
 </script>

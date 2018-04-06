@@ -1,108 +1,82 @@
 <template>
-  <!-- <div class="order-list p-2 rounded"
-  style="
-    background-color: #ffffff;">
+  <div class="order-list p-2 rounded"
+      style="background-color: #ffffff;">
     <div class="container">
       <div class="row border-bottom py-1">
-        <div class="col-sm-4">
+        <h1 class="text-dark ">Order History</h1>
+      </div>
 
-          <h1 class="text-dark ">Order History</h1>
+      <div class="row my-4">
+        <div class="col-6 mt-2">
+          <label for="inputDate" class="sr-only">Date</label>
+          <input type="date" class="form-control" id="inputDate" size="35" :max="today" v-model="date">
         </div>
-        <div class="col-sm m-auto"> -->
-          <!-- use result.filter in list -->
-          <!-- <form class="form-inline my-3 my-lg-0 float-right">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+        <div class="col-2">
+          <button type="submit" class="btn btn-primary mb-2 pull-right my-2" v-on:click="updateTable">Search</button>
+        
         </div>
       </div>
-      <div class="row my-4">
+
+      <div class="row" v-if="history.length===0">
+        <span>There is no order history exist</span>
+      </div>
+     
+      <div class="row my-4"
+          v-bind:key="data.id" 
+          v-for="(data) in history"
+          v-else>
         <div class="col">
-          <div id="accordion"> -->
-            <!-- add this later v-bind:key="index" v-for="(order,index) in orderlist" -->
-              <!-- <div class="card"  >
-                <div class="card-header alert-success" id="headingOne"> -->
-                  <!-- Change collapse one to other name otherwise it's not gonna toggle -->
-                  <!-- <h6 class="row mb-0 font-weight-bold" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    
-                    <div class="col-sm-4 m-auto">
-                    
-                      <span class="">OrderID # 1</span>
-                    
-                    </div>
-                    <div class="col-sm-4 m-auto">
-                      <span>  
-                        By FirstName, LastName
-                      </span>
-                    
-                    </div>
-                    <div class="col-sm-4 m-auto">
-                      xx/xx/xxxx
-                    </div>
-                    
-                  </h6>
-                </div>
-
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                  <div class="card-body text-left">
-                    <u>Order: </u>
-                    <ul>
-                      <li v-bind:key="index" v-for="(data,index) in order">
-                        <div class="row">
-                          <div class="col">
-                            {{data.name}}
-                          </div>
-                          <div class="col">
-                            {{data.quantity}}
-                          </div>
-                        </div>
-                      </li>
-                      <li>1</li>
-                      <li>2</li>
-                      <li>3</li>
-                      <li>4</li>
-                    </ul>
-                    <u>Special Request: </u>
-                    <ul> -->
-                      <!-- <li>{{data.specialRequest}}</li> -->
-                      <!-- <li>test</li>
-                    </ul>
-                    <div class="alert alert-danger text-right">
-                      <span class="font-weight-bold"> Price : xx</span>
-                    </div>
+          <div id="accordion">
+            <div class="card"  >
+              <div class="card-header alert-success" v-bind:id="'heading'+data.id">
+                <h6 class="row mb-0 font-weight-bold" data-toggle="collapse" v-bind:data-target="'#oh' + data.id" aria-expanded="true" v-bind:aria-controls="'oh'+data.id">
+                  <div class="col-sm-4 m-auto">
+                    <span>OrderID # {{data.id}}</span>
                   </div>
-
-                </div>
+                  <div class="col-sm-4 m-auto">
+                    <span>
+                      {{data.customer.firstName}}, 
+                      {{data.customer.lastName}}
+                    
+                    </span>
+                  </div>
+                  <div class="col-sm-4">
+                    {{data.date}}
+                  </div>
+                </h6>
               </div>
-              
             </div>
           </div>
-          <div class="row-1">
-            <label for="inputDate" class="sr-only">Date</label>
-            <input type="date" class="form-control" id="inputDate" size="35" :max="today" v-model="date">
-            <button type="submit" class="btn btn-primary mb-2 pull-right my-2" v-on:click="updateTable">Search</button>
+
+        <!-- collapse -->
+        <div v-bind:id="'oh'+data.id" class="collapse show" v-bind:aria-labelledby="'heading'+data.id" data-parent="#accordion">
+          <div class="card-body text-left">
+            <u>Order:</u>
+            <ul>
+              <li v-bind:key="index" v-for="(o,index) in order">
+                <div class="row">
+                  <div class="col">
+                    {{o.name}}
+                  </div>
+                  <div class="col">
+                    {{o.quantity}}
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <u>Special Request: </u>
+            <ul>
+              <li>{{data.special_request}}</li>
+            </ul>
+            <div class="alert alert-danger text-right">
+              <span class="font-weight-bold"> Price : {{data.total_price}}</span>
+            </div>
           </div>
-          <table class="table">
-            <thead>
-            <tr>
-              <th>ID</th>
-              <th>Customer Name</th>
-              <th>Date</th>
-            </tr>
-            </thead>
-            <tbody>
-              <tr v-bind:key="index" v-for="(data,index) in history">
-                <td>{{data.id}}</td>
-                <td>{{data.customer.firstName}}</td>
-                <td>{{data.date}}</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
+        </div>
+      </div>
+      
     </div>
-  </div> -->
-  <div class="div">
-    
   </div>
 </template>
 
@@ -138,7 +112,9 @@
       }
     },
     mounted() {
-      this.$http.get('api/orderhistory').then(response => {this.history = response.data})
+      this.$http.get('api/orderhistory').then(response => {
+        console.log(response.data);
+        this.history = response.data})
     },
     methods: {
       updateTable: function() {

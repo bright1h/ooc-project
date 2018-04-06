@@ -11,6 +11,8 @@ public interface CustomerOrderService {
 
     CustomerOrder add (@RequestBody String json);
 
+    CustomerOrder update (@RequestBody String json);
+
     List<CustomerOrder> getCustomerOrders();
 
     List<CustomerOrder> getCurrentOrders();
@@ -22,4 +24,6 @@ public interface CustomerOrderService {
     List<CustomerOrder> getDoneOrders();
 
     Iterable<CustomerOrder> getListFromDate(java.sql.Date date);
+
+    CustomerOrder add(CustomerOrder customerOrder);
 }

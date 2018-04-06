@@ -32,11 +32,15 @@ public class CustomerDeserializer implements JsonDeserializer<CustomerOrder>{
             email = customer.get("email").getAsString();
         }
         curCustomer = customerRepository.findByEmail(email);
+
+        System.out.println(jsonObject);
 //        java.sql.Date curDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
         return new CustomerOrder(
                 curCustomer,
                 java.sql.Date.valueOf(jsonObject.get("date").getAsString()),
-                jsonObject.get("status").getAsString()
+                jsonObject.get("status").getAsString(),
+                jsonObject.get("totalPrice").getAsInt(),
+                jsonObject.get("specialRequest").getAsString()
         );
     }
 }

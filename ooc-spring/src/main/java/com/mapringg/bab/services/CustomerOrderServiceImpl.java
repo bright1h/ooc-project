@@ -88,6 +88,12 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
     }
 
     @Override
+    public CustomerOrder add(CustomerOrder customerOrder) {
+        customerOrderRepository.save(customerOrder);
+        return customerOrder;
+    }
+
+    @Override
     public CustomerOrder add(String json) {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(CustomerOrder.class, new CustomerDeserializer(customerRepository, customerOrderRepository))
@@ -95,5 +101,13 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
         CustomerOrder customerOrder = gson.fromJson(json, CustomerOrder.class);
         customerOrderRepository.save(customerOrder);
         return customerOrder;
+    }
+
+    @Override
+    public CustomerOrder update(String json) {
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(CustomerOrder.class, new CustomerDeserializer(customerRepository, customerOrderRepository))
+                .create();
+        return gson.fromJson(json, CustomerOrder.class);
     }
 }
