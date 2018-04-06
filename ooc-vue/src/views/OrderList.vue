@@ -30,7 +30,7 @@
                       {{data.customer.lastName}}
                     </span>
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm-3 m-auto">
                     {{data.date}}
                   </div>
                   <div class="col-sm-3 mx-auto">

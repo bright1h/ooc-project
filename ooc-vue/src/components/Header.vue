@@ -26,7 +26,7 @@
               <Login v-if="user.email == ''" class="pt-1"/>
               <Register v-if="user.email == ''" class="pt-1"/>
             <!-- User -->
-            <li class="nav-item dropdown" v-if="user.userType === 'USER'">
+            <li class="nav-item dropdown pt-1" v-if="user.userType === 'USER'">
               <a class="nav-link dropdown-toggle text-light " href="#" id="navbardrop" data-toggle="dropdown">
                 <!-- Change to {{User}} after done  login -->
                 {{user.email}}
@@ -36,7 +36,7 @@
                 <a class="dropdown-item" href="/" @click="logout">Logout</a>
               </div>
             </li>
-            <li class="nav-item dropdown" v-if="user.userType === 'ADMIN'">
+            <li class="nav-item dropdown pt-1" v-if="user.userType === 'ADMIN'">
               <a class="nav-link dropdown-toggle text-light " href="#" id="navbardrop" data-toggle="dropdown">
                 <!-- Change to {{User}} after done  login -->
                 Admin
