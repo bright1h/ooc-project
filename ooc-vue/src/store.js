@@ -30,7 +30,7 @@ export const store = new Vuex.Store({
 
       mutations: {
         submitCart(state){
-          AXIOS.post(`/api/checkout`,{
+          this.$http.post(`/api/checkout`,{
             order : this.state.cart,
             specialRequest : this.state.specialRequest,
           })

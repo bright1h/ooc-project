@@ -22,4 +22,6 @@ public interface CustomerOrderService {
     List<CustomerOrder> getDoneOrders();
 
     Iterable<CustomerOrder> getListFromDate(java.sql.Date date);
+
+//    void UpdateStatusById(Long id, String status);
 }
